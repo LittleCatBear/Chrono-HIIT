@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>D4B39B69-0C31-4176-B930-C4A896B6797F</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>FBB26FE758F9C07A362B4C5000CC72CCF3360654</key>
+		<string>https://github.com/LittleCatBear/ExerciseTimerSwitch.git</string>
+	</dict>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>FBB26FE758F9C07A362B4C5000CC72CCF3360654</key>
+		<string>ExerciseTimerSwitch/</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/LittleCatBear/ExerciseTimerSwitch.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>FBB26FE758F9C07A362B4C5000CC72CCF3360654</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>FBB26FE758F9C07A362B4C5000CC72CCF3360654</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ExerciseTimerSwitch</string>
+		</dict>
+	</array>
+</dict>
+</plist>
