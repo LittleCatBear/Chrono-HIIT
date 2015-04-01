@@ -23,6 +23,8 @@
 		E3F6962F1ACCB2D600884BD8 /* hint-retrï-grunge_free-version.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3F6962A1ACCB2D600884BD8 /* hint-retrï-grunge_free-version.ttf */; };
 		E3F696301ACCB2D600884BD8 /* Universal-college_DEMO-version.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3F6962B1ACCB2D600884BD8 /* Universal-college_DEMO-version.ttf */; };
 		E3F696311ACCB2D600884BD8 /* Universal-college-draft_DEMO-version.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3F6962C1ACCB2D600884BD8 /* Universal-college-draft_DEMO-version.ttf */; };
+		E3F696331ACCBC9500884BD8 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F696321ACCBC9500884BD8 /* Workout.swift */; };
+		E3F696351ACCBC9600884BD8 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F696341ACCBC9600884BD8 /* Exercise.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		E3F6962A1ACCB2D600884BD8 /* hint-retrï-grunge_free-version.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "hint-retrï-grunge_free-version.ttf"; sourceTree = "<group>"; };
 		E3F6962B1ACCB2D600884BD8 /* Universal-college_DEMO-version.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Universal-college_DEMO-version.ttf"; sourceTree = "<group>"; };
 		E3F6962C1ACCB2D600884BD8 /* Universal-college-draft_DEMO-version.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Universal-college-draft_DEMO-version.ttf"; sourceTree = "<group>"; };
+		E3F696321ACCBC9500884BD8 /* Workout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
+		E3F696341ACCBC9600884BD8 /* Exercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +111,8 @@
 				E3F696231ACCB27100884BD8 /* Images.xcassets */,
 				E3F696211ACCB26000884BD8 /* LaunchScreen.xib */,
 				E3F695EB1ACCB1CA00884BD8 /* Chrono_HIIT.xcdatamodeld */,
+				E3F696341ACCBC9600884BD8 /* Exercise.swift */,
+				E3F696321ACCBC9500884BD8 /* Workout.swift */,
 				E3F6962D1ACCB2D600884BD8 /* Resources */,
 				E3F695E71ACCB1CA00884BD8 /* Supporting Files */,
 			);
@@ -256,7 +262,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3F6961E1ACCB25500884BD8 /* TimerViewController.swift in Sources */,
+				E3F696351ACCBC9600884BD8 /* Exercise.swift in Sources */,
 				E3F6961D1ACCB25500884BD8 /* SecondViewController.swift in Sources */,
+				E3F696331ACCBC9500884BD8 /* Workout.swift in Sources */,
 				E3F6961C1ACCB25500884BD8 /* FirstViewController.swift in Sources */,
 				E3F695ED1ACCB1CA00884BD8 /* Chrono_HIIT.xcdatamodeld in Sources */,
 				E3F695EA1ACCB1CA00884BD8 /* AppDelegate.swift in Sources */,
