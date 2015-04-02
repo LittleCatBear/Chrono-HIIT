@@ -65,15 +65,9 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
             } else{
                 tempCd = 0
             }
-
-            
-            var controller:TimerViewController = segue.destinationViewController as TimerViewController
             workout.swap = tempRound
             workout.totalTime = temp
             workout.countdown = tempCd
-            //controller.seconds = temp
-            //controller.totalRounds = tempRound
-            //controller.cd = tempCd
         }
     }
     
@@ -110,6 +104,9 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func onClickSaveButton(sender: UIButton) {
+        workout.swap = self.roundTextField.text!.toInt()!
+        workout.countdown = self.countDownTextField!.text.toInt()!
+        workout.totalTime = self.timingTextField!.text.toInt()!
         getWorkoutName()
     }
     
@@ -129,6 +126,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         if !(managedObjectContext?.save(&error) != nil) {
             println("Could not save workout\(error), \(error?.userInfo)")
         }
+        managedObjectContext?.reset()
     }
     
     func getWorkoutName()->Void{
@@ -148,7 +146,6 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
             }
         }))
         self.presentViewController(alert, animated: true, completion: nil)
-       // NSLog("alert %@", name)
         
     }
 }

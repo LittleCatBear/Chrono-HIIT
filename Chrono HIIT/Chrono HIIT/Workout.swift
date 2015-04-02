@@ -13,9 +13,9 @@ import CoreData
 class Workout: NSManagedObject {
 
     @NSManaged var name: String
-    @NSManaged var swap: NSNumber
-    @NSManaged var countdown: NSNumber
-    @NSManaged var totalTime: NSNumber
+    @NSManaged var swap: NSInteger
+    @NSManaged var countdown: NSInteger
+    @NSManaged var totalTime: NSInteger
     @NSManaged var exercise: NSOrderedSet
 
 }

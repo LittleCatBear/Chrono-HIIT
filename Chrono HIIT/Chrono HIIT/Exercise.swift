@@ -13,6 +13,5 @@ import CoreData
 class Exercise: NSManagedObject {
 
     @NSManaged var name: String
-    @NSManaged var workout: Workout
-
+    
 }
