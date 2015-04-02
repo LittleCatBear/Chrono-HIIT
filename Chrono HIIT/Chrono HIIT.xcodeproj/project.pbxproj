@@ -11,9 +11,6 @@
 		E3F695ED1ACCB1CA00884BD8 /* Chrono_HIIT.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E3F695EB1ACCB1CA00884BD8 /* Chrono_HIIT.xcdatamodeld */; };
 		E3F696031ACCB1CA00884BD8 /* Chrono_HIITTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F696021ACCB1CA00884BD8 /* Chrono_HIITTests.swift */; };
 		E3F696261ACCB28300884BD8 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3F696251ACCB28300884BD8 /* AVFoundation.framework */; };
-		E3F6962F1ACCB2D600884BD8 /* hint-retrï-grunge_free-version.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3F6962A1ACCB2D600884BD8 /* hint-retrï-grunge_free-version.ttf */; };
-		E3F696301ACCB2D600884BD8 /* Universal-college_DEMO-version.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3F6962B1ACCB2D600884BD8 /* Universal-college_DEMO-version.ttf */; };
-		E3F696311ACCB2D600884BD8 /* Universal-college-draft_DEMO-version.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3F6962C1ACCB2D600884BD8 /* Universal-college-draft_DEMO-version.ttf */; };
 		E3F696331ACCBC9500884BD8 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F696321ACCBC9500884BD8 /* Workout.swift */; };
 		E3F696351ACCBC9600884BD8 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F696341ACCBC9600884BD8 /* Exercise.swift */; };
 		E3F696401ACCC16100884BD8 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F696361ACCC16100884BD8 /* FirstViewController.swift */; };
@@ -24,7 +21,11 @@
 		E3F696471ACCC16100884BD8 /* UIViewAnimationExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F6963D1ACCC16100884BD8 /* UIViewAnimationExt.swift */; };
 		E3F6964C1ACCC1F900884BD8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3F6964B1ACCC1F900884BD8 /* Main.storyboard */; };
 		E3F6964E1ACCC20300884BD8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3F6964D1ACCC20300884BD8 /* LaunchScreen.xib */; };
-		E3F696531ACCC24100884BD8 /* handwriting-draft_free-version.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3F696521ACCC24100884BD8 /* handwriting-draft_free-version.ttf */; };
+		E3F696551ACCC2C200884BD8 /* Universal-college-draft_DEMO-version.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3F696541ACCC2C200884BD8 /* Universal-college-draft_DEMO-version.ttf */; };
+		E3F696571ACCC2F400884BD8 /* Universal-college_DEMO-version.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3F696561ACCC2F400884BD8 /* Universal-college_DEMO-version.ttf */; };
+		E3F696591ACCC30900884BD8 /* hint-retrï-grunge_free-version.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3F696581ACCC30900884BD8 /* hint-retrï-grunge_free-version.ttf */; };
+		E3F6965B1ACCC31500884BD8 /* handwriting-draft_free-version.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3F6965A1ACCC31500884BD8 /* handwriting-draft_free-version.ttf */; };
+		E3F6965D1ACCC6DC00884BD8 /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F6965C1ACCC6DC00884BD8 /* WorkoutViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,9 +46,6 @@
 		E3F696011ACCB1CA00884BD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E3F696021ACCB1CA00884BD8 /* Chrono_HIITTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chrono_HIITTests.swift; sourceTree = "<group>"; };
 		E3F696251ACCB28300884BD8 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.2.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = "<absolute>"; };
-		E3F6962A1ACCB2D600884BD8 /* hint-retrï-grunge_free-version.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "hint-retrï-grunge_free-version.ttf"; sourceTree = "<group>"; };
-		E3F6962B1ACCB2D600884BD8 /* Universal-college_DEMO-version.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Universal-college_DEMO-version.ttf"; sourceTree = "<group>"; };
-		E3F6962C1ACCB2D600884BD8 /* Universal-college-draft_DEMO-version.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Universal-college-draft_DEMO-version.ttf"; sourceTree = "<group>"; };
 		E3F696321ACCBC9500884BD8 /* Workout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		E3F696341ACCBC9600884BD8 /* Exercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		E3F696361ACCC16100884BD8 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirstViewController.swift; path = ../FirstViewController.swift; sourceTree = "<group>"; };
@@ -58,7 +56,11 @@
 		E3F6963D1ACCC16100884BD8 /* UIViewAnimationExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewAnimationExt.swift; path = ../UIViewAnimationExt.swift; sourceTree = "<group>"; };
 		E3F6964B1ACCC1F900884BD8 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		E3F6964D1ACCC20300884BD8 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
-		E3F696521ACCC24100884BD8 /* handwriting-draft_free-version.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "handwriting-draft_free-version.ttf"; path = "../../../../ExerciseTimerSwitch/Exercise Timer Switch/Exercise Timer Switch/handwriting-draft_free-version.ttf"; sourceTree = "<group>"; };
+		E3F696541ACCC2C200884BD8 /* Universal-college-draft_DEMO-version.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Universal-college-draft_DEMO-version.ttf"; path = "../../../../../../../Downloads/font/Universal-College-draft_demo/Universal-college-draft_DEMO-version.ttf"; sourceTree = "<group>"; };
+		E3F696561ACCC2F400884BD8 /* Universal-college_DEMO-version.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Universal-college_DEMO-version.ttf"; path = "../../../../../../../Downloads/font/Universal-College_demo/Universal-college_DEMO-version.ttf"; sourceTree = "<group>"; };
+		E3F696581ACCC30900884BD8 /* hint-retrï-grunge_free-version.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "hint-retrï-grunge_free-version.ttf"; path = "../../../../../../../Downloads/font/Hint-Retro-Grunge/hint-retrï-grunge_free-version.ttf"; sourceTree = "<group>"; };
+		E3F6965A1ACCC31500884BD8 /* handwriting-draft_free-version.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "handwriting-draft_free-version.ttf"; path = "../../../../../../../Downloads/font/Handwriting-draft/handwriting-draft_free-version.ttf"; sourceTree = "<group>"; };
+		E3F6965C1ACCC6DC00884BD8 /* WorkoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				E3F696361ACCC16100884BD8 /* FirstViewController.swift */,
 				E3F6963B1ACCC16100884BD8 /* SecondViewController.swift */,
 				E3F6963C1ACCC16100884BD8 /* TimerViewController.swift */,
+				E3F6965C1ACCC6DC00884BD8 /* WorkoutViewController.swift */,
 				E3F6963D1ACCC16100884BD8 /* UIViewAnimationExt.swift */,
 				E3F6964B1ACCC1F900884BD8 /* Main.storyboard */,
 				E3F696391ACCC16100884BD8 /* Images.xcassets */,
@@ -147,10 +150,10 @@
 		E3F6962D1ACCB2D600884BD8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				E3F696521ACCC24100884BD8 /* handwriting-draft_free-version.ttf */,
-				E3F6962A1ACCB2D600884BD8 /* hint-retrï-grunge_free-version.ttf */,
-				E3F6962B1ACCB2D600884BD8 /* Universal-college_DEMO-version.ttf */,
-				E3F6962C1ACCB2D600884BD8 /* Universal-college-draft_DEMO-version.ttf */,
+				E3F6965A1ACCC31500884BD8 /* handwriting-draft_free-version.ttf */,
+				E3F696581ACCC30900884BD8 /* hint-retrï-grunge_free-version.ttf */,
+				E3F696561ACCC2F400884BD8 /* Universal-college_DEMO-version.ttf */,
+				E3F696541ACCC2C200884BD8 /* Universal-college-draft_DEMO-version.ttf */,
 			);
 			name = Resources;
 			path = "../../ExerciseTimerSwitch/Exercise Timer Switch/Exercise Timer Switch";
@@ -236,13 +239,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3F6962F1ACCB2D600884BD8 /* hint-retrï-grunge_free-version.ttf in Resources */,
+				E3F696571ACCC2F400884BD8 /* Universal-college_DEMO-version.ttf in Resources */,
 				E3F696431ACCC16100884BD8 /* Images.xcassets in Resources */,
-				E3F696311ACCB2D600884BD8 /* Universal-college-draft_DEMO-version.ttf in Resources */,
-				E3F696531ACCC24100884BD8 /* handwriting-draft_free-version.ttf in Resources */,
+				E3F696591ACCC30900884BD8 /* hint-retrï-grunge_free-version.ttf in Resources */,
+				E3F6965B1ACCC31500884BD8 /* handwriting-draft_free-version.ttf in Resources */,
 				E3F6964C1ACCC1F900884BD8 /* Main.storyboard in Resources */,
+				E3F696551ACCC2C200884BD8 /* Universal-college-draft_DEMO-version.ttf in Resources */,
 				E3F6964E1ACCC20300884BD8 /* LaunchScreen.xib in Resources */,
-				E3F696301ACCB2D600884BD8 /* Universal-college_DEMO-version.ttf in Resources */,
 				E3F696441ACCC16100884BD8 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -264,6 +267,7 @@
 				E3F696401ACCC16100884BD8 /* FirstViewController.swift in Sources */,
 				E3F696351ACCBC9600884BD8 /* Exercise.swift in Sources */,
 				E3F696331ACCBC9500884BD8 /* Workout.swift in Sources */,
+				E3F6965D1ACCC6DC00884BD8 /* WorkoutViewController.swift in Sources */,
 				E3F696471ACCC16100884BD8 /* UIViewAnimationExt.swift in Sources */,
 				E3F695ED1ACCB1CA00884BD8 /* Chrono_HIIT.xcdatamodeld in Sources */,
 				E3F695EA1ACCB1CA00884BD8 /* AppDelegate.swift in Sources */,

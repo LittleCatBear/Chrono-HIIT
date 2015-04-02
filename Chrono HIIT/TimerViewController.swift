@@ -1,6 +1,6 @@
 //
 //  TimerViewController.swift
-//  Exercise Timer Switch
+//  Chrono HIIT
 //
 //  Created by Julie Huguet on 26/03/2015.
 //  Copyright (c) 2015 Shokunin-Software. All rights reserved.

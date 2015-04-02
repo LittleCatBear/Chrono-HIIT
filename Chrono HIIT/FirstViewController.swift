@@ -1,6 +1,6 @@
 //
 //  FirstViewController.swift
-//  Exercise Timer Switch
+//  Chrono HIIT
 //
 //  Created by Julie Huguet on 26/03/2015.
 //  Copyright (c) 2015 Shokunin-Software. All rights reserved.
@@ -9,12 +9,14 @@
 import UIKit
 import AVFoundation
 
-var globalExerciceTable:[String] = [String]()
+//var globalExerciceTable:[String] = [String]()
+var exercises:[Exercise] = [Exercise]()
 
 class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
 
     @IBOutlet weak var exerciseTableView: UITableView!
     @IBOutlet weak var ExerciseTextField: UITextField!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,14 +41,15 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     @IBAction func onClickAddExercise(sender: UIButton) {
         if (self.ExerciseTextField.text != ""){
-            globalExerciceTable.append(self.ExerciseTextField.text)
+            exercises.append(self.ExerciseTextField.text)
+           // globalExerciceTable.append(self.ExerciseTextField.text)
             self.ExerciseTextField.text = ""
             self.exerciseTableView.reloadData()
         }
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return globalExerciceTable.count
+        return exercises.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -61,7 +64,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete {
-            globalExerciceTable.removeAtIndex(indexPath.row)
+            exercises.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
         }
     }

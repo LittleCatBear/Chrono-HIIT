@@ -1,6 +1,6 @@
 //
 //  SecondViewController.swift
-//  Exercise Timer Switch
+//  Chrono HIIT
 //
 //  Created by Julie Huguet on 26/03/2015.
 //  Copyright (c) 2015 Shokunin-Software. All rights reserved.
@@ -15,6 +15,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var timingLabel: UILabel!
     @IBOutlet weak var roundTextField: UITextField!
     @IBOutlet weak var countDownTextField: UITextField!
+    var workout:Workout = Workout()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,9 +67,12 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
 
             
             var controller:TimerViewController = segue.destinationViewController as TimerViewController
-            controller.seconds = temp
-            controller.totalRounds = tempRound
-            controller.cd = tempCd
+            workout.swap = temp
+            workout.totalTime = tempRound
+            workout.countdown = tempCd
+            //controller.seconds = temp
+            //controller.totalRounds = tempRound
+            //controller.cd = tempCd
         }
     }
     
