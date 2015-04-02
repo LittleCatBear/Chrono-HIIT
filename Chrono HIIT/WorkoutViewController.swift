@@ -73,8 +73,17 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         //
-       // workoutModel = workouts[indexPath.row]
-        
+        workoutModel.name = workouts[indexPath.row].name
+        workoutModel.swap = workouts[indexPath.row].swap
+        workoutModel.countdown = workouts[indexPath.row].countdown
+        workoutModel.totalTime = workouts[indexPath.row].totalTime
+        exercises.removeAll()
+        for (var i = 0; i<workouts[indexPath.row].exercise.count ; i++){
+            let ex = ExerciseModel()
+            ex.name = workouts[indexPath.row].exercise[i].name
+            exercises.append(ex)
+        }
+        workoutModel.exercise = exercises
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {

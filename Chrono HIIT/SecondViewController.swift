@@ -31,7 +31,17 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
+        if !workoutModel.name.isEmpty{
+            getWorkoutData()
+        }
     }
+    
+    func getWorkoutData(){
+        timingTextField.text = String(workoutModel.totalTime)
+        countDownTextField.text = String(workoutModel.countdown)
+        roundTextField.text = String(workoutModel.swap)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

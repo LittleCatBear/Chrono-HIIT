@@ -13,6 +13,7 @@ import AVFoundation
 var managedObjectContext: NSManagedObjectContext? = nil
 //var workout = NSEntityDescription.insertNewObjectForEntityForName("Workout", inManagedObjectContext: managedObjectContext!) as Workout
 var workoutModel:WorkoutModel = WorkoutModel()
+var exercises:[ExerciseModel] = [ExerciseModel]()
 
 class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
 
@@ -20,7 +21,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var ExerciseTextField: UITextField!
     
     
-    var exercises:[ExerciseModel] = [ExerciseModel]()
+    //var exercises:[ExerciseModel] = [ExerciseModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +33,13 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
          self.exerciseTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        if(!workoutModel.name.isEmpty){
+            self.exerciseTableView.reloadData()
+        }
     }
     
     func findFontNames(){
