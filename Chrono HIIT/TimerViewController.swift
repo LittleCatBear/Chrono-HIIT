@@ -37,6 +37,7 @@ class TimerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        UIApplication.sharedApplication().idleTimerDisabled = true
         repeatButton.enabled = false
         pauseButton.enabled = false
         roundLabel.text = "Time left"
@@ -131,6 +132,7 @@ class TimerViewController: UIViewController {
     @IBAction func onClickStopButton(sender: UIButton) {
         timer.invalidate()
         countdown.invalidate()
+        UIApplication.sharedApplication().idleTimerDisabled = false
         repeatButton.enabled = true
     }
     
