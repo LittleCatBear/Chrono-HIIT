@@ -17,7 +17,11 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var roundTextField: UITextField!
     @IBOutlet weak var countDownTextField: UITextField!
 //    var workout:Workout = Workout()
+    @IBOutlet weak var workoutStatusLabel: UILabel!
     
+    @IBOutlet weak var updateButton: UIButton!
+    
+    @IBOutlet weak var saveButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.timingTextField.delegate = self
@@ -35,18 +39,22 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
             cleanFields()
             token2 = false
         }
-        else if !workoutModel.name.isEmpty{
+        else if workoutId.description != ""{
             getWorkoutData()
         }
     }
     
     func cleanFields(){
+        self.workoutStatusLabel.text = "New Workout"
+        self.workoutStatusLabel.textColor = UIColor.greenColor()
         self.timingTextField.text = ""
         self.roundTextField.text = ""
         self.countDownTextField.text = ""
     }
     
     func getWorkoutData(){
+        self.workoutStatusLabel.text = "Editing Workout \(workoutModel.name)"
+        self.workoutStatusLabel.textColor = UIColor.greenColor()
         timingTextField.text = String(workoutModel.totalTime)
         countDownTextField.text = String(workoutModel.countdown)
         roundTextField.text = String(workoutModel.swap)
@@ -177,6 +185,9 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         }))
         self.presentViewController(alert, animated: true, completion: nil)
         
+    }
+    
+    @IBAction func onClickUpdateButton(sender: UIButton) {
     }
 }
 

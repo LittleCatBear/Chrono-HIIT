@@ -71,6 +71,9 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         //
+        //updatableWorkout.exercise = updatableExercise
+        //updatableWorkout = workouts[indexPath.row]
+        workoutId = workouts[indexPath.row].objectID
         workoutModel.name = workouts[indexPath.row].name
         workoutModel.swap = workouts[indexPath.row].swap
         workoutModel.countdown = workouts[indexPath.row].countdown
@@ -99,6 +102,8 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
 
     @IBAction func onClickAddWorkoutButton(sender: UIButton) {
         token1 = true
+        workoutId.delete(self)
+        println("wo desc: \(workoutId.description)")
         tabBarController?.selectedIndex = 0
     }
 }
