@@ -8,9 +8,6 @@
         <mutableArray key="Universal-college-draft_DEMO-version.ttf">
             <string>Universal-College-draft_DEMO</string>
         </mutableArray>
-        <mutableArray key="Universal-college_DEMO-version.ttf">
-            <string>Universal-college_DEMO-version</string>
-        </mutableArray>
         <mutableArray key="handwriting-draft_free-version.ttf">
             <string>handwriting-draft_free-version</string>
             <string>handwriting-draft_free-version</string>
@@ -34,7 +31,7 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="NEW EXERCISE" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6WY-o1-ePH">
                                 <rect key="frame" x="204.5" y="40" width="190.5" height="26.5"/>
-                                <fontDescription key="fontDescription" name="Universal-college_DEMO-version" family="Universal-college_DEMO-version" pointSize="25"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
                                 <color key="textColor" red="0.4941176471" green="0.078431372550000003" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -100,10 +97,10 @@
             </objects>
             <point key="canvasLocation" x="750" y="-320"/>
         </scene>
-        <!--Workout-->
+        <!--Workouts-->
         <scene sceneID="fLk-ic-BMF">
             <objects>
-                <viewController id="5L7-oB-Bcn" sceneMemberID="viewController">
+                <viewController id="5L7-oB-Bcn" customClass="WorkoutViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WWN-rx-09w"/>
                         <viewControllerLayoutGuide type="bottom" id="mII-YL-aG2"/>
@@ -111,9 +108,32 @@
                     <view key="view" contentMode="scaleToFill" id="U4E-H8-1O9">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Workouts saved" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Q6-Bl-2R7">
+                                <rect key="frame" x="238" y="40" width="124" height="20.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" red="0.4941176471" green="0.078431372550000003" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="1or-AY-jCC">
+                                <rect key="frame" x="0.0" y="68" width="600" height="483"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mII-YL-aG2" firstAttribute="top" secondItem="1or-AY-jCC" secondAttribute="bottom" id="Ik9-Px-Atg"/>
+                            <constraint firstAttribute="centerX" secondItem="6Q6-Bl-2R7" secondAttribute="centerX" id="Oop-bO-Z5v"/>
+                            <constraint firstItem="6Q6-Bl-2R7" firstAttribute="top" secondItem="WWN-rx-09w" secondAttribute="bottom" constant="20" id="XG3-hR-jy8"/>
+                            <constraint firstItem="1or-AY-jCC" firstAttribute="leading" secondItem="U4E-H8-1O9" secondAttribute="leadingMargin" constant="-16" id="jBy-Xn-NHd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1or-AY-jCC" secondAttribute="trailing" constant="-16" id="xoY-Vl-rzz"/>
+                            <constraint firstItem="1or-AY-jCC" firstAttribute="top" secondItem="6Q6-Bl-2R7" secondAttribute="bottom" constant="8" id="ze1-MH-anI"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Workout" image="workout" id="MLm-yI-3wx"/>
+                    <tabBarItem key="tabBarItem" title="Workouts" image="workout" id="MLm-yI-3wx"/>
+                    <connections>
+                        <outlet property="workoutTable" destination="1or-AY-jCC" id="8dR-1J-CTH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vzY-a0-qqa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
