@@ -41,7 +41,7 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
             error: &error) as [Workout]?
         NSLog("%@", fetchedResults!)
         if let results = fetchedResults {
-            if(results.count>1 && String(results[0].name) != nil){
+            if(results.count>=1 && String(results[0].name) != nil){
                 //println("test")
                 workouts = results as [Workout]
             }
@@ -49,8 +49,6 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
         } else {
             println("Could not fetch \(error), \(error!.userInfo)")
         }
-        
-        println(workouts.count)
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -61,7 +59,7 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
         var cell:UITableViewCell = self.workoutTable.dequeueReusableCellWithIdentifier("cellw") as UITableViewCell
         println(workouts.count)
         if(workouts.count == 0){
-            cell.textLabel?.text = "You don't have saved workouts"
+            cell.textLabel?.text = "You don't have any saved workouts"
         }else{
             if(String(workouts[indexPath.row].name) != nil){
                 cell.textLabel?.text = workouts[indexPath.row].name
@@ -84,15 +82,23 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
             exercises.append(ex)
         }
         workoutModel.exercise = exercises
+        tabBarController?.selectedIndex = 1
+        
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete {
             if(workouts.count != 0){
+                managedObjectContext?.deleteObject(workouts[indexPath.row] as NSManagedObject)
+                managedObjectContext?.save(nil)
                 workouts.removeAtIndex(indexPath.row)
                 tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
             }
         }
     }
 
+    @IBAction func onClickAddWorkoutButton(sender: UIButton) {
+        token1 = true
+        tabBarController?.selectedIndex = 0
+    }
 }

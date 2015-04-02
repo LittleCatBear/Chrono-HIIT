@@ -116,7 +116,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="1or-AY-jCC">
-                                <rect key="frame" x="0.0" y="68" width="600" height="483"/>
+                                <rect key="frame" x="0.0" y="67.5" width="600" height="417.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellw" id="Oca-6k-UGC">
@@ -132,16 +132,37 @@
                                     <outlet property="delegate" destination="5L7-oB-Bcn" id="bd7-QT-lIW"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wPP-7L-BwR">
+                                <rect key="frame" x="275" y="493" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="V9d-8o-pop"/>
+                                    <constraint firstAttribute="height" constant="50" id="l5i-gO-lnl"/>
+                                </constraints>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onClickAddWorkoutButton:" destination="5L7-oB-Bcn" eventType="touchUpInside" id="Ezj-UO-x0a"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="mII-YL-aG2" firstAttribute="top" secondItem="1or-AY-jCC" secondAttribute="bottom" id="Ik9-Px-Atg"/>
+                            <constraint firstItem="wPP-7L-BwR" firstAttribute="top" secondItem="1or-AY-jCC" secondAttribute="bottom" constant="8" id="J7C-Sq-kbN"/>
                             <constraint firstAttribute="centerX" secondItem="6Q6-Bl-2R7" secondAttribute="centerX" id="Oop-bO-Z5v"/>
                             <constraint firstItem="6Q6-Bl-2R7" firstAttribute="top" secondItem="WWN-rx-09w" secondAttribute="bottom" constant="20" id="XG3-hR-jy8"/>
+                            <constraint firstAttribute="centerX" secondItem="wPP-7L-BwR" secondAttribute="centerX" id="bAI-Yp-jgl"/>
                             <constraint firstItem="1or-AY-jCC" firstAttribute="leading" secondItem="U4E-H8-1O9" secondAttribute="leadingMargin" constant="-16" id="jBy-Xn-NHd"/>
+                            <constraint firstItem="mII-YL-aG2" firstAttribute="top" secondItem="wPP-7L-BwR" secondAttribute="bottom" constant="8" id="vM1-cV-wbK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="1or-AY-jCC" secondAttribute="trailing" constant="-16" id="xoY-Vl-rzz"/>
                             <constraint firstItem="1or-AY-jCC" firstAttribute="top" secondItem="6Q6-Bl-2R7" secondAttribute="bottom" constant="8" id="ze1-MH-anI"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Ik9-Px-Atg"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Workouts" image="workout" id="MLm-yI-3wx"/>
                     <connections>

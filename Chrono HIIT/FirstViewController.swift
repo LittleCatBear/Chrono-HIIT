@@ -15,6 +15,11 @@ var managedObjectContext: NSManagedObjectContext? = nil
 var workoutModel:WorkoutModel = WorkoutModel()
 var exercises:[ExerciseModel] = [ExerciseModel]()
 
+//when new workout clicked, token = true
+var token1:Bool = false
+//for timer controller ràz
+var token2:Bool = false
+
 class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
 
     @IBOutlet weak var exerciseTableView: UITableView!
@@ -37,9 +42,28 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        if(!workoutModel.name.isEmpty){
+        
+        if token1{
+            println("data")
+            cleanData()
+            token1 = false
+            token2 = true
             self.exerciseTableView.reloadData()
         }
+        else if(!workoutModel.name.isEmpty){
+            self.exerciseTableView.reloadData()
+        }
+
+    }
+    
+    func cleanData(){
+        exercises.removeAll()
+        workoutModel.name = ""
+        workoutModel.countdown = 0
+        workoutModel.totalTime = 0
+        workoutModel.swap = 0
+        workoutModel.exercise = exercises
+        
     }
     
     func findFontNames(){

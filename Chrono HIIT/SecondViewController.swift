@@ -31,9 +31,19 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        if !workoutModel.name.isEmpty{
+        if token2{
+            cleanFields()
+            token2 = false
+        }
+        else if !workoutModel.name.isEmpty{
             getWorkoutData()
         }
+    }
+    
+    func cleanFields(){
+        self.timingTextField.text = ""
+        self.roundTextField.text = ""
+        self.countDownTextField.text = ""
     }
     
     func getWorkoutData(){
