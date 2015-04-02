@@ -119,7 +119,17 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         wo.setValue(workoutModel.name, forKey: "name")
         wo.setValue(workoutModel.swap, forKey: "swap")
         wo.setValue(workoutModel.countdown, forKey: "countdown")
-        wo.setValue(workoutModel.exercise, forKey: "exercise")
+        //marche pas ici
+        
+        var exe:[Exercise] = [Exercise]()
+        for e in workoutModel.exercise{
+            let ent = NSEntityDescription.entityForName("Exercise", inManagedObjectContext: managedObjectContext!)
+            let ex = NSManagedObject(entity: ent!, insertIntoManagedObjectContext:managedObjectContext) as Exercise
+            ex.setValue(e.name, forKey: "name")
+            exe.append(ex)
+        }
+        
+        wo.setValue(NSOrderedSet(array: exe), forKey: "exercise")
         wo.setValue(workoutModel.totalTime, forKey: "totalTime")
         
         var error: NSError?
