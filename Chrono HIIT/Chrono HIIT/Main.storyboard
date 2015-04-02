@@ -100,7 +100,7 @@
         <!--Workouts-->
         <scene sceneID="fLk-ic-BMF">
             <objects>
-                <viewController id="5L7-oB-Bcn" customClass="WorkoutViewController" sceneMemberID="viewController">
+                <viewController id="5L7-oB-Bcn" customClass="WorkoutViewController" customModule="Chrono_HIIT" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WWN-rx-09w"/>
                         <viewControllerLayoutGuide type="bottom" id="mII-YL-aG2"/>
@@ -118,6 +118,10 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="1or-AY-jCC">
                                 <rect key="frame" x="0.0" y="68" width="600" height="483"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="5L7-oB-Bcn" id="XLx-tb-biP"/>
+                                    <outlet property="delegate" destination="5L7-oB-Bcn" id="bd7-QT-lIW"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
