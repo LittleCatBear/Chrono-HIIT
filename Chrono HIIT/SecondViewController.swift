@@ -109,5 +109,25 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         self.timingLabel.textColor = UIColor.blackColor()
     }
 
+    @IBAction func onClickSaveButton(sender: UIButton) {
+        var name = getWorkoutName()
+        if name != ""{
+            workout.name = name
+        }
+        
+    }
+    
+    func getWorkoutName()->NSString{
+        var alert = UIAlertController(title: "Saving your workout", message: "Workout name : ", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Save", style: UIAlertActionStyle.Default, handler: nil))
+        var name = ""
+        alert.addTextFieldWithConfigurationHandler({(textField: UITextField!) in
+            textField.placeholder = "Enter text:"
+            textField.secureTextEntry = true
+            name = textField.text
+        })
+        self.presentViewController(alert, animated: true, completion: nil)
+        return name
+    }
 }
 
