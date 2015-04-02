@@ -19,15 +19,18 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         workoutTable.delegate = self
         self.workoutTable.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellw")
-        getWorkouts()
+        //getWorkouts()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         getWorkouts()
+        //self.workoutTable.reloadData()
+    }
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
         self.workoutTable.reloadData()
     }
-    
     func getWorkouts(){
         let fetchRequest = NSFetchRequest(entityName:"Workout")
         fetchRequest.returnsObjectsAsFaults = false
@@ -60,22 +63,17 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
         if(workouts.count == 0){
             cell.textLabel?.text = "You don't have saved workouts"
         }else{
-            println("configure")
-            println(workouts[0].name)
-            self.configureCell(cell, atIndexPath: indexPath)
+            if(String(workouts[indexPath.row].name) != nil){
+                cell.textLabel?.text = workouts[indexPath.row].name
+            }
         }
         return cell
     }
     
-    func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
-        
-        cell.backgroundColor = UIColor.clearColor()
-        cell.textLabel?.text = workouts[indexPath.row].name
-    }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         //
-        workout = workouts[indexPath.row]
+       // workoutModel = workouts[indexPath.row]
         
     }
     

@@ -11,7 +11,8 @@ import CoreData
 import AVFoundation
 
 var managedObjectContext: NSManagedObjectContext? = nil
-var workout = NSEntityDescription.insertNewObjectForEntityForName("Workout", inManagedObjectContext: managedObjectContext!) as Workout
+//var workout = NSEntityDescription.insertNewObjectForEntityForName("Workout", inManagedObjectContext: managedObjectContext!) as Workout
+var workoutModel:WorkoutModel = WorkoutModel()
 
 class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
 
@@ -19,13 +20,13 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var ExerciseTextField: UITextField!
     
     
-    var exercises:[Exercise] = [Exercise]()
+    var exercises:[ExerciseModel] = [ExerciseModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         var appDel: AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         managedObjectContext = appDel.managedObjectContext!
-        workout.exercise = NSOrderedSet(array: exercises)
+        workoutModel.exercise = exercises
         //findFontNames()
         ExerciseTextField.delegate = self
         
@@ -48,10 +49,11 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     @IBAction func onClickAddExercise(sender: UIButton) {
         if (self.ExerciseTextField.text != ""){
-            var ex = NSEntityDescription.insertNewObjectForEntityForName("Exercise", inManagedObjectContext: managedObjectContext!) as Exercise
+           // var ex = NSEntityDescription.insertNewObjectForEntityForName("Exercise", inManagedObjectContext: managedObjectContext!) as Exercise
+            var ex = ExerciseModel()
             ex.name = self.ExerciseTextField.text
             exercises.append(ex)
-            workout.exercise = NSOrderedSet(array: exercises)
+            workoutModel.exercise =  exercises
            // globalExerciceTable.append(self.ExerciseTextField.text)
             self.ExerciseTextField.text = ""
             self.exerciseTableView.reloadData()

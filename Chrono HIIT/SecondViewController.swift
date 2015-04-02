@@ -65,9 +65,9 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
             } else{
                 tempCd = 0
             }
-            workout.swap = tempRound
-            workout.totalTime = temp
-            workout.countdown = tempCd
+            workoutModel.swap = tempRound
+            workoutModel.totalTime = temp
+            workoutModel.countdown = tempCd
         }
     }
     
@@ -104,9 +104,9 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func onClickSaveButton(sender: UIButton) {
-        workout.swap = self.roundTextField.text!.toInt()!
-        workout.countdown = self.countDownTextField!.text.toInt()!
-        workout.totalTime = self.timingTextField!.text.toInt()!
+        workoutModel.swap = self.roundTextField.text!.toInt()!
+        workoutModel.countdown = self.countDownTextField!.text.toInt()!
+        workoutModel.totalTime = self.timingTextField!.text.toInt()!
         getWorkoutName()
     }
     
@@ -116,11 +116,11 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
             managedObjectContext!)
         let wo = NSManagedObject(entity: entity!,
             insertIntoManagedObjectContext:managedObjectContext)
-        wo.setValue(workout.name, forKey: "name")
-        wo.setValue(workout.swap, forKey: "swap")
-        wo.setValue(workout.countdown, forKey: "countdown")
-        wo.setValue(workout.exercise, forKey: "exercise")
-        wo.setValue(workout.totalTime, forKey: "totalTime")
+        wo.setValue(workoutModel.name, forKey: "name")
+        wo.setValue(workoutModel.swap, forKey: "swap")
+        wo.setValue(workoutModel.countdown, forKey: "countdown")
+        wo.setValue(workoutModel.exercise, forKey: "exercise")
+        wo.setValue(workoutModel.totalTime, forKey: "totalTime")
         
         var error: NSError?
         if !(managedObjectContext?.save(&error) != nil) {
@@ -141,7 +141,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
             let textField = alert.textFields![0] as UITextField
             name = textField.text
             if name != ""{
-                workout.name = name
+                workoutModel.name = name
                 self.saveWorkout()
             }
         }))

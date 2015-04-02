@@ -42,10 +42,10 @@ class TimerViewController: UIViewController {
         pauseButton.enabled = false
         roundLabel.text = "Time left"
         timingLab.text = "Swap"
-        cd = NSInteger(workout.countdown)
-        self.sec = NSInteger(workout.totalTime)
+        cd = NSInteger(workoutModel.countdown)
+        self.sec = NSInteger(workoutModel.totalTime)
         //self.tempSwap = self.totalRounds
-        self.tempSwap = NSInteger(workout.swap)
+        self.tempSwap = NSInteger(workoutModel.swap)
         if(cd > 0){
             countdown = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("countDownSub"), userInfo: nil, repeats: true)
         } else{
@@ -54,12 +54,12 @@ class TimerViewController: UIViewController {
     }
     
     func getExercise() -> NSString{
-        var total:UInt32 = UInt32(workout.exercise.count)
+        var total:UInt32 = UInt32(workoutModel.exercise.count)
         var num = Int(arc4random_uniform(total))
-        if workout.exercise.count == 0 {
+        if workoutModel.exercise.count == 0 {
             return "NO DATA"
         }
-        return workout.exercise[num].name
+        return workoutModel.exercise[num].name
     }
     
     func lauchExercise(timing:Float){
@@ -78,7 +78,7 @@ class TimerViewController: UIViewController {
        // self.exerciseLabel.fadeIn(duration: 1.0, delay: 0.0)
         speech(self.exerciseLabel.text!)
         
-        self.sec = NSInteger(workout.totalTime)
+        self.sec = NSInteger(workoutModel.totalTime)
         self.timingLab.text = "Swap: \(sec)"
         self.roundLabel.text = "Time left: \(tempSwap)"
         timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("subtractTime"), userInfo: nil, repeats: true)
@@ -94,7 +94,7 @@ class TimerViewController: UIViewController {
         
         if(cd == -1){
             countdown.invalidate()
-            lauchExercise(Float(workout.totalTime))
+            lauchExercise(Float(workoutModel.totalTime))
         } else if(cd == 0){
             self.exerciseLabel.text = "Begin"
             speech(self.exerciseLabel.text!)
@@ -119,7 +119,7 @@ class TimerViewController: UIViewController {
             pauseButton.enabled = false
         }else if(sec == 0)  {
                 timer.invalidate()
-                lauchExercise(Float(workout.totalTime))
+                lauchExercise(Float(workoutModel.totalTime))
         }
     }
     
@@ -141,9 +141,9 @@ class TimerViewController: UIViewController {
     @IBAction func onClickRepeatButton(sender: UIButton) {
         repeatButton.enabled = false
         timer.invalidate()
-        cd = NSInteger(workout.countdown)
+        cd = NSInteger(workoutModel.countdown)
         
-        tempSwap = NSInteger(workout.swap)
+        tempSwap = NSInteger(workoutModel.swap)
         countdown = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("countDownSub"), userInfo: nil, repeats: true)
         
     }
