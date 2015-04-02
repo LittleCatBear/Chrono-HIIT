@@ -9,6 +9,7 @@
 import Foundation
 import AVFoundation
 import UIKit
+import CoreData
 
 class TimerViewController: UIViewController {
     
@@ -50,12 +51,12 @@ class TimerViewController: UIViewController {
     }
     
     func getExercise() -> NSString{
-        var total:UInt32 = UInt32(globalExerciceTable.count)
+        var total:UInt32 = UInt32(workout.exercise.count)
         var num = Int(arc4random_uniform(total))
-        if globalExerciceTable.isEmpty {
+        if workout.exercise.count == 0 {
             return "NO DATA"
         }
-        return globalExerciceTable[num]
+        return workout.exercise[num].name
     }
     
     func lauchExercise(timing:Float){

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class SecondViewController: UIViewController, UITextFieldDelegate {
     
@@ -15,7 +16,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var timingLabel: UILabel!
     @IBOutlet weak var roundTextField: UITextField!
     @IBOutlet weak var countDownTextField: UITextField!
-    var workout:Workout = Workout()
+//    var workout:Workout = Workout()
     
     override func viewDidLoad() {
         super.viewDidLoad()

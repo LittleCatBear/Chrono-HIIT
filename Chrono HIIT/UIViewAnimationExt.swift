@@ -9,6 +9,7 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 extension UIView {
     func fadeIn(duration: NSTimeInterval = 1.0, delay: NSTimeInterval = 0.0, completion: ((Bool) -> Void) = {(finished: Bool) -> Void in}) {

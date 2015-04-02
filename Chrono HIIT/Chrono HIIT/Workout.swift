@@ -9,6 +9,7 @@
 import Foundation
 import CoreData
 
+@objc(Workout)
 class Workout: NSManagedObject {
 
     @NSManaged var name: String
