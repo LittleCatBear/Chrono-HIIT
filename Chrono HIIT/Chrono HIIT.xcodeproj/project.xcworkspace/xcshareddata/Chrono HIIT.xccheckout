@@ -6,31 +6,35 @@
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>D4B39B69-0C31-4176-B930-C4A896B6797F</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Chrono HIIT</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>FBB26FE758F9C07A362B4C5000CC72CCF3360654</key>
-		<string>https://github.com/LittleCatBear/ExerciseTimerSwitch.git</string>
+		<key>96E3071DCCAB9BC277FCE560F9087E0077835219</key>
+		<string>https://github.com/LittleCatBear/Chrono-HIIT.git</string>
 	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Chrono HIIT/Chrono HIIT.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>FBB26FE758F9C07A362B4C5000CC72CCF3360654</key>
-		<string>ExerciseTimerSwitch/</string>
+		<key>96E3071DCCAB9BC277FCE560F9087E0077835219</key>
+		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/LittleCatBear/ExerciseTimerSwitch.git</string>
+	<string>https://github.com/LittleCatBear/Chrono-HIIT.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>FBB26FE758F9C07A362B4C5000CC72CCF3360654</string>
+	<string>96E3071DCCAB9BC277FCE560F9087E0077835219</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>FBB26FE758F9C07A362B4C5000CC72CCF3360654</string>
+			<string>96E3071DCCAB9BC277FCE560F9087E0077835219</string>
 			<key>IDESourceControlWCCName</key>
-			<string>ExerciseTimerSwitch</string>
+			<string>Chrono-HIIT</string>
 		</dict>
 	</array>
 </dict>
