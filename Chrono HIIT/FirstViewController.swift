@@ -10,9 +10,6 @@ import UIKit
 import CoreData
 import AVFoundation
 
-//var globalExerciceTable:[String] = [String]()
-
-
 var managedObjectContext: NSManagedObjectContext? = nil
 var workout = NSEntityDescription.insertNewObjectForEntityForName("Workout", inManagedObjectContext: managedObjectContext!) as Workout
 
@@ -29,7 +26,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         var appDel: AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         managedObjectContext = appDel.managedObjectContext!
         workout.exercise = NSOrderedSet(array: exercises)
-        findFontNames()
+        //findFontNames()
         ExerciseTextField.delegate = self
         
          self.exerciseTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")

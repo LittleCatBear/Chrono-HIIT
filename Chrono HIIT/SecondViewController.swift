@@ -110,24 +110,46 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func onClickSaveButton(sender: UIButton) {
-        var name = getWorkoutName()
-        if name != ""{
-            workout.name = name
-        }
-        
+        getWorkoutName()
     }
     
-    func getWorkoutName()->NSString{
-        var alert = UIAlertController(title: "Saving your workout", message: "Workout name : ", preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: "Save", style: UIAlertActionStyle.Default, handler: nil))
+    func saveWorkout(){
+        let entity =  NSEntityDescription.entityForName("Workout",
+            inManagedObjectContext:
+            managedObjectContext!)
+        let wo = NSManagedObject(entity: entity!,
+            insertIntoManagedObjectContext:managedObjectContext)
+        wo.setValue(workout.name, forKey: "name")
+        wo.setValue(workout.swap, forKey: "swap")
+        wo.setValue(workout.countdown, forKey: "countdown")
+        wo.setValue(workout.exercise, forKey: "exercise")
+        wo.setValue(workout.totalTime, forKey: "totalTime")
+        
+        var error: NSError?
+        if !(managedObjectContext?.save(&error) != nil) {
+            println("Could not save workout\(error), \(error?.userInfo)")
+        }
+    }
+    
+    func getWorkoutName()->Void{
+        var alert = UIAlertController(title: "Saving your workout", message: "Please enter a name for your workout: ", preferredStyle: UIAlertControllerStyle.Alert)
         var name = ""
+        
         alert.addTextFieldWithConfigurationHandler({(textField: UITextField!) in
-            textField.placeholder = "Enter text:"
-            textField.secureTextEntry = true
-            name = textField.text
+            textField.placeholder = "Enter workout name:"
+           
         })
+        alert.addAction(UIAlertAction(title: "Save", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
+            let textField = alert.textFields![0] as UITextField
+            name = textField.text
+            if name != ""{
+                workout.name = name
+                self.saveWorkout()
+            }
+        }))
         self.presentViewController(alert, animated: true, completion: nil)
-        return name
+       // NSLog("alert %@", name)
+        
     }
 }
 
