@@ -54,6 +54,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
             var ex = NSEntityDescription.insertNewObjectForEntityForName("Exercise", inManagedObjectContext: managedObjectContext!) as Exercise
             ex.name = self.ExerciseTextField.text
             exercises.append(ex)
+            workout.exercise = NSOrderedSet(array: exercises)
            // globalExerciceTable.append(self.ExerciseTextField.text)
             self.ExerciseTextField.text = ""
             self.exerciseTableView.reloadData()

@@ -68,8 +68,8 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
 
             
             var controller:TimerViewController = segue.destinationViewController as TimerViewController
-            workout.swap = temp
-            workout.totalTime = tempRound
+            workout.swap = tempRound
+            workout.totalTime = temp
             workout.countdown = tempCd
             //controller.seconds = temp
             //controller.totalRounds = tempRound
