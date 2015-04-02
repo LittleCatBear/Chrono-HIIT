@@ -39,13 +39,10 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
         let fetchedResults =
         managedObjectContext?.executeFetchRequest(fetchRequest,
             error: &error) as [Workout]?
-        NSLog("%@", fetchedResults!)
         if let results = fetchedResults {
             if(results.count>=1 && String(results[0].name) != nil){
-                //println("test")
                 workouts = results as [Workout]
             }
-           //println(workouts[0].name)
         } else {
             println("Could not fetch \(error), \(error!.userInfo)")
         }
@@ -57,7 +54,6 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell:UITableViewCell = self.workoutTable.dequeueReusableCellWithIdentifier("cellw") as UITableViewCell
-        println(workouts.count)
         if(workouts.count == 0){
             cell.textLabel?.text = "You don't have any saved workouts"
         }else{
@@ -102,8 +98,6 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
 
     @IBAction func onClickAddWorkoutButton(sender: UIButton) {
         token1 = true
-        workoutId.delete(self)
-        println("wo desc: \(workoutId.description)")
         tabBarController?.selectedIndex = 0
     }
 }

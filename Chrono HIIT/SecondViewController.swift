@@ -35,12 +35,25 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
+        
         if token2{
             cleanFields()
             token2 = false
+            updateButton.hidden = true
+            updateButton.enabled = false
+            saveButton.enabled = true
+            saveButton.hidden = false
         }
-        else if workoutId.description != ""{
+        else if workoutModel.name != ""{
             getWorkoutData()
+            updateButton.hidden = false
+            updateButton.enabled = true
+            saveButton.enabled = false
+            saveButton.hidden = true
+        }
+        else{
+            updateButton.hidden = true
+            updateButton.enabled = false
         }
     }
     
@@ -54,7 +67,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     
     func getWorkoutData(){
         self.workoutStatusLabel.text = "Editing Workout \(workoutModel.name)"
-        self.workoutStatusLabel.textColor = UIColor.greenColor()
+        self.workoutStatusLabel.textColor = UIColor.blueColor()
         timingTextField.text = String(workoutModel.totalTime)
         countDownTextField.text = String(workoutModel.countdown)
         roundTextField.text = String(workoutModel.swap)

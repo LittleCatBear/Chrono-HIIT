@@ -14,7 +14,7 @@ var managedObjectContext: NSManagedObjectContext? = nil
 //var workout = NSEntityDescription.insertNewObjectForEntityForName("Workout", inManagedObjectContext: managedObjectContext!) as Workout
 var workoutModel:WorkoutModel = WorkoutModel()
 var exercises:[ExerciseModel] = [ExerciseModel]()
-var workoutId:NSManagedObjectID = NilLiteralConvertible.self
+var workoutId:NSManagedObjectID = NSManagedObjectID()
 
 //when new workout clicked, token = true
 var token1:Bool = false
@@ -48,7 +48,6 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewWillAppear(true)
         
         if token1{
-            println("data")
             cleanData()
             token1 = false
             token2 = true
@@ -56,7 +55,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
             workoutStatusLabel.textColor = UIColor.greenColor()
             self.exerciseTableView.reloadData()
         }
-        else if(workoutId != 0){
+        else if(workoutModel.name != ""){
             self.exerciseTableView.reloadData()
             workoutStatusLabel.text = "Editing workout \(workoutModel.name)"
             workoutStatusLabel.textColor = UIColor.blueColor()
