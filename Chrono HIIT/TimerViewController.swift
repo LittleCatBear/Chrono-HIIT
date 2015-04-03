@@ -63,6 +63,7 @@ class TimerViewController: UIViewController {
     }
     
     func lauchExercise(timing:Float){
+        addCircleView()
         pauseButton.enabled = true
         var t = NSTimeInterval(timing-0.2)
         
@@ -160,5 +161,21 @@ class TimerViewController: UIViewController {
            
         }
     }
+    
+    func addCircleView() {
+        let diceRoll = CGFloat(Int(arc4random_uniform(7))*50)
+        var circleWidth = CGFloat(200)
+        var circleHeight = circleWidth
+        
+        // Create a new CircleView
+        var circleAnimationView = CircleAnimationView(frame: CGRectMake(diceRoll, 0, circleWidth, circleHeight))
+        
+        view.addSubview(circleAnimationView)
+        
+        // Animate the drawing of the circle over the course of 1 second
+        circleAnimationView.animateCircle(1.0)
+    }
+    
+    
 }
 

@@ -28,6 +28,7 @@
 		E3F6965D1ACCC6DC00884BD8 /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F6965C1ACCC6DC00884BD8 /* WorkoutViewController.swift */; };
 		E3F6965F1ACD405A00884BD8 /* WorkoutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F6965E1ACD405900884BD8 /* WorkoutModel.swift */; };
 		E3F696611ACD408F00884BD8 /* ExerciseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F696601ACD408F00884BD8 /* ExerciseModel.swift */; };
+		E3F696661ACE7A2200884BD8 /* CircleAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F696651ACE7A2200884BD8 /* CircleAnimationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		E3F6965C1ACCC6DC00884BD8 /* WorkoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = SOURCE_ROOT; };
 		E3F6965E1ACD405900884BD8 /* WorkoutModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutModel.swift; sourceTree = "<group>"; };
 		E3F696601ACD408F00884BD8 /* ExerciseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseModel.swift; sourceTree = "<group>"; };
+		E3F696651ACE7A2200884BD8 /* CircleAnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleAnimationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				E3F696621ACD40C400884BD8 /* Controllers */,
 				E3F696631ACD40D200884BD8 /* Models */,
 				E3F6963D1ACCC16100884BD8 /* UIViewAnimationExt.swift */,
+				E3F696651ACE7A2200884BD8 /* CircleAnimationView.swift */,
 				E3F6964B1ACCC1F900884BD8 /* Main.storyboard */,
 				E3F696391ACCC16100884BD8 /* Images.xcassets */,
 				E3F6964D1ACCC20300884BD8 /* LaunchScreen.xib */,
@@ -295,6 +298,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3F696401ACCC16100884BD8 /* FirstViewController.swift in Sources */,
+				E3F696661ACE7A2200884BD8 /* CircleAnimationView.swift in Sources */,
 				E3F6965F1ACD405A00884BD8 /* WorkoutModel.swift in Sources */,
 				E3F696351ACCBC9600884BD8 /* Exercise.swift in Sources */,
 				E3F696331ACCBC9500884BD8 /* Workout.swift in Sources */,
