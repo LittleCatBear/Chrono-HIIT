@@ -164,12 +164,12 @@ class TimerViewController: UIViewController {
     }
     
     func addCircleView() {
-        let diceRoll = CGFloat(Int(arc4random_uniform(7))*50)
+       // let diceRoll = CGFloat(Int(arc4random_uniform(7))*50)
         var circleWidth = CGFloat(100)
         var circleHeight = circleWidth
         
         // Create a new CircleAnimationView
-        var circleAnimationView = CircleAnimationView(frame: CGRectMake(0,circleView.center.y, circleWidth, circleHeight))
+        var circleAnimationView = CircleAnimationView(frame: CGRectMake(circleView.center.x - circleWidth/2,circleView.center.y - circleHeight/2, circleWidth, circleHeight))
         
         view.addSubview(circleAnimationView)
         

@@ -512,6 +512,22 @@
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerX" secondItem="0gK-ch-YVs" secondAttribute="centerX" id="5gY-K9-BkO"/>
+                                    <constraint firstAttribute="centerY" secondItem="0gK-ch-YVs" secondAttribute="centerY" id="8uK-Ys-5TY"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="5gY-K9-BkO"/>
+                                        <exclude reference="8uK-Ys-5TY"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="5gY-K9-BkO"/>
+                                        <include reference="8uK-Ys-5TY"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
