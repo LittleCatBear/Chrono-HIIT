@@ -64,7 +64,7 @@ class TimerViewController: UIViewController {
     }
     
     func lauchExercise(timing:Float){
-        addCircleView()
+        
         pauseButton.enabled = true
         var t = NSTimeInterval(timing-0.2)
         
@@ -72,13 +72,14 @@ class TimerViewController: UIViewController {
         self.exerciseLabel.sizeToFit()
         
         self.exerciseLabel.numberOfLines = 0
-    
+        
         self.exerciseLabel.fadeIn(completion: {
             (finished:Bool) -> Void in
             self.exerciseLabel.fadeOut()
         })
        // self.exerciseLabel.fadeIn(duration: 1.0, delay: 0.0)
         speech(self.exerciseLabel.text!)
+        addCircleView()
         
         self.sec = NSInteger(workoutModel.totalTime)
         self.timingLab.text = "Swap: \(sec)"
@@ -165,16 +166,17 @@ class TimerViewController: UIViewController {
     
     func addCircleView() {
        // let diceRoll = CGFloat(Int(arc4random_uniform(7))*50)
-        var circleWidth = CGFloat(100)
+        var circleWidth = CGFloat(exerciseLabel.frame.width + 50)
         var circleHeight = circleWidth
         
         // Create a new CircleAnimationView
-        var circleAnimationView = CircleAnimationView(frame: CGRectMake(circleView.center.x - circleWidth/2,circleView.center.y - circleHeight/2, circleWidth, circleHeight))
+        var circleAnimationView = CircleAnimationView(frame: CGRectMake(circleView.center.x - circleWidth/2,circleView.center.y - circleHeight/2, circleWidth, circleHeight), line: 20.0)
         
         view.addSubview(circleAnimationView)
         
         // Animate the drawing of the circle over the course of 1 second
-        circleAnimationView.animateCircle(1.0)
+        circleAnimationView.animateCircle(2.0)
+        circleAnimationView.fadeOutNoRepeat(duration: 2.0, delay: 1.0)
     }
     
     
