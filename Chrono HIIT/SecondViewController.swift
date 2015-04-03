@@ -19,8 +19,10 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
 //    var workout:Workout = Workout()
     @IBOutlet weak var workoutStatusLabel: UILabel!
     
+    @IBOutlet weak var workoutNameLabel: UILabel!
     @IBOutlet weak var updateButton: UIButton!
     
+    @IBOutlet weak var workoutNameTextField: UITextField!
     @IBOutlet weak var saveButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +45,8 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
             updateButton.enabled = false
             saveButton.enabled = true
             saveButton.hidden = false
+            workoutNameLabel.hidden = true
+            workoutNameTextField.hidden = true
         }
         else if workoutModel.name != ""{
             getWorkoutData()
@@ -50,10 +54,14 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
             updateButton.enabled = true
             saveButton.enabled = false
             saveButton.hidden = true
+            workoutNameLabel.hidden = false
+            workoutNameTextField.hidden = false
         }
         else{
             updateButton.hidden = true
             updateButton.enabled = false
+            workoutNameLabel.hidden = true
+            workoutNameTextField.hidden = true
         }
     }
     
@@ -71,6 +79,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         timingTextField.text = String(workoutModel.totalTime)
         countDownTextField.text = String(workoutModel.countdown)
         roundTextField.text = String(workoutModel.swap)
+        workoutNameTextField.text = workoutModel.name
     }
     
     override func didReceiveMemoryWarning() {
@@ -145,10 +154,14 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func onClickSaveButton(sender: UIButton) {
+        getDataForSaving()
+        getWorkoutName()
+    }
+    
+    func getDataForSaving(){
         workoutModel.swap = self.roundTextField.text!.toInt()!
         workoutModel.countdown = self.countDownTextField!.text.toInt()!
         workoutModel.totalTime = self.timingTextField!.text.toInt()!
-        getWorkoutName()
     }
     
     func saveWorkout(){
@@ -160,7 +173,6 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         wo.setValue(workoutModel.name, forKey: "name")
         wo.setValue(workoutModel.swap, forKey: "swap")
         wo.setValue(workoutModel.countdown, forKey: "countdown")
-        //marche pas ici
         
         var exe:[Exercise] = [Exercise]()
         for e in workoutModel.exercise{
@@ -194,13 +206,70 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
             if name != ""{
                 workoutModel.name = name
                 self.saveWorkout()
+            } else{
+                self.presentViewController(alert, animated: true, completion: nil)
             }
         }))
         self.presentViewController(alert, animated: true, completion: nil)
         
     }
     
+    func updateWorkout(){
+        var toUpdate = getWorkoutToUpdatewithId()
+        toUpdate.setValue(workoutModel.name, forKey: "name")
+        toUpdate.setValue(workoutModel.countdown, forKey: "countdown")
+        toUpdate.setValue(workoutModel.totalTime, forKey: "totalTime")
+        toUpdate.setValue(workoutModel.swap, forKey: "swap")
+        
+        var exe:[Exercise] = [Exercise]()
+        for e in workoutModel.exercise{
+            let ent = NSEntityDescription.entityForName("Exercise", inManagedObjectContext: managedObjectContext!)
+            let ex = NSManagedObject(entity: ent!, insertIntoManagedObjectContext:managedObjectContext) as Exercise
+            ex.setValue(e.name, forKey: "name")
+            exe.append(ex)
+        }
+        
+        toUpdate.setValue(NSOrderedSet(array: exe), forKey: "exercise")
+        
+        var error: NSError?
+        if !(managedObjectContext?.save(&error) != nil) {
+            println("Could not save workout\(error), \(error?.userInfo)")
+        }
+        managedObjectContext?.reset()
+    }
+    
+    func getWorkoutToUpdatewithId()->Workout{
+        var toUpdate:Workout = managedObjectContext?.objectWithID(workoutId) as Workout
+        println("to update \(toUpdate.name)")
+        return toUpdate
+    }
+    
     @IBAction func onClickUpdateButton(sender: UIButton) {
+        getDataForSaving()
+        workoutModel.name = workoutNameTextField.text
+        if(workoutModel.name != ""){
+            updateWorkout()
+        } else{
+            var alert = UIAlertController(title: "Updating your workout", message: "Please enter a name for your workout: ", preferredStyle: UIAlertControllerStyle.Alert)
+            var name = ""
+            
+            alert.addTextFieldWithConfigurationHandler({(textField: UITextField!) in
+                textField.placeholder = "Enter workout name:"
+                
+            })
+            alert.addAction(UIAlertAction(title: "Save", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
+                let textField = alert.textFields![0] as UITextField
+                name = textField.text
+                if name != ""{
+                    workoutModel.name = name
+                    self.updateWorkout()
+                } else{
+                    self.presentViewController(alert, animated: true, completion: nil)
+                }
+            }))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+        
     }
 }
 

@@ -10,27 +10,33 @@ import Foundation
 import UIKit
 import CoreData
 
+
+
 class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDataSource{
+   
+    var workouts:[Workout] = [Workout]()
+    var index = -1
     
     @IBOutlet weak var workoutTable: UITableView!
-    var workouts:[Workout] = [Workout]()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         workoutTable.delegate = self
         self.workoutTable.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellw")
-        //getWorkouts()
+        
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         getWorkouts()
-        //self.workoutTable.reloadData()
+        
     }
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
         self.workoutTable.reloadData()
     }
+    
     func getWorkouts(){
         let fetchRequest = NSFetchRequest(entityName:"Workout")
         fetchRequest.returnsObjectsAsFaults = false
@@ -46,6 +52,24 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
         } else {
             println("Could not fetch \(error), \(error!.userInfo)")
         }
+    }
+    
+    func getWorkoutToUpdate(){
+        let fetchRequest = NSFetchRequest(entityName:"Workout")
+        fetchRequest.returnsObjectsAsFaults = false
+        var error: NSError?
+        
+        let fetchedResults =
+        managedObjectContext?.executeFetchRequest(fetchRequest,
+            error: &error) as [Workout]?
+        if let results = fetchedResults {
+            if(results.count>=1 && String(results[0].name) != nil){
+                workouts = results as [Workout]
+            }
+        } else {
+            println("Could not fetch \(error), \(error!.userInfo)")
+        }
+        
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -67,8 +91,7 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         //
-        //updatableWorkout.exercise = updatableExercise
-        //updatableWorkout = workouts[indexPath.row]
+        index = indexPath.row
         workoutId = workouts[indexPath.row].objectID
         workoutModel.name = workouts[indexPath.row].name
         workoutModel.swap = workouts[indexPath.row].swap
