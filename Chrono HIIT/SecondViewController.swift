@@ -277,7 +277,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
                 name = textField.text
                 if name != ""{
                     workoutModel.name = name
-                    workoutNameTextField.text = name
+                    self.workoutNameTextField.text = name
                     self.updateWorkout()
                 } else{
                     self.presentViewController(alert, animated: true, completion: nil)
