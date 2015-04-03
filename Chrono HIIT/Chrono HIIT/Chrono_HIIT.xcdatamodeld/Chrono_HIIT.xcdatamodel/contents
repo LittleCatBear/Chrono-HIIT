@@ -2,6 +2,7 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6751" systemVersion="14C1510" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Exercise" representedClassName="Exercise" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="workout" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Workout" syncable="YES"/>
     </entity>
     <entity name="Workout" representedClassName="Workout" syncable="YES">
         <attribute name="countdown" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
@@ -11,7 +12,7 @@
         <relationship name="exercise" optional="YES" toMany="YES" minCount="1" maxCount="20" deletionRule="Nullify" ordered="YES" destinationEntity="Exercise" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Exercise" positionX="-54" positionY="18" width="128" height="60"/>
+        <element name="Exercise" positionX="-54" positionY="18" width="128" height="75"/>
         <element name="Workout" positionX="-63" positionY="-18" width="128" height="118"/>
     </elements>
 </model>

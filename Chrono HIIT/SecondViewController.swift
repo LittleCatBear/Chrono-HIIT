@@ -216,10 +216,25 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     
     func updateWorkout(){
         var toUpdate = getWorkoutToUpdatewithId()
+        
+        let fetchRequest = NSFetchRequest(entityName:"Exercise")
+        let predicate = NSPredicate(format: "workout == %@", toUpdate)
+        fetchRequest.predicate = predicate
+        
+        var err: NSError? = nil
+        var exeToDelete = managedObjectContext!.executeFetchRequest(fetchRequest,error: &err)!
+        for e in exeToDelete{
+            managedObjectContext!.deleteObject(e as NSManagedObject)
+            managedObjectContext?.save(&err)
+        }
+        
+        
         toUpdate.setValue(workoutModel.name, forKey: "name")
         toUpdate.setValue(workoutModel.countdown, forKey: "countdown")
         toUpdate.setValue(workoutModel.totalTime, forKey: "totalTime")
         toUpdate.setValue(workoutModel.swap, forKey: "swap")
+        
+        
         
         var exe:[Exercise] = [Exercise]()
         for e in workoutModel.exercise{
