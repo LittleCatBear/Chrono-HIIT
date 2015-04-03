@@ -12,7 +12,6 @@
 		E3F696031ACCB1CA00884BD8 /* Chrono_HIITTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F696021ACCB1CA00884BD8 /* Chrono_HIITTests.swift */; };
 		E3F696261ACCB28300884BD8 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3F696251ACCB28300884BD8 /* AVFoundation.framework */; };
 		E3F696331ACCBC9500884BD8 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F696321ACCBC9500884BD8 /* Workout.swift */; };
-		E3F696351ACCBC9600884BD8 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F696341ACCBC9600884BD8 /* Exercise.swift */; };
 		E3F696401ACCC16100884BD8 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F696361ACCC16100884BD8 /* FirstViewController.swift */; };
 		E3F696431ACCC16100884BD8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3F696391ACCC16100884BD8 /* Images.xcassets */; };
 		E3F696441ACCC16100884BD8 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3F6963A1ACCC16100884BD8 /* Info.plist */; };
@@ -29,6 +28,7 @@
 		E3F6965F1ACD405A00884BD8 /* WorkoutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F6965E1ACD405900884BD8 /* WorkoutModel.swift */; };
 		E3F696611ACD408F00884BD8 /* ExerciseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F696601ACD408F00884BD8 /* ExerciseModel.swift */; };
 		E3F696661ACE7A2200884BD8 /* CircleAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F696651ACE7A2200884BD8 /* CircleAnimationView.swift */; };
+		E3F696681ACE82D700884BD8 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F696671ACE82D700884BD8 /* Exercise.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +50,6 @@
 		E3F696021ACCB1CA00884BD8 /* Chrono_HIITTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chrono_HIITTests.swift; sourceTree = "<group>"; };
 		E3F696251ACCB28300884BD8 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.2.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = "<absolute>"; };
 		E3F696321ACCBC9500884BD8 /* Workout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
-		E3F696341ACCBC9600884BD8 /* Exercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		E3F696361ACCC16100884BD8 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirstViewController.swift; path = ../FirstViewController.swift; sourceTree = "<group>"; };
 		E3F696391ACCC16100884BD8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../Images.xcassets; sourceTree = "<group>"; };
 		E3F6963A1ACCC16100884BD8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
@@ -67,6 +66,7 @@
 		E3F6965E1ACD405900884BD8 /* WorkoutModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutModel.swift; sourceTree = "<group>"; };
 		E3F696601ACD408F00884BD8 /* ExerciseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseModel.swift; sourceTree = "<group>"; };
 		E3F696651ACE7A2200884BD8 /* CircleAnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleAnimationView.swift; sourceTree = "<group>"; };
+		E3F696671ACE82D700884BD8 /* Exercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Exercise.swift; path = ../Exercise.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,7 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				E3F695EB1ACCB1CA00884BD8 /* Chrono_HIIT.xcdatamodeld */,
-				E3F696341ACCBC9600884BD8 /* Exercise.swift */,
+				E3F696671ACE82D700884BD8 /* Exercise.swift */,
 				E3F696321ACCBC9500884BD8 /* Workout.swift */,
 			);
 			name = Entities;
@@ -300,9 +300,9 @@
 				E3F696401ACCC16100884BD8 /* FirstViewController.swift in Sources */,
 				E3F696661ACE7A2200884BD8 /* CircleAnimationView.swift in Sources */,
 				E3F6965F1ACD405A00884BD8 /* WorkoutModel.swift in Sources */,
-				E3F696351ACCBC9600884BD8 /* Exercise.swift in Sources */,
 				E3F696331ACCBC9500884BD8 /* Workout.swift in Sources */,
 				E3F6965D1ACCC6DC00884BD8 /* WorkoutViewController.swift in Sources */,
+				E3F696681ACE82D700884BD8 /* Exercise.swift in Sources */,
 				E3F696471ACCC16100884BD8 /* UIViewAnimationExt.swift in Sources */,
 				E3F695ED1ACCB1CA00884BD8 /* Chrono_HIIT.xcdatamodeld in Sources */,
 				E3F695EA1ACCB1CA00884BD8 /* AppDelegate.swift in Sources */,

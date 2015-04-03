@@ -222,10 +222,11 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         fetchRequest.predicate = predicate
         
         var err: NSError? = nil
-        var exeToDelete = managedObjectContext!.executeFetchRequest(fetchRequest,error: &err)!
+        var exeToDelete = managedObjectContext!.executeFetchRequest(fetchRequest,error: &err)! as [Exercise]
         for e in exeToDelete{
-            managedObjectContext!.deleteObject(e as NSManagedObject)
-            managedObjectContext?.save(&err)
+            NSLog("deletion: %@", e)
+            managedObjectContext!.deleteObject(e as Exercise)
+            //managedObjectContext!.save(&err)
         }
         
         

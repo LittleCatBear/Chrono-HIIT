@@ -20,6 +20,7 @@ class TimerViewController: UIViewController {
     @IBOutlet weak var repeatButton: UIButton!
     @IBOutlet weak var pauseButton: UIButton!
     
+    @IBOutlet weak var circleView: UIView!
     var sec : NSInteger = 0
     
     var tempSwap:NSInteger = 0
@@ -164,11 +165,11 @@ class TimerViewController: UIViewController {
     
     func addCircleView() {
         let diceRoll = CGFloat(Int(arc4random_uniform(7))*50)
-        var circleWidth = CGFloat(200)
+        var circleWidth = CGFloat(100)
         var circleHeight = circleWidth
         
-        // Create a new CircleView
-        var circleAnimationView = CircleAnimationView(frame: CGRectMake(diceRoll, 0, circleWidth, circleHeight))
+        // Create a new CircleAnimationView
+        var circleAnimationView = CircleAnimationView(frame: CGRectMake(0,circleView.center.y, circleWidth, circleHeight))
         
         view.addSubview(circleAnimationView)
         

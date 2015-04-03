@@ -450,11 +450,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="wordWrap" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0gK-ch-YVs">
-                                <fontDescription key="fontDescription" name="Universal-College-draft_DEMO" family="Universal College draft_DEMO" pointSize="34"/>
-                                <color key="textColor" red="0.4941176471" green="0.078431372550000003" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7st-9m-pqh">
                                 <rect key="frame" x="16" y="40" width="44.5" height="21"/>
                                 <fontDescription key="fontDescription" name="handwriting-draft_free-version" family="handwriting-draft_free-version" pointSize="18"/>
@@ -507,24 +502,35 @@
                                     <action selector="onClickPauseButton:" destination="Lzg-xa-e1d" eventType="touchUpInside" id="C4X-aZ-sB3"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xR5-Ov-Dqg">
+                                <rect key="frame" x="16" y="69" width="568" height="404"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="wordWrap" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0gK-ch-YVs">
+                                        <fontDescription key="fontDescription" name="Universal-College-draft_DEMO" family="Universal College draft_DEMO" pointSize="34"/>
+                                        <color key="textColor" red="0.4941176471" green="0.078431372550000003" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="qE0-dP-iQM" secondAttribute="trailing" constant="20" id="3iE-st-6xa"/>
                             <constraint firstAttribute="centerX" secondItem="Vcs-bD-6C2" secondAttribute="centerX" constant="1" id="8R2-Yv-Ind"/>
-                            <constraint firstItem="0gK-ch-YVs" firstAttribute="leading" secondItem="wIp-P6-aEl" secondAttribute="leadingMargin" id="9gg-pl-ocv"/>
                             <constraint firstItem="7st-9m-pqh" firstAttribute="leading" secondItem="wIp-P6-aEl" secondAttribute="leadingMargin" id="AFe-yW-pxX"/>
                             <constraint firstItem="6At-Xk-nkx" firstAttribute="top" secondItem="yT6-kg-Pf7" secondAttribute="bottom" constant="20" id="AJp-Yy-l2H"/>
                             <constraint firstItem="Wfa-TO-s4b" firstAttribute="top" secondItem="0Rh-ev-Re2" secondAttribute="bottom" constant="20" id="Anv-VQ-gcd"/>
                             <constraint firstItem="Wfa-TO-s4b" firstAttribute="top" secondItem="Vcs-bD-6C2" secondAttribute="bottom" constant="18" id="Da0-TX-61b"/>
-                            <constraint firstAttribute="centerX" secondItem="0gK-ch-YVs" secondAttribute="centerX" id="Fir-Bn-y39"/>
-                            <constraint firstAttribute="centerY" secondItem="0gK-ch-YVs" secondAttribute="centerY" id="LOT-7A-O7D"/>
                             <constraint firstItem="Wfa-TO-s4b" firstAttribute="top" secondItem="qE0-dP-iQM" secondAttribute="bottom" constant="20" id="Oq2-yw-w3c"/>
-                            <constraint firstItem="0gK-ch-YVs" firstAttribute="trailing" secondItem="wIp-P6-aEl" secondAttribute="trailingMargin" id="RAV-jH-tfL"/>
+                            <constraint firstItem="xR5-Ov-Dqg" firstAttribute="leading" secondItem="wIp-P6-aEl" secondAttribute="leadingMargin" id="T8R-qu-bAU"/>
+                            <constraint firstItem="xR5-Ov-Dqg" firstAttribute="trailing" secondItem="wIp-P6-aEl" secondAttribute="trailingMargin" id="VbU-wJ-H10"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qE0-dP-iQM" secondAttribute="trailing" id="cT4-fW-Pgk"/>
                             <constraint firstItem="6At-Xk-nkx" firstAttribute="trailing" secondItem="wIp-P6-aEl" secondAttribute="trailingMargin" id="euR-1m-SHA"/>
                             <constraint firstItem="0Rh-ev-Re2" firstAttribute="leading" secondItem="wIp-P6-aEl" secondAttribute="leadingMargin" constant="20" id="gRN-uo-Hhn"/>
                             <constraint firstItem="qE0-dP-iQM" firstAttribute="trailing" secondItem="wIp-P6-aEl" secondAttribute="trailingMargin" constant="20" id="mSy-6g-gUG"/>
+                            <constraint firstItem="xR5-Ov-Dqg" firstAttribute="top" secondItem="6At-Xk-nkx" secondAttribute="bottom" constant="8" id="o4O-lG-1uD"/>
+                            <constraint firstItem="0Rh-ev-Re2" firstAttribute="top" secondItem="xR5-Ov-Dqg" secondAttribute="bottom" constant="8" id="tAN-CB-hiO"/>
                             <constraint firstItem="0Rh-ev-Re2" firstAttribute="leading" secondItem="wIp-P6-aEl" secondAttribute="leadingMargin" id="uaG-2j-2DD"/>
                             <constraint firstItem="7st-9m-pqh" firstAttribute="top" secondItem="yT6-kg-Pf7" secondAttribute="bottom" constant="20" id="z0F-2s-dFk"/>
                         </constraints>
@@ -537,6 +543,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="circleView" destination="xR5-Ov-Dqg" id="aBQ-jZ-JyR"/>
                         <outlet property="exerciseLabel" destination="0gK-ch-YVs" id="Tac-08-5DO"/>
                         <outlet property="pauseButton" destination="0Rh-ev-Re2" id="cOj-Hw-yEU"/>
                         <outlet property="repeatButton" destination="qE0-dP-iQM" id="XT6-A1-heS"/>
