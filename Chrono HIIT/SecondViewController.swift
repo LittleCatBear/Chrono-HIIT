@@ -11,10 +11,12 @@ import CoreData
 
 class SecondViewController: UIViewController, UITextFieldDelegate {
     
-
+    //swap
     @IBOutlet weak var timingTextField: UITextField!
     @IBOutlet weak var timingLabel: UILabel!
+    //totalTime
     @IBOutlet weak var roundTextField: UITextField!
+    //countdown
     @IBOutlet weak var countDownTextField: UITextField!
 //    var workout:Workout = Workout()
     @IBOutlet weak var workoutStatusLabel: UILabel!
@@ -76,9 +78,9 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     func getWorkoutData(){
         self.workoutStatusLabel.text = "Editing Workout \(workoutModel.name)"
         self.workoutStatusLabel.textColor = UIColor.blueColor()
-        timingTextField.text = String(workoutModel.totalTime)
+        timingTextField.text = String(workoutModel.swap)
         countDownTextField.text = String(workoutModel.countdown)
-        roundTextField.text = String(workoutModel.swap)
+        roundTextField.text = String(workoutModel.totalTime)
         workoutNameTextField.text = workoutModel.name
     }
     
@@ -97,7 +99,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         if (segue.identifier == "showTimer"){
             var temp = 0
             var tempCd = 5
-            var tempRound = 1
+            var tempRound = 0
             if (self.timingTextField.text != ""){
                 temp = self.timingTextField.text.toInt()!
             }
@@ -115,8 +117,8 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
             } else{
                 tempCd = 0
             }
-            workoutModel.swap = tempRound
-            workoutModel.totalTime = temp
+            workoutModel.swap = temp
+            workoutModel.totalTime = tempRound
             workoutModel.countdown = tempCd
         }
     }
@@ -159,9 +161,9 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     }
     
     func getDataForSaving(){
-        workoutModel.swap = self.roundTextField.text!.toInt()!
+        workoutModel.swap = self.timingTextField.text!.toInt()!
         workoutModel.countdown = self.countDownTextField!.text.toInt()!
-        workoutModel.totalTime = self.timingTextField!.text.toInt()!
+        workoutModel.totalTime = self.roundTextField!.text.toInt()!
     }
     
     func saveWorkout(){

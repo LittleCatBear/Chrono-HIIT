@@ -13,20 +13,31 @@ import CoreData
 
 class TimerViewController: UIViewController {
     
+    @IBOutlet weak var totalChronoView: UIView!
     
+    //totalTime
     @IBOutlet weak var roundLabel: UILabel!
     @IBOutlet weak var exerciseLabel: UILabel!
+    
+    //swap
     @IBOutlet weak var timingLab: UILabel!
     @IBOutlet weak var repeatButton: UIButton!
     @IBOutlet weak var pauseButton: UIButton!
     
     @IBOutlet weak var circleView: UIView!
+    
+    //totalTiming temporary
     var sec : NSInteger = 0
     
+    //Swap temporary
     var tempSwap:NSInteger = 0
+    
     var timer = NSTimer()
     var countdown = NSTimer()
+    
+  //  countdown temporary
     var cd:NSInteger = 0
+    
     // flag false: button pause not clicked
     // flag true: button pause clicked, waiting for resume
     var flag:Bool = false
@@ -41,8 +52,8 @@ class TimerViewController: UIViewController {
         UIApplication.sharedApplication().idleTimerDisabled = true
         repeatButton.enabled = false
         pauseButton.enabled = false
-        roundLabel.text = "Time left"
-        timingLab.text = "Swap"
+       // roundLabel.text = "Time left"
+       // timingLab.text = "Swap"
         cd = NSInteger(workoutModel.countdown)
         self.sec = NSInteger(workoutModel.totalTime)
         //self.tempSwap = self.totalRounds
@@ -50,6 +61,7 @@ class TimerViewController: UIViewController {
         if(cd > 0){
             countdown = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("countDownSub"), userInfo: nil, repeats: true)
         } else{
+            addCircleView(totalChronoView, duration:NSTimeInterval(sec))
             self.lauchExercise(Float(sec))
         }
     }
@@ -79,11 +91,12 @@ class TimerViewController: UIViewController {
         })
        // self.exerciseLabel.fadeIn(duration: 1.0, delay: 0.0)
         speech(self.exerciseLabel.text!)
-        addCircleView()
-        
-        self.sec = NSInteger(workoutModel.totalTime)
-        self.timingLab.text = "Swap: \(sec)"
-        self.roundLabel.text = "Time left: \(tempSwap)"
+        NSLog("swap: %d", workoutModel.swap)
+        addCircleView(circleView, duration: NSTimeInterval(workoutModel.swap))
+        self.tempSwap = NSInteger(workoutModel.swap)
+       // self.sec = NSInteger(workoutModel.totalTime)
+        self.timingLab.text = "Swap: \(tempSwap)"
+        self.roundLabel.text = "\(sec)"
         timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("subtractTime"), userInfo: nil, repeats: true)
     }
     
@@ -97,6 +110,7 @@ class TimerViewController: UIViewController {
         
         if(cd == -1){
             countdown.invalidate()
+            addCircleView(totalChronoView, duration:NSTimeInterval(sec))
             lauchExercise(Float(workoutModel.totalTime))
         } else if(cd == 0){
             self.exerciseLabel.text = "Begin"
@@ -111,16 +125,16 @@ class TimerViewController: UIViewController {
     func subtractTime() {
         sec--
         tempSwap--
-        timingLab.text = "Swap: \(sec)"
-        roundLabel.text = "Time left: \(tempSwap)"
-        if(tempSwap == 0){
-            self.timingLab.text = "Swap: 0"
+      //  timingLab.text = "Swap: \(tempSwap)"
+        roundLabel.text = " \(sec)"
+        if(sec == 0){
+          //  self.timingLab.text = "Swap: 0"
             self.exerciseLabel.text = "Time completed"
             speech(self.exerciseLabel.text!)
             timer.invalidate()
             repeatButton.enabled = true
             pauseButton.enabled = false
-        }else if(sec == 0)  {
+        }else if(tempSwap == 0)  {
                 timer.invalidate()
                 lauchExercise(Float(workoutModel.totalTime))
         }
@@ -164,19 +178,19 @@ class TimerViewController: UIViewController {
         }
     }
     
-    func addCircleView() {
+    func addCircleView(view:UIView, duration: NSTimeInterval) {
        // let diceRoll = CGFloat(Int(arc4random_uniform(7))*50)
-        var circleWidth = CGFloat(exerciseLabel.frame.width + 50)
+        var circleWidth = CGFloat(view.frame.width/2 )
         var circleHeight = circleWidth
         
         // Create a new CircleAnimationView
-        var circleAnimationView = CircleAnimationView(frame: CGRectMake(circleView.center.x - circleWidth/2,circleView.center.y - circleHeight/2, circleWidth, circleHeight), line: 20.0)
+        var circleAnimationView = CircleAnimationView(frame: CGRectMake(view.center.x - circleWidth/2,view.center.y - circleHeight/2, circleWidth, circleHeight), line: 20.0)
         
         view.addSubview(circleAnimationView)
         
         // Animate the drawing of the circle over the course of 1 second
-        circleAnimationView.animateCircle(2.0)
-        circleAnimationView.fadeOutNoRepeat(duration: 2.0, delay: 1.0)
+        circleAnimationView.animateCircle(duration)
+        circleAnimationView.fadeOutNoRepeat(duration: duration, delay: 1.0)
     }
     
     
