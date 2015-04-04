@@ -61,7 +61,7 @@ class TimerViewController: UIViewController {
         if(cd > 0){
             countdown = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("countDownSub"), userInfo: nil, repeats: true)
         } else{
-            addCircleView(totalChronoView, duration:NSTimeInterval(sec))
+            addCircleView(totalChronoView, duration:NSTimeInterval(sec), withFadeOut:false)
             self.lauchExercise(Float(sec))
         }
     }
@@ -91,11 +91,11 @@ class TimerViewController: UIViewController {
         })
        // self.exerciseLabel.fadeIn(duration: 1.0, delay: 0.0)
         speech(self.exerciseLabel.text!)
-        NSLog("swap: %d", workoutModel.swap)
-        addCircleView(circleView, duration: NSTimeInterval(workoutModel.swap))
+        //NSLog("swap: %d", workoutModel.swap)
+        addCircleView(circleView, duration: NSTimeInterval(workoutModel.swap), withFadeOut:true)
         self.tempSwap = NSInteger(workoutModel.swap)
        // self.sec = NSInteger(workoutModel.totalTime)
-        self.timingLab.text = "Swap: \(tempSwap)"
+       // self.timingLab.text = "Swap: \(tempSwap)"
         self.roundLabel.text = "\(sec)"
         timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("subtractTime"), userInfo: nil, repeats: true)
     }
@@ -110,7 +110,7 @@ class TimerViewController: UIViewController {
         
         if(cd == -1){
             countdown.invalidate()
-            addCircleView(totalChronoView, duration:NSTimeInterval(sec))
+            addCircleView(totalChronoView, duration:NSTimeInterval(sec), withFadeOut:false)
             lauchExercise(Float(workoutModel.totalTime))
         } else if(cd == 0){
             self.exerciseLabel.text = "Begin"
@@ -159,7 +159,7 @@ class TimerViewController: UIViewController {
         repeatButton.enabled = false
         timer.invalidate()
         cd = NSInteger(workoutModel.countdown)
-        
+        sec = NSInteger(workoutModel.totalTime)
         tempSwap = NSInteger(workoutModel.swap)
         countdown = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("countDownSub"), userInfo: nil, repeats: true)
         
@@ -178,19 +178,22 @@ class TimerViewController: UIViewController {
         }
     }
     
-    func addCircleView(view:UIView, duration: NSTimeInterval) {
+    func addCircleView(attachableView:UIView, duration: NSTimeInterval, withFadeOut:Bool) {
        // let diceRoll = CGFloat(Int(arc4random_uniform(7))*50)
-        var circleWidth = CGFloat(view.frame.width/2 )
+        var circleWidth = CGFloat(attachableView.frame.width/2 + 20)
         var circleHeight = circleWidth
         
         // Create a new CircleAnimationView
-        var circleAnimationView = CircleAnimationView(frame: CGRectMake(view.center.x - circleWidth/2,view.center.y - circleHeight/2, circleWidth, circleHeight), line: 20.0)
+        var circleAnimationView = CircleAnimationView(frame: CGRectMake(attachableView.center.x - circleWidth/2,attachableView.center.y - circleHeight/2, circleWidth, circleHeight), line: 20.0)
         
         view.addSubview(circleAnimationView)
         
         // Animate the drawing of the circle over the course of 1 second
         circleAnimationView.animateCircle(duration)
-        circleAnimationView.fadeOutNoRepeat(duration: duration, delay: 1.0)
+        if(withFadeOut){
+            circleAnimationView.fadeOutNoRepeat(duration: duration, delay: 1.0)
+        }
+        
     }
     
     
