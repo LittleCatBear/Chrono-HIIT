@@ -10,38 +10,45 @@ import UIKit
 import CoreData
 import AVFoundation
 
+//global ManagedObjectContext for the whole app
 var managedObjectContext: NSManagedObjectContext? = nil
-//var workout = NSEntityDescription.insertNewObjectForEntityForName("Workout", inManagedObjectContext: managedObjectContext!) as Workout
+
+//global workout object
 var workoutModel:WorkoutModel = WorkoutModel()
+
+//global array of exercises object
 var exercises:[ExerciseModel] = [ExerciseModel]()
+
+//global MAnagedObjectId for a selected previously saved workout (from Core Data)
 var workoutId:NSManagedObjectID = NSManagedObjectID()
 
-//when new workout clicked, token = true
+//when "new workout" (+) clicked on WorkoutViewController, token1 = true
 var token1:Bool = false
-//for timer controller ràz
+
+//for TimerViewController field cleaning when a new workout had been selected
 var token2:Bool = false
-//var updatableWorkout:Workout = Workout()
-//var updatableExercise:[Exercise] = [Exercise]()
 
 class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
 
+    //tableView of exercises, saved or to be saved, depending on the current context
     @IBOutlet weak var exerciseTableView: UITableView!
+    
+    //text field for adding a new exercise in the current workout
     @IBOutlet weak var ExerciseTextField: UITextField!
     
+    //tells the user what king of workout it is (saved, new..)
     @IBOutlet weak var workoutStatusLabel: UILabel!
     
-    //var exercises:[ExerciseModel] = [ExerciseModel]()
-    
+    //# MARK: prepare and load view, with tableview cleaning and loading if needed
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         var appDel: AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         managedObjectContext = appDel.managedObjectContext!
         workoutModel.exercise = exercises
         //findFontNames()
         ExerciseTextField.delegate = self
-        
-         self.exerciseTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        // Do any additional setup after loading the view, typically from a nib.
+        self.exerciseTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -60,7 +67,6 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
             workoutStatusLabel.text = "Editing workout \(workoutModel.name)"
             workoutStatusLabel.textColor = UIColor.blueColor()
         }
-
     }
     
     func cleanData(){
@@ -70,9 +76,13 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         workoutModel.totalTime = 0
         workoutModel.swap = 0
         workoutModel.exercise = exercises
-        
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    //# MARK: snippet to find every available fonts
     func findFontNames(){
         for familyName in UIFont.familyNames(){
             for fontName in UIFont.fontNamesForFamilyName(String(format: familyName as NSString)) {
@@ -81,11 +91,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
+    //# MARK: add a new exercise in tableview and temporary exercises array of a workout 
     @IBAction func onClickAddExercise(sender: UIButton) {
         if (self.ExerciseTextField.text != ""){
            // var ex = NSEntityDescription.insertNewObjectForEntityForName("Exercise", inManagedObjectContext: managedObjectContext!) as Exercise
@@ -99,6 +105,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
+    //# MARK: exercises tableview management
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return exercises.count
     }
@@ -109,9 +116,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-    }
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {}
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete {
@@ -120,13 +125,11 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
+    //# MARK: keyboard behaviour
     func textFieldShouldReturn(textField: UITextField!) -> Bool
     {
         textField.resignFirstResponder()
         return true;
     }
-    
-    
-
 }
 

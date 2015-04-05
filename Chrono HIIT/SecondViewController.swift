@@ -38,7 +38,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     // Save a workout in Core Data
     @IBOutlet weak var saveButton: UIButton!
     
-    //# MARK: Prepare and load current view according context (new workout, unregistered workout, saved workout)
+    //# MARK: Prepare and load current view according to context (new workout, unregistered workout, saved workout)
     override func viewDidLoad() {
         super.viewDidLoad()
         
