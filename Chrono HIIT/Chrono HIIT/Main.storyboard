@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -50,7 +51,7 @@
                                     <outlet property="delegate" destination="9pv-A4-QxB" id="RdZ-ZX-MoW"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Exercise" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6WY-o1-ePH">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Add Exercise" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6WY-o1-ePH">
                                 <rect key="frame" x="213" y="60" width="173.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                                 <nil key="highlightedColor"/>
@@ -76,7 +77,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exercises " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bjq-mC-r7w">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New workout" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8E-dp-DHJ">
@@ -118,14 +119,14 @@
                                 <exclude reference="Bjq-mC-r7w"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="Pr5-JO-8CI"/>
-                                <exclude reference="QaZ-6I-GFc"/>
-                                <exclude reference="kkf-lw-HSx"/>
-                                <exclude reference="wFX-A6-t2z"/>
-                                <exclude reference="z0N-ps-ddu"/>
                                 <exclude reference="Nau-GS-ryZ"/>
                                 <exclude reference="ig3-Wc-fwH"/>
+                                <exclude reference="z0N-ps-ddu"/>
                                 <exclude reference="9yF-V7-jUm"/>
+                                <exclude reference="kkf-lw-HSx"/>
+                                <exclude reference="wFX-A6-t2z"/>
+                                <exclude reference="Pr5-JO-8CI"/>
+                                <exclude reference="QaZ-6I-GFc"/>
                                 <exclude reference="Tpc-iR-jXy"/>
                                 <exclude reference="kaM-ad-JSk"/>
                                 <exclude reference="qgd-7W-9Zm"/>
@@ -136,18 +137,18 @@
                                 <include reference="Bjq-mC-r7w"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="QaZ-6I-GFc"/>
-                                <exclude reference="bVr-ul-6Km"/>
-                                <exclude reference="9be-YX-OnX"/>
-                                <include reference="wFX-A6-t2z"/>
+                                <include reference="Nau-GS-ryZ"/>
+                                <include reference="ig3-Wc-fwH"/>
                                 <exclude reference="Gn4-zk-LG8"/>
                                 <exclude reference="HrA-Tr-Ra6"/>
                                 <include reference="z0N-ps-ddu"/>
                                 <exclude reference="ztA-KE-NzW"/>
-                                <include reference="Nau-GS-ryZ"/>
-                                <include reference="ig3-Wc-fwH"/>
                                 <include reference="9yF-V7-jUm"/>
                                 <exclude reference="pyo-SX-cNN"/>
+                                <exclude reference="9be-YX-OnX"/>
+                                <include reference="wFX-A6-t2z"/>
+                                <include reference="QaZ-6I-GFc"/>
+                                <exclude reference="bVr-ul-6Km"/>
                                 <exclude reference="04C-IA-gfs"/>
                                 <include reference="Tpc-iR-jXy"/>
                                 <exclude reference="ehF-P6-ShG"/>
@@ -265,8 +266,7 @@
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Workout Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0hu-1q-mys">
                                         <rect key="frame" x="242" y="307" width="114.5" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.4941176471" green="0.078431372550000003" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Duration of 1 exercise" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ioO-ec-JzT">
@@ -348,16 +348,11 @@
                                         <exclude reference="jPQ-KP-1FT"/>
                                     </mask>
                                     <mask key="constraints">
-                                        <exclude reference="57r-kh-HEz"/>
-                                        <exclude reference="fnw-wS-K2I"/>
-                                        <exclude reference="B8G-8Y-8Qd"/>
-                                        <exclude reference="LgF-Kb-CXE"/>
-                                        <exclude reference="lYU-2b-qK5"/>
-                                        <exclude reference="Tgo-gO-jEU"/>
-                                        <exclude reference="euz-9K-bq7"/>
                                         <exclude reference="LCZ-hp-xR8"/>
                                         <exclude reference="Oh5-om-ypb"/>
                                         <exclude reference="tJ5-KJ-3xd"/>
+                                        <exclude reference="Tgo-gO-jEU"/>
+                                        <exclude reference="euz-9K-bq7"/>
                                         <exclude reference="7VY-dh-R96"/>
                                         <exclude reference="8ua-W6-TAj"/>
                                         <exclude reference="OsT-nN-JCS"/>
@@ -368,6 +363,11 @@
                                         <exclude reference="8Um-VB-FlO"/>
                                         <exclude reference="Hyc-wY-22U"/>
                                         <exclude reference="zrd-B8-o56"/>
+                                        <exclude reference="57r-kh-HEz"/>
+                                        <exclude reference="fnw-wS-K2I"/>
+                                        <exclude reference="B8G-8Y-8Qd"/>
+                                        <exclude reference="LgF-Kb-CXE"/>
+                                        <exclude reference="lYU-2b-qK5"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact">
@@ -382,16 +382,11 @@
                                         <include reference="jPQ-KP-1FT"/>
                                     </mask>
                                     <mask key="constraints">
-                                        <include reference="57r-kh-HEz"/>
-                                        <include reference="fnw-wS-K2I"/>
-                                        <include reference="B8G-8Y-8Qd"/>
-                                        <include reference="LgF-Kb-CXE"/>
-                                        <include reference="lYU-2b-qK5"/>
-                                        <include reference="Tgo-gO-jEU"/>
-                                        <include reference="euz-9K-bq7"/>
                                         <include reference="LCZ-hp-xR8"/>
                                         <include reference="Oh5-om-ypb"/>
                                         <include reference="tJ5-KJ-3xd"/>
+                                        <include reference="Tgo-gO-jEU"/>
+                                        <include reference="euz-9K-bq7"/>
                                         <include reference="7VY-dh-R96"/>
                                         <include reference="8ua-W6-TAj"/>
                                         <include reference="OsT-nN-JCS"/>
@@ -402,13 +397,18 @@
                                         <include reference="8Um-VB-FlO"/>
                                         <include reference="Hyc-wY-22U"/>
                                         <include reference="zrd-B8-o56"/>
+                                        <include reference="57r-kh-HEz"/>
+                                        <include reference="fnw-wS-K2I"/>
+                                        <include reference="B8G-8Y-8Qd"/>
+                                        <include reference="LgF-Kb-CXE"/>
+                                        <include reference="lYU-2b-qK5"/>
                                     </mask>
                                 </variation>
                             </view>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gg-u1-Nv4">
                                 <rect key="frame" x="273" y="511" width="54.5" height="20"/>
                                 <fontDescription key="fontDescription" name="HoeflerText-Black" family="Hoefler Text" pointSize="20"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="highlightedColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VRY-Jh-7Kg">
@@ -441,7 +441,6 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Workout" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yeR-lF-T7K">
                                 <rect key="frame" x="243" y="20" width="114" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3SR-Sh-lhf">
@@ -520,11 +519,11 @@
                                 <exclude reference="ntq-XH-zdu"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="aRN-lz-b2L"/>
-                                <exclude reference="bom-Gt-8Yb"/>
                                 <exclude reference="B2x-An-B2D"/>
                                 <exclude reference="npg-sC-c2b"/>
                                 <exclude reference="x3q-AW-ugF"/>
+                                <exclude reference="aRN-lz-b2L"/>
+                                <exclude reference="bom-Gt-8Yb"/>
                                 <exclude reference="g5p-tN-AST"/>
                                 <exclude reference="8DS-I1-PVb"/>
                             </mask>
@@ -534,11 +533,11 @@
                                 <include reference="ntq-XH-zdu"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="bom-Gt-8Yb"/>
-                                <exclude reference="bwA-m7-z1S"/>
                                 <include reference="B2x-An-B2D"/>
                                 <include reference="npg-sC-c2b"/>
                                 <include reference="x3q-AW-ugF"/>
+                                <include reference="bom-Gt-8Yb"/>
+                                <exclude reference="bwA-m7-z1S"/>
                                 <include reference="g5p-tN-AST"/>
                             </mask>
                         </variation>
@@ -580,9 +579,6 @@
                                         <fontDescription key="fontDescription" name="handwriting-draft_free-version" family="handwriting-draft_free-version" pointSize="18"/>
                                         <color key="textColor" red="0.90196078430000004" green="0.25882352939999997" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
-                                        <variation key="widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="12" y="25" width="44.5" height="21"/>
-                                        </variation>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -618,7 +614,7 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7st-9m-pqh">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7st-9m-pqh">
                                 <rect key="frame" x="16" y="40" width="44.5" height="21"/>
                                 <fontDescription key="fontDescription" name="handwriting-draft_free-version" family="handwriting-draft_free-version" pointSize="18"/>
                                 <color key="textColor" red="0.90196078430000004" green="0.25882352939999997" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
@@ -664,10 +660,10 @@
                                     <action selector="onClickPauseButton:" destination="Lzg-xa-e1d" eventType="touchUpInside" id="C4X-aZ-sB3"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xR5-Ov-Dqg">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xR5-Ov-Dqg">
                                 <rect key="frame" x="16" y="69" width="568" height="404"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="wordWrap" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0gK-ch-YVs">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="center" lineBreakMode="wordWrap" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0gK-ch-YVs">
                                         <fontDescription key="fontDescription" name="Universal-College-draft_DEMO" family="Universal College draft_DEMO" pointSize="34"/>
                                         <color key="textColor" red="0.4941176471" green="0.078431372550000003" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -718,11 +714,11 @@
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="wjB-1c-FfZ"/>
-                                <exclude reference="0Dn-H2-UCU"/>
-                                <exclude reference="Ogn-UR-tJr"/>
                                 <exclude reference="uaG-2j-2DD"/>
                                 <exclude reference="cT4-fW-Pgk"/>
                                 <exclude reference="mSy-6g-gUG"/>
+                                <exclude reference="0Dn-H2-UCU"/>
+                                <exclude reference="Ogn-UR-tJr"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">

@@ -2,13 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>UIAppFonts</key>
-	<array>
-		<string>handwriting-draft_free-version.ttf</string>
-		<string>hint-retrï-grunge_free-version.ttf</string>
-		<string>Universal-college_DEMO-version.ttf</string>
-		<string>Universal-college-draft_DEMO-version.ttf</string>
-	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>

@@ -20,10 +20,6 @@
 		E3F696471ACCC16100884BD8 /* UIViewAnimationExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F6963D1ACCC16100884BD8 /* UIViewAnimationExt.swift */; };
 		E3F6964C1ACCC1F900884BD8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3F6964B1ACCC1F900884BD8 /* Main.storyboard */; };
 		E3F6964E1ACCC20300884BD8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3F6964D1ACCC20300884BD8 /* LaunchScreen.xib */; };
-		E3F696551ACCC2C200884BD8 /* Universal-college-draft_DEMO-version.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3F696541ACCC2C200884BD8 /* Universal-college-draft_DEMO-version.ttf */; };
-		E3F696571ACCC2F400884BD8 /* Universal-college_DEMO-version.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3F696561ACCC2F400884BD8 /* Universal-college_DEMO-version.ttf */; };
-		E3F696591ACCC30900884BD8 /* hint-retrï-grunge_free-version.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3F696581ACCC30900884BD8 /* hint-retrï-grunge_free-version.ttf */; };
-		E3F6965B1ACCC31500884BD8 /* handwriting-draft_free-version.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3F6965A1ACCC31500884BD8 /* handwriting-draft_free-version.ttf */; };
 		E3F6965D1ACCC6DC00884BD8 /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F6965C1ACCC6DC00884BD8 /* WorkoutViewController.swift */; };
 		E3F6965F1ACD405A00884BD8 /* WorkoutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F6965E1ACD405900884BD8 /* WorkoutModel.swift */; };
 		E3F696611ACD408F00884BD8 /* ExerciseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F696601ACD408F00884BD8 /* ExerciseModel.swift */; };
@@ -58,10 +54,6 @@
 		E3F6963D1ACCC16100884BD8 /* UIViewAnimationExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewAnimationExt.swift; path = ../UIViewAnimationExt.swift; sourceTree = "<group>"; };
 		E3F6964B1ACCC1F900884BD8 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		E3F6964D1ACCC20300884BD8 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
-		E3F696541ACCC2C200884BD8 /* Universal-college-draft_DEMO-version.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Universal-college-draft_DEMO-version.ttf"; path = "../../../../../../../Downloads/font/Universal-College-draft_demo/Universal-college-draft_DEMO-version.ttf"; sourceTree = "<group>"; };
-		E3F696561ACCC2F400884BD8 /* Universal-college_DEMO-version.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Universal-college_DEMO-version.ttf"; path = "../../../../../../../Downloads/font/Universal-College_demo/Universal-college_DEMO-version.ttf"; sourceTree = "<group>"; };
-		E3F696581ACCC30900884BD8 /* hint-retrï-grunge_free-version.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "hint-retrï-grunge_free-version.ttf"; path = "../../../../../../../Downloads/font/Hint-Retro-Grunge/hint-retrï-grunge_free-version.ttf"; sourceTree = "<group>"; };
-		E3F6965A1ACCC31500884BD8 /* handwriting-draft_free-version.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "handwriting-draft_free-version.ttf"; path = "../../../../../../../Downloads/font/Handwriting-draft/handwriting-draft_free-version.ttf"; sourceTree = "<group>"; };
 		E3F6965C1ACCC6DC00884BD8 /* WorkoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = SOURCE_ROOT; };
 		E3F6965E1ACD405900884BD8 /* WorkoutModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutModel.swift; sourceTree = "<group>"; };
 		E3F696601ACD408F00884BD8 /* ExerciseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseModel.swift; sourceTree = "<group>"; };
@@ -153,10 +145,6 @@
 		E3F6962D1ACCB2D600884BD8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				E3F6965A1ACCC31500884BD8 /* handwriting-draft_free-version.ttf */,
-				E3F696581ACCC30900884BD8 /* hint-retrï-grunge_free-version.ttf */,
-				E3F696561ACCC2F400884BD8 /* Universal-college_DEMO-version.ttf */,
-				E3F696541ACCC2C200884BD8 /* Universal-college-draft_DEMO-version.ttf */,
 			);
 			name = Resources;
 			path = "../../ExerciseTimerSwitch/Exercise Timer Switch/Exercise Timer Switch";
@@ -272,12 +260,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3F696571ACCC2F400884BD8 /* Universal-college_DEMO-version.ttf in Resources */,
 				E3F696431ACCC16100884BD8 /* Images.xcassets in Resources */,
-				E3F696591ACCC30900884BD8 /* hint-retrï-grunge_free-version.ttf in Resources */,
-				E3F6965B1ACCC31500884BD8 /* handwriting-draft_free-version.ttf in Resources */,
 				E3F6964C1ACCC1F900884BD8 /* Main.storyboard in Resources */,
-				E3F696551ACCC2C200884BD8 /* Universal-college-draft_DEMO-version.ttf in Resources */,
 				E3F6964E1ACCC20300884BD8 /* LaunchScreen.xib in Resources */,
 				E3F696441ACCC16100884BD8 /* Info.plist in Resources */,
 			);
