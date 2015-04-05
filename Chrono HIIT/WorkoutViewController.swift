@@ -87,28 +87,39 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         index = indexPath.row
-        workoutId = workouts[indexPath.row].objectID
-        workoutModel.name = workouts[indexPath.row].name
-        workoutModel.swap = workouts[indexPath.row].swap
-        workoutModel.countdown = workouts[indexPath.row].countdown
-        workoutModel.totalTime = workouts[indexPath.row].totalTime
-        exercises.removeAll()
-        for (var i = 0; i<workouts[indexPath.row].exercise.count ; i++){
-            let ex = ExerciseModel()
-            ex.name = workouts[indexPath.row].exercise[i].name
-            exercises.append(ex)
+        if(workouts.count > 0){
+            workoutId = workouts[indexPath.row].objectID
+            workoutModel.name = workouts[indexPath.row].name
+            workoutModel.swap = workouts[indexPath.row].swap
+            workoutModel.countdown = workouts[indexPath.row].countdown
+            workoutModel.totalTime = workouts[indexPath.row].totalTime
+            exercises.removeAll()
+            for (var i = 0; i<workouts[indexPath.row].exercise.count ; i++){
+                let ex = ExerciseModel()
+                ex.name = workouts[indexPath.row].exercise[i].name
+                exercises.append(ex)
+            }
+            workoutModel.exercise = exercises
+            tabBarController?.selectedIndex = 1
         }
-        workoutModel.exercise = exercises
-        tabBarController?.selectedIndex = 1
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete {
             if(workouts.count != 0){
-                managedObjectContext?.deleteObject(workouts[indexPath.row] as NSManagedObject)
+                managedObjectContext?.deleteObject(workouts[indexPath.row] as Workout)
                 managedObjectContext?.save(nil)
                 workouts.removeAtIndex(indexPath.row)
-                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+                if(workouts.count > 0){
+                    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+                } else{
+                    tableView.reloadData()
+                 //   tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+                   // tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+                   // tableView.cellForRowAtIndexPath(indexPath)?.textLabel?.text = "You don't have any saved workouts"
+                    
+                   // tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+                }
             }
         }
     }
