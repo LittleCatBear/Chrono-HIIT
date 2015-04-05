@@ -10,8 +10,6 @@ import Foundation
 import UIKit
 import CoreData
 
-
-
 class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDataSource{
    
     var workouts:[Workout] = [Workout]()
@@ -24,14 +22,13 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         workoutTable.delegate = self
         self.workoutTable.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellw")
-        
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         getWorkouts()
-        
     }
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
         self.workoutTable.reloadData()
@@ -69,7 +66,6 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
         } else {
             println("Could not fetch \(error), \(error!.userInfo)")
         }
-        
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -90,7 +86,6 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
     
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        //
         index = indexPath.row
         workoutId = workouts[indexPath.row].objectID
         workoutModel.name = workouts[indexPath.row].name
@@ -105,7 +100,6 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
         }
         workoutModel.exercise = exercises
         tabBarController?.selectedIndex = 1
-        
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {

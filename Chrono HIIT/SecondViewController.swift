@@ -269,7 +269,8 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         println("to update \(toUpdate.name)")
         return toUpdate
     }
-    //
+    
+    // updating a workout: delete odl exercises array and create a new one with current exercise array from FirstViewController
     func updateWorkout(){
         var toUpdate = getWorkoutToUpdatewithId()
         

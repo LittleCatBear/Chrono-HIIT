@@ -26,37 +26,32 @@ class TimerViewController: UIViewController {
     
     @IBOutlet weak var circleView: UIView!
     
-    //totalTiming temporary
+    // temporary totalTiming
     var sec : NSInteger = 0
     
-    //Swap temporary
+    // temporary Swap
     var tempSwap:NSInteger = 0
     
+    // timer for each exercise
     var timer = NSTimer()
+    
+    // timer for countdown
     var countdown = NSTimer()
     
-  //  countdown temporary
+    // temporary countdown
     var cd:NSInteger = 0
     
-    // flag false: button pause not clicked
-    // flag true: button pause clicked, waiting for resume
     var flag:Bool = false
-    
-    
     let synth = AVSpeechSynthesizer()
     var myUtterance = AVSpeechUtterance(string: "")
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
         UIApplication.sharedApplication().idleTimerDisabled = true
         repeatButton.enabled = false
         pauseButton.enabled = false
-       // roundLabel.text = "Time left"
-       // timingLab.text = "Swap"
         cd = NSInteger(workoutModel.countdown)
         self.sec = NSInteger(workoutModel.totalTime)
-        //self.tempSwap = self.totalRounds
         self.tempSwap = NSInteger(workoutModel.swap)
         if(cd > 0){
             countdown = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("countDownSub"), userInfo: nil, repeats: true)
@@ -76,26 +71,19 @@ class TimerViewController: UIViewController {
     }
     
     func lauchExercise(timing:Float){
-        
         pauseButton.enabled = true
         var t = NSTimeInterval(timing-0.2)
-        
         self.exerciseLabel.text = getExercise()
         self.exerciseLabel.sizeToFit()
-        
         self.exerciseLabel.numberOfLines = 0
-        
         self.exerciseLabel.fadeIn(completion: {
             (finished:Bool) -> Void in
             self.exerciseLabel.fadeOut()
         })
-       // self.exerciseLabel.fadeIn(duration: 1.0, delay: 0.0)
+        
         speech(self.exerciseLabel.text!)
-        //NSLog("swap: %d", workoutModel.swap)
         addCircleView(circleView, duration: NSTimeInterval(workoutModel.swap), withFadeOut:true)
         self.tempSwap = NSInteger(workoutModel.swap)
-       // self.sec = NSInteger(workoutModel.totalTime)
-       // self.timingLab.text = "Swap: \(tempSwap)"
         self.roundLabel.text = "\(sec)"
         timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("subtractTime"), userInfo: nil, repeats: true)
     }
@@ -107,7 +95,6 @@ class TimerViewController: UIViewController {
     }
     
     func countDownSub(){
-        
         if(cd == -1){
             countdown.invalidate()
             addCircleView(totalChronoView, duration:NSTimeInterval(sec), withFadeOut:false)
@@ -125,25 +112,23 @@ class TimerViewController: UIViewController {
     func subtractTime() {
         sec--
         tempSwap--
-      //  timingLab.text = "Swap: \(tempSwap)"
         roundLabel.text = " \(sec)"
         if(sec == 0){
-          //  self.timingLab.text = "Swap: 0"
             self.exerciseLabel.text = "Time completed"
             speech(self.exerciseLabel.text!)
             timer.invalidate()
             repeatButton.enabled = true
             pauseButton.enabled = false
         }else if(tempSwap == 0)  {
-                timer.invalidate()
-                lauchExercise(Float(workoutModel.totalTime))
+            timer.invalidate()
+            lauchExercise(Float(workoutModel.totalTime))
         }
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
     }
@@ -162,7 +147,6 @@ class TimerViewController: UIViewController {
         sec = NSInteger(workoutModel.totalTime)
         tempSwap = NSInteger(workoutModel.swap)
         countdown = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("countDownSub"), userInfo: nil, repeats: true)
-        
     }
     
     @IBAction func onClickPauseButton(sender: UIButton) {
@@ -174,28 +158,18 @@ class TimerViewController: UIViewController {
             lauchExercise(Float(sec))
             flag =  false
             pauseButton.setImage(UIImage(named: "pause.png"), forState: UIControlState.Normal)
-           
         }
     }
     
     func addCircleView(attachableView:UIView, duration: NSTimeInterval, withFadeOut:Bool) {
-       // let diceRoll = CGFloat(Int(arc4random_uniform(7))*50)
         var circleWidth = CGFloat(attachableView.frame.width/2 + 20)
         var circleHeight = circleWidth
-        
-        // Create a new CircleAnimationView
         var circleAnimationView = CircleAnimationView(frame: CGRectMake(attachableView.center.x - circleWidth/2,attachableView.center.y - circleHeight/2, circleWidth, circleHeight), line: 20.0)
-        
         view.addSubview(circleAnimationView)
-        
-        // Animate the drawing of the circle over the course of 1 second
         circleAnimationView.animateCircle(duration)
         if(withFadeOut){
             circleAnimationView.fadeOutNoRepeat(duration: duration, delay: 1.0)
         }
-        
     }
-    
-    
 }
 
