@@ -11,30 +11,42 @@ import CoreData
 
 class SecondViewController: UIViewController, UITextFieldDelegate {
     
-    //swap
+    //swap field of a workout
     @IBOutlet weak var timingTextField: UITextField!
+    
+    //swap label
     @IBOutlet weak var timingLabel: UILabel!
-    //totalTime
+    
+    //totalTime field of a workout
     @IBOutlet weak var roundTextField: UITextField!
-    //countdown
+    
+    //countdown field of a workout
     @IBOutlet weak var countDownTextField: UITextField!
-//    var workout:Workout = Workout()
+    
+    // Tells a user if he is in a new or already saved workout
     @IBOutlet weak var workoutStatusLabel: UILabel!
     
+    // The label name for the saved/selected workout
     @IBOutlet weak var workoutNameLabel: UILabel!
+    
+    // Update a previously saved workout when  clicked
     @IBOutlet weak var updateButton: UIButton!
     
+    // The textfield name  of the current saved and selected workout
     @IBOutlet weak var workoutNameTextField: UITextField!
+    
+    // Save a workout in Core Data
     @IBOutlet weak var saveButton: UIButton!
+    
+    //# MARK: Prepare and load current view according context (new workout, unregistered workout, saved workout)
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.timingTextField.delegate = self
         self.roundTextField.delegate = self
         self.countDownTextField.delegate = self
         self.countDownTextField.text = "5"
         self.timingLabel.text = ""
-
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -88,12 +100,14 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    //# MARK: Unwind segue from TimerViewController
     @IBAction func goToInit(segue:UIStoryboardSegue){
         self.timingLabel.text = ""
         self.timingLabel.textColor = UIColor.blackColor()
     }
     
+   //# MARK: Data validation before segue & segue to chrono (TimerViewController)
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
        
         if (segue.identifier == "showTimer"){
@@ -123,6 +137,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    
     @IBAction func onClickStartButton(sender: UIButton) {
         
         if shouldPerformSegueWithIdentifier("showTimer", sender: sender){
@@ -144,6 +159,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         return flag
     }
     
+    //# MARK: keyboard behaviour
     func textFieldShouldReturn(textField: UITextField!) -> Bool
     {
         textField.resignFirstResponder()
@@ -154,12 +170,14 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         self.timingLabel.text = ""
         self.timingLabel.textColor = UIColor.blackColor()
     }
-
+    
+    //# MARK: Save workout
     @IBAction func onClickSaveButton(sender: UIButton) {
         getDataForSaving()
         getWorkoutName()
     }
     
+    //Move data from the textfields view to object workoutModel
     func getDataForSaving(){
         workoutModel.swap = self.timingTextField.text!.toInt()!
         workoutModel.countdown = self.countDownTextField!.text.toInt()!
@@ -194,6 +212,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         managedObjectContext?.reset()
     }
     
+    // Set Workout's name attribute when it is saved
     func getWorkoutName()->Void{
         var alert = UIAlertController(title: "Saving your workout", message: "Please enter a name for your workout: ", preferredStyle: UIAlertControllerStyle.Alert)
         var name = ""
@@ -213,55 +232,9 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
             }
         }))
         self.presentViewController(alert, animated: true, completion: nil)
-        
     }
     
-    func updateWorkout(){
-        var toUpdate = getWorkoutToUpdatewithId()
-        
-        let fetchRequest = NSFetchRequest(entityName:"Exercise")
-        let predicate = NSPredicate(format: "workout == %@", toUpdate)
-        fetchRequest.predicate = predicate
-        
-        var err: NSError? = nil
-        var exeToDelete = managedObjectContext!.executeFetchRequest(fetchRequest,error: &err)! as [Exercise]
-        for e in exeToDelete{
-            NSLog("deletion: %@", e)
-            managedObjectContext!.deleteObject(e as Exercise)
-            //managedObjectContext!.save(&err)
-        }
-        
-        
-        toUpdate.setValue(workoutModel.name, forKey: "name")
-        toUpdate.setValue(workoutModel.countdown, forKey: "countdown")
-        toUpdate.setValue(workoutModel.totalTime, forKey: "totalTime")
-        toUpdate.setValue(workoutModel.swap, forKey: "swap")
-        
-        
-        
-        var exe:[Exercise] = [Exercise]()
-        for e in workoutModel.exercise{
-            let ent = NSEntityDescription.entityForName("Exercise", inManagedObjectContext: managedObjectContext!)
-            let ex = NSManagedObject(entity: ent!, insertIntoManagedObjectContext:managedObjectContext) as Exercise
-            ex.setValue(e.name, forKey: "name")
-            exe.append(ex)
-        }
-        
-        toUpdate.setValue(NSOrderedSet(array: exe), forKey: "exercise")
-        
-        var error: NSError?
-        if !(managedObjectContext?.save(&error) != nil) {
-            println("Could not save workout\(error), \(error?.userInfo)")
-        }
-        managedObjectContext?.reset()
-    }
-    
-    func getWorkoutToUpdatewithId()->Workout{
-        var toUpdate:Workout = managedObjectContext?.objectWithID(workoutId) as Workout
-        println("to update \(toUpdate.name)")
-        return toUpdate
-    }
-    
+    //# MARK: update workout
     @IBAction func onClickUpdateButton(sender: UIButton) {
         getDataForSaving()
         workoutModel.name = workoutNameTextField.text
@@ -288,7 +261,49 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
             }))
             self.presentViewController(alert, animated: true, completion: nil)
         }
+    }
+    
+    //Get the Core Data Workout to update by its ManagedObjectID got from WorkoutViewController (when a cell is selected)
+    func getWorkoutToUpdatewithId()->Workout{
+        var toUpdate:Workout = managedObjectContext?.objectWithID(workoutId) as Workout
+        println("to update \(toUpdate.name)")
+        return toUpdate
+    }
+    //
+    func updateWorkout(){
+        var toUpdate = getWorkoutToUpdatewithId()
         
+        let fetchRequest = NSFetchRequest(entityName:"Exercise")
+        let predicate = NSPredicate(format: "workout == %@", toUpdate)
+        fetchRequest.predicate = predicate
+        
+        var err: NSError? = nil
+        var exeToDelete = managedObjectContext!.executeFetchRequest(fetchRequest,error: &err)! as [Exercise]
+        for e in exeToDelete{
+            NSLog("deletion: %@", e)
+            managedObjectContext!.deleteObject(e as Exercise)
+        }
+        
+        toUpdate.setValue(workoutModel.name, forKey: "name")
+        toUpdate.setValue(workoutModel.countdown, forKey: "countdown")
+        toUpdate.setValue(workoutModel.totalTime, forKey: "totalTime")
+        toUpdate.setValue(workoutModel.swap, forKey: "swap")
+        
+        var exe:[Exercise] = [Exercise]()
+        for e in workoutModel.exercise{
+            let ent = NSEntityDescription.entityForName("Exercise", inManagedObjectContext: managedObjectContext!)
+            let ex = NSManagedObject(entity: ent!, insertIntoManagedObjectContext:managedObjectContext) as Exercise
+            ex.setValue(e.name, forKey: "name")
+            exe.append(ex)
+        }
+        
+        toUpdate.setValue(NSOrderedSet(array: exe), forKey: "exercise")
+        
+        var error: NSError?
+        if !(managedObjectContext?.save(&error) != nil) {
+            println("Could not save workout\(error), \(error?.userInfo)")
+        }
+        managedObjectContext?.reset()
     }
 }
 
