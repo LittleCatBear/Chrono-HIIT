@@ -502,6 +502,7 @@
                             <constraint firstItem="AEf-gr-5Li" firstAttribute="width" secondItem="VRY-Jh-7Kg" secondAttribute="width" id="Wjk-gH-2ww"/>
                             <constraint firstItem="4gg-u1-Nv4" firstAttribute="top" secondItem="3SR-Sh-lhf" secondAttribute="bottom" constant="25" id="XGz-MT-zGk"/>
                             <constraint firstItem="yeR-lF-T7K" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" id="aRN-lz-b2L"/>
+                            <constraint firstItem="ntq-XH-zdu" firstAttribute="trailing" secondItem="QS5-Rx-YEW" secondAttribute="trailingMargin" id="bCl-38-kru"/>
                             <constraint firstItem="yeR-lF-T7K" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" id="bom-Gt-8Yb"/>
                             <constraint firstAttribute="centerX" secondItem="yeR-lF-T7K" secondAttribute="centerX" id="bwA-m7-z1S"/>
                             <constraint firstItem="yeR-lF-T7K" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" id="g4i-xW-11n"/>
@@ -510,7 +511,12 @@
                             <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="4gg-u1-Nv4" secondAttribute="bottom" constant="20" id="j90-EB-6jJ"/>
                             <constraint firstItem="AEf-gr-5Li" firstAttribute="leading" secondItem="3SR-Sh-lhf" secondAttribute="trailing" constant="8" id="lbz-bU-zhz"/>
                             <constraint firstItem="3SR-Sh-lhf" firstAttribute="leading" secondItem="VRY-Jh-7Kg" secondAttribute="trailing" constant="8" id="ldR-mO-0Fg"/>
-                            <constraint firstItem="ntq-XH-zdu" firstAttribute="top" secondItem="yeR-lF-T7K" secondAttribute="bottom" id="npg-sC-c2b"/>
+                            <constraint firstItem="ntq-XH-zdu" firstAttribute="top" secondItem="yeR-lF-T7K" secondAttribute="bottom" id="npg-sC-c2b">
+                                <variation key="widthClass=compact" constant="20"/>
+                            </constraint>
+                            <constraint firstItem="ntq-XH-zdu" firstAttribute="trailing" secondItem="QS5-Rx-YEW" secondAttribute="trailingMargin" constant="20" id="oZD-I2-brC">
+                                <variation key="widthClass=compact" constant="0.0"/>
+                            </constraint>
                             <constraint firstAttribute="centerX" secondItem="3SR-Sh-lhf" secondAttribute="centerX" id="qLH-6X-qLQ"/>
                             <constraint firstItem="ntq-XH-zdu" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" id="x3q-AW-ugF"/>
                         </constraints>
@@ -519,11 +525,13 @@
                                 <exclude reference="ntq-XH-zdu"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="B2x-An-B2D"/>
-                                <exclude reference="npg-sC-c2b"/>
-                                <exclude reference="x3q-AW-ugF"/>
                                 <exclude reference="aRN-lz-b2L"/>
                                 <exclude reference="bom-Gt-8Yb"/>
+                                <exclude reference="B2x-An-B2D"/>
+                                <exclude reference="bCl-38-kru"/>
+                                <exclude reference="npg-sC-c2b"/>
+                                <exclude reference="oZD-I2-brC"/>
+                                <exclude reference="x3q-AW-ugF"/>
                                 <exclude reference="g5p-tN-AST"/>
                                 <exclude reference="8DS-I1-PVb"/>
                             </mask>
@@ -533,11 +541,13 @@
                                 <include reference="ntq-XH-zdu"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="B2x-An-B2D"/>
-                                <include reference="npg-sC-c2b"/>
-                                <include reference="x3q-AW-ugF"/>
                                 <include reference="bom-Gt-8Yb"/>
                                 <exclude reference="bwA-m7-z1S"/>
+                                <exclude reference="B2x-An-B2D"/>
+                                <include reference="bCl-38-kru"/>
+                                <include reference="npg-sC-c2b"/>
+                                <exclude reference="oZD-I2-brC"/>
+                                <include reference="x3q-AW-ugF"/>
                                 <include reference="g5p-tN-AST"/>
                             </mask>
                         </variation>
