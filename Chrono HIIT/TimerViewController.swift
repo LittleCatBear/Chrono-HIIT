@@ -54,7 +54,7 @@ class TimerViewController: UIViewController {
         repeatButton.enabled = false
         pauseButton.enabled = false
         
-        progressBarView.setProgress(0, animated: true)
+        progressBarView.setProgress(1, animated: true)
         
         cd = NSInteger(workoutModel.countdown)
         self.sec = NSInteger(workoutModel.totalTime)
@@ -191,7 +191,7 @@ class TimerViewController: UIViewController {
     //# MARK: progress bar
     var counter:Int = 0 {
         didSet {
-            let fractionalProgress = Float(workoutModel.totalTime) / 100.0
+            let fractionalProgress = Float(counter) / Float(workoutModel.totalTime)
             let animated = counter != 0
             progressBarView.setProgress(fractionalProgress, animated: animated)
         }
@@ -199,7 +199,7 @@ class TimerViewController: UIViewController {
     
     func startProgressBar(){
         self.counter = 0
-        for i in 0..<100 {
+        for i in 0..<workoutModel.totalTime {
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {
                 sleep(1)
                 dispatch_async(dispatch_get_main_queue(), {
