@@ -186,9 +186,6 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="68" width="400" height="416"/>
-                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="5L7-oB-Bcn" id="XLx-tb-biP"/>
                                     <outlet property="delegate" destination="5L7-oB-Bcn" id="bd7-QT-lIW"/>
@@ -828,7 +825,9 @@
                             </constraint>
                             <constraint firstAttribute="centerX" secondItem="6yg-rK-7zN" secondAttribute="centerX" id="Ggm-Zm-XuE"/>
                             <constraint firstItem="Dnf-hp-CnY" firstAttribute="centerX" secondItem="qE0-dP-iQM" secondAttribute="centerX" id="JqA-iV-U5G"/>
-                            <constraint firstItem="6yg-rK-7zN" firstAttribute="top" secondItem="yT6-kg-Pf7" secondAttribute="bottom" constant="8" id="Ogn-UR-tJr"/>
+                            <constraint firstItem="6yg-rK-7zN" firstAttribute="top" secondItem="yT6-kg-Pf7" secondAttribute="bottom" constant="8" id="Ogn-UR-tJr">
+                                <variation key="widthClass=compact" constant="30"/>
+                            </constraint>
                             <constraint firstItem="Wfa-TO-s4b" firstAttribute="top" secondItem="qE0-dP-iQM" secondAttribute="bottom" constant="20" id="Oq2-yw-w3c">
                                 <variation key="widthClass=compact" constant="30"/>
                             </constraint>
@@ -904,6 +903,7 @@
                         <outlet property="circleView" destination="xR5-Ov-Dqg" id="aBQ-jZ-JyR"/>
                         <outlet property="exerciseLabel" destination="3Sq-0t-INf" id="RGi-Tb-8a5"/>
                         <outlet property="pauseButton" destination="0Rh-ev-Re2" id="cOj-Hw-yEU"/>
+                        <outlet property="progressBarView" destination="5e5-7K-b7w" id="U1o-lY-FDk"/>
                         <outlet property="repeatButton" destination="qE0-dP-iQM" id="XT6-A1-heS"/>
                         <outlet property="roundLabel" destination="De7-RF-AHq" id="gnZ-Hz-cwO"/>
                         <outlet property="timingLab" destination="7st-9m-pqh" id="2w9-Rv-ad2"/>

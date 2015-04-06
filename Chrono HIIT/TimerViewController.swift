@@ -26,6 +26,8 @@ class TimerViewController: UIViewController {
     
     @IBOutlet weak var circleView: UIView!
     
+    @IBOutlet weak var progressBarView: UIProgressView!
+    
     // temporary totalTiming
     var sec : NSInteger = 0
     
@@ -45,14 +47,15 @@ class TimerViewController: UIViewController {
     let synth = AVSpeechSynthesizer()
     var myUtterance = AVSpeechUtterance(string: "")
     
-    var pauseStart:NSDate = NSDate()
-    var previousFireDate:NSDate = NSDate()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         UIApplication.sharedApplication().idleTimerDisabled = true
         repeatButton.enabled = false
         pauseButton.enabled = false
+        
+        progressBarView.setProgress(0, animated: true)
+        
         cd = NSInteger(workoutModel.countdown)
         self.sec = NSInteger(workoutModel.totalTime)
         self.tempSwap = NSInteger(workoutModel.swap)
@@ -60,7 +63,9 @@ class TimerViewController: UIViewController {
             countdown = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("countDownSub"), userInfo: nil, repeats: true)
         } else{
             //addCircleView(totalChronoView, duration:NSTimeInterval(sec), withFadeOut:false)
+            self.startProgressBar()
             self.lauchExercise(Float(sec))
+            
         }
     }
     
@@ -101,6 +106,7 @@ class TimerViewController: UIViewController {
         if(cd == -1){
             countdown.invalidate()
            // addCircleView(totalChronoView, duration:NSTimeInterval(sec), withFadeOut:false)
+            startProgressBar()
             lauchExercise(Float(workoutModel.totalTime))
         } else if(cd == 0){
             self.exerciseLabel.text = "Begin"
@@ -181,5 +187,28 @@ class TimerViewController: UIViewController {
             circleAnimationView.fadeOutNoRepeat(duration: duration, delay: 1.0)
         }
     }
+    
+    //# MARK: progress bar
+    var counter:Int = 0 {
+        didSet {
+            let fractionalProgress = Float(workoutModel.totalTime) / 100.0
+            let animated = counter != 0
+            progressBarView.setProgress(fractionalProgress, animated: animated)
+        }
+    }
+    
+    func startProgressBar(){
+        self.counter = 0
+        for i in 0..<100 {
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {
+                sleep(1)
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.counter++
+                    return
+                })
+            })
+        }
+    }
+  
 }
 
