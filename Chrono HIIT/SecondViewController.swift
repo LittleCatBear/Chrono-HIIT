@@ -11,11 +11,13 @@ import CoreData
 
 class SecondViewController: UIViewController, UITextFieldDelegate {
     
+    @IBOutlet weak var updateLabel: UILabel!
+    @IBOutlet weak var saveLabel: UILabel!
     //swap field of a workout
     @IBOutlet weak var timingTextField: UITextField!
     
-    //swap label
-    @IBOutlet weak var timingLabel: UILabel!
+    //error label
+    @IBOutlet weak var errorLabel: UILabel!
     
     //totalTime field of a workout
     @IBOutlet weak var roundTextField: UITextField!
@@ -46,7 +48,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         self.roundTextField.delegate = self
         self.countDownTextField.delegate = self
         self.countDownTextField.text = "5"
-        self.timingLabel.text = ""
+        self.errorLabel.text = ""
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -57,8 +59,10 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
             token2 = false
             updateButton.hidden = true
             updateButton.enabled = false
+            updateLabel.hidden = true
             saveButton.enabled = true
             saveButton.hidden = false
+            saveLabel.hidden = false
             workoutNameLabel.hidden = true
             workoutNameTextField.hidden = true
         }
@@ -66,14 +70,17 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
             getWorkoutData()
             updateButton.hidden = false
             updateButton.enabled = true
+            updateLabel.hidden = false
             saveButton.enabled = false
             saveButton.hidden = true
+            saveLabel.hidden = true
             workoutNameLabel.hidden = false
             workoutNameTextField.hidden = false
         }
         else{
             updateButton.hidden = true
             updateButton.enabled = false
+            updateLabel.hidden = true
             workoutNameLabel.hidden = true
             workoutNameTextField.hidden = true
         }
@@ -101,8 +108,8 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     
     //# MARK: Unwind segue from TimerViewController
     @IBAction func goToInit(segue:UIStoryboardSegue){
-        self.timingLabel.text = ""
-        self.timingLabel.textColor = UIColor.blackColor()
+        self.errorLabel.text = ""
+      //  self.errorLabel.textColor = UIColor.blackColor()
     }
     
    //# MARK: Data validation before segue & segue to chrono (TimerViewController)
@@ -141,17 +148,33 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         if shouldPerformSegueWithIdentifier("showTimer", sender: sender){
             self.performSegueWithIdentifier("showTimer", sender: sender)
         }
-        else{
-            self.timingLabel.text = "Wrong data for Swap value !"
-            self.timingLabel.textColor = UIColor(red: 255.0, green: 0.0, blue: 0.0, alpha: 1.0)
-        }
     }
     
     override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
+      return validateData()
+    }
+    
+    func validateData() -> Bool {
         var flag:Bool = false
         if (self.timingTextField.text != ""){
             if(self.timingTextField.text!.toInt() != nil && self.timingTextField.text.toInt() > 0){
-                flag = true
+                if(self.roundTextField.text != "" && self.roundTextField.text!.toInt() != nil && self.roundTextField.text.toInt() > 0){
+                    if(self.countDownTextField.text!.toInt()<0){
+                        errorLabel.textColor = UIColor.redColor()
+                        errorLabel.text = "Invalid data for COUNTDOWN. Countdown should be >= 0 sec"
+                    }
+                    else{
+                        flag = true
+                    }
+                    
+                } else{
+                    errorLabel.textColor = UIColor.redColor()
+                    errorLabel.text = "Invalid data for TOTAL TIME. Total time should be >= 1 sec"
+                }
+                
+            } else{
+                errorLabel.textColor = UIColor.redColor()
+                errorLabel.text = "Invalid data for SWAP. Swap timing should be >= 1 sec"
             }
         }
         return flag
@@ -165,14 +188,16 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
-        self.timingLabel.text = ""
-        self.timingLabel.textColor = UIColor.blackColor()
+        self.errorLabel.text = ""
+       // self.errorLabel.textColor = UIColor.blackColor()
     }
     
     //# MARK: Save workout
     @IBAction func onClickSaveButton(sender: UIButton) {
-        getDataForSaving()
-        getWorkoutName()
+        if(validateData()){
+            getDataForSaving()
+            getWorkoutName()
+        }
     }
     
     //Move data from the textfields view to object workoutModel
@@ -234,30 +259,32 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     
     //# MARK: update workout
     @IBAction func onClickUpdateButton(sender: UIButton) {
-        getDataForSaving()
-        workoutModel.name = workoutNameTextField.text
-        if(workoutModel.name != ""){
-            updateWorkout()
-        } else{
-            var alert = UIAlertController(title: "Updating your workout", message: "Please enter a name for your workout: ", preferredStyle: UIAlertControllerStyle.Alert)
-            var name = ""
-            
-            alert.addTextFieldWithConfigurationHandler({(textField: UITextField!) in
-                textField.placeholder = "Enter workout name:"
+        if(validateData()){
+            getDataForSaving()
+            workoutModel.name = workoutNameTextField.text
+            if(workoutModel.name != ""){
+                updateWorkout()
+            } else{
+                var alert = UIAlertController(title: "Updating your workout", message: "Please enter a name for your workout: ", preferredStyle: UIAlertControllerStyle.Alert)
+                var name = ""
                 
-            })
-            alert.addAction(UIAlertAction(title: "Save", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
-                let textField = alert.textFields![0] as UITextField
-                name = textField.text
-                if name != ""{
-                    workoutModel.name = name
-                    self.workoutNameTextField.text = name
-                    self.updateWorkout()
-                } else{
-                    self.presentViewController(alert, animated: true, completion: nil)
-                }
-            }))
-            self.presentViewController(alert, animated: true, completion: nil)
+                alert.addTextFieldWithConfigurationHandler({(textField: UITextField!) in
+                    textField.placeholder = "Enter workout name:"
+                    
+                })
+                alert.addAction(UIAlertAction(title: "Save", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
+                    let textField = alert.textFields![0] as UITextField
+                    name = textField.text
+                    if name != ""{
+                        workoutModel.name = name
+                        self.workoutNameTextField.text = name
+                        self.updateWorkout()
+                    } else{
+                        self.presentViewController(alert, animated: true, completion: nil)
+                    }
+                }))
+                self.presentViewController(alert, animated: true, completion: nil)
+            }
         }
     }
     

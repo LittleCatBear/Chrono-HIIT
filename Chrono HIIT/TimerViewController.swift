@@ -45,7 +45,8 @@ class TimerViewController: UIViewController {
     let synth = AVSpeechSynthesizer()
     var myUtterance = AVSpeechUtterance(string: "")
     
-    
+    var pauseStart:NSDate = NSDate()
+    var previousFireDate:NSDate = NSDate()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -155,6 +156,7 @@ class TimerViewController: UIViewController {
         if(flag == false){
             flag = true
             
+            
             var temp = view.subviews[view.subviews.count-1] as CircleAnimationView
             temp.pauseAnim()
             pauseButton.setImage(UIImage(named: "start.png"), forState: UIControlState.Normal)
@@ -162,6 +164,7 @@ class TimerViewController: UIViewController {
         } else{
             var temp = view.subviews[view.subviews.count-1] as CircleAnimationView
             temp.resumeAnim()
+           // timer.fire()
             lauchExercise(Float(sec))
             flag =  false
             pauseButton.setImage(UIImage(named: "pause.png"), forState: UIControlState.Normal)
