@@ -60,6 +60,8 @@ class CircleAnimationView : UIView{
     
     func resumeAnim(){
         circleLayer.speed = 1.0
+        circleLayer.timeOffset = 0.0
+        circleLayer.beginTime = circleLayer.convertTime(CACurrentMediaTime(), fromLayer: circleLayer) - circleLayer.timeOffset
     }
     
     func animateCircle(duration: NSTimeInterval) {

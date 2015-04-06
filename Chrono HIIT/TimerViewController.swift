@@ -160,6 +160,8 @@ class TimerViewController: UIViewController {
             pauseButton.setImage(UIImage(named: "start.png"), forState: UIControlState.Normal)
             timer.invalidate()
         } else{
+            var temp = view.subviews[view.subviews.count-1] as CircleAnimationView
+            temp.resumeAnim()
             lauchExercise(Float(sec))
             flag =  false
             pauseButton.setImage(UIImage(named: "pause.png"), forState: UIControlState.Normal)
