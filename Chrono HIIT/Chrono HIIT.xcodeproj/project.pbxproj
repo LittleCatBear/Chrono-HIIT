@@ -80,14 +80,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E304463E1AD34F0C00DBEA58 /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Fonts;
-			path = ..;
-			sourceTree = "<group>";
-		};
 		E3F695DB1ACCB1CA00884BD8 = {
 			isa = PBXGroup;
 			children = (
@@ -118,7 +110,6 @@
 				E3F6964B1ACCC1F900884BD8 /* Main.storyboard */,
 				E3F696391ACCC16100884BD8 /* Images.xcassets */,
 				E3F6964D1ACCC20300884BD8 /* LaunchScreen.xib */,
-				E304463E1AD34F0C00DBEA58 /* Fonts */,
 				E3F696641ACD40EF00884BD8 /* Entities */,
 				E3F6962D1ACCB2D600884BD8 /* Resources */,
 				E3F695E71ACCB1CA00884BD8 /* Supporting Files */,

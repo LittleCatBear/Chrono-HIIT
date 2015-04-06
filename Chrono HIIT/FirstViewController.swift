@@ -46,7 +46,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         var appDel: AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         managedObjectContext = appDel.managedObjectContext!
         workoutModel.exercise = exercises
-        findFontNames()
+        //findFontNames()
         ExerciseTextField.delegate = self
         self.exerciseTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
