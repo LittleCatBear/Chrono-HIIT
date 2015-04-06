@@ -812,8 +812,8 @@
         <image name="chrono" width="44" height="50"/>
         <image name="liste" width="25" height="25"/>
         <image name="pause" width="213" height="211"/>
-        <image name="repeat" width="122" height="122"/>
-        <image name="save" width="150" height="150"/>
+        <image name="repeat" width="232" height="216"/>
+        <image name="save" width="588" height="588"/>
         <image name="start" width="213" height="213"/>
         <image name="stop" width="213" height="214"/>
         <image name="update" width="440" height="423"/>

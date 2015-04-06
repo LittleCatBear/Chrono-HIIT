@@ -56,7 +56,7 @@ class TimerViewController: UIViewController {
         if(cd > 0){
             countdown = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("countDownSub"), userInfo: nil, repeats: true)
         } else{
-            addCircleView(totalChronoView, duration:NSTimeInterval(sec), withFadeOut:false)
+            //addCircleView(totalChronoView, duration:NSTimeInterval(sec), withFadeOut:false)
             self.lauchExercise(Float(sec))
         }
     }
@@ -97,7 +97,7 @@ class TimerViewController: UIViewController {
     func countDownSub(){
         if(cd == -1){
             countdown.invalidate()
-            addCircleView(totalChronoView, duration:NSTimeInterval(sec), withFadeOut:false)
+           // addCircleView(totalChronoView, duration:NSTimeInterval(sec), withFadeOut:false)
             lauchExercise(Float(workoutModel.totalTime))
         } else if(cd == 0){
             self.exerciseLabel.text = "Begin"

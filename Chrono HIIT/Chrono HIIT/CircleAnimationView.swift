@@ -11,6 +11,7 @@ import UIKit
 
 class CircleAnimationView : UIView{
     let circleLayer: CAShapeLayer!
+    let animation = CABasicAnimation(keyPath: "strokeEnd")
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -50,9 +51,14 @@ class CircleAnimationView : UIView{
         fatalError("init(coder:) has not been implemented")
     }
     
+    func pause(){
+        
+        
+    }
+    
     func animateCircle(duration: NSTimeInterval) {
         
-        let animation = CABasicAnimation(keyPath: "strokeEnd")
+        
         animation.duration = duration
         animation.fromValue = 0
         animation.toValue = 1
