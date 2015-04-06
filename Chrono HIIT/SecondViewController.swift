@@ -80,16 +80,14 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     }
     
     func cleanFields(){
-        self.workoutStatusLabel.text = "New Workout"
-        self.workoutStatusLabel.textColor = UIColor.greenColor()
+        self.workoutStatusLabel.text = "New workout"
         self.timingTextField.text = ""
         self.roundTextField.text = ""
         self.countDownTextField.text = ""
     }
     
     func getWorkoutData(){
-        self.workoutStatusLabel.text = "Editing Workout \(workoutModel.name)"
-        self.workoutStatusLabel.textColor = UIColor.blueColor()
+        self.workoutStatusLabel.text = "Editing workout \(workoutModel.name)"
         timingTextField.text = String(workoutModel.swap)
         countDownTextField.text = String(workoutModel.countdown)
         roundTextField.text = String(workoutModel.totalTime)
@@ -144,7 +142,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
             self.performSegueWithIdentifier("showTimer", sender: sender)
         }
         else{
-            self.timingLabel.text = "Wrong data for Switch !"
+            self.timingLabel.text = "Wrong data for Swap value !"
             self.timingLabel.textColor = UIColor(red: 255.0, green: 0.0, blue: 0.0, alpha: 1.0)
         }
     }

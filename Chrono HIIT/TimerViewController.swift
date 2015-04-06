@@ -162,9 +162,9 @@ class TimerViewController: UIViewController {
     }
     
     func addCircleView(attachableView:UIView, duration: NSTimeInterval, withFadeOut:Bool) {
-        var circleWidth = CGFloat(attachableView.frame.width/2 + 20)
+        var circleWidth = CGFloat(attachableView.frame.width)
         var circleHeight = circleWidth
-        var circleAnimationView = CircleAnimationView(frame: CGRectMake(attachableView.center.x - circleWidth/2,attachableView.center.y - circleHeight/2, circleWidth, circleHeight), line: 20.0)
+        var circleAnimationView = CircleAnimationView(frame: CGRectMake(attachableView.center.x - circleWidth/2,attachableView.center.y - circleHeight/2, circleWidth, circleHeight), line: 50.0)
         view.addSubview(circleAnimationView)
         circleAnimationView.animateCircle(duration)
         if(withFadeOut){

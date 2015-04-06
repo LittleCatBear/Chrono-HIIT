@@ -58,14 +58,12 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
             cleanData()
             token1 = false
             token2 = true
-            workoutStatusLabel.text = "New Workout"
-            workoutStatusLabel.textColor = UIColor.greenColor()
+            workoutStatusLabel.text = "New workout"
             self.exerciseTableView.reloadData()
         }
         else if(workoutModel.name != ""){
             self.exerciseTableView.reloadData()
             workoutStatusLabel.text = "Editing workout \(workoutModel.name)"
-            workoutStatusLabel.textColor = UIColor.blueColor()
         }
     }
     
