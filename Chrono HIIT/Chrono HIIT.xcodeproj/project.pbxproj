@@ -7,14 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E30446301AD34E0500DBEA58 /* CabinSketch-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E304462E1AD34E0500DBEA58 /* CabinSketch-Bold.otf */; };
-		E30446311AD34E0500DBEA58 /* CabinSketch-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = E304462F1AD34E0500DBEA58 /* CabinSketch-Regular.otf */; };
-		E30446351AD34E9200DBEA58 /* Blackout Midnight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E30446321AD34E9200DBEA58 /* Blackout Midnight.ttf */; };
-		E30446361AD34E9200DBEA58 /* Blackout Sunrise.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E30446331AD34E9200DBEA58 /* Blackout Sunrise.ttf */; };
-		E30446371AD34E9200DBEA58 /* Blackout Two AM.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E30446341AD34E9200DBEA58 /* Blackout Two AM.ttf */; };
-		E30446391AD34EA500DBEA58 /* VarsityPlaybook-DEMO.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E30446381AD34EA500DBEA58 /* VarsityPlaybook-DEMO.ttf */; };
-		E304463B1AD34EB300DBEA58 /* octin sports rg.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E304463A1AD34EB300DBEA58 /* octin sports rg.ttf */; };
-		E304463D1AD34ECA00DBEA58 /* handwriting-draft_free-version.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E304463C1AD34ECA00DBEA58 /* handwriting-draft_free-version.ttf */; };
 		E3F695EA1ACCB1CA00884BD8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F695E91ACCB1CA00884BD8 /* AppDelegate.swift */; };
 		E3F695ED1ACCB1CA00884BD8 /* Chrono_HIIT.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E3F695EB1ACCB1CA00884BD8 /* Chrono_HIIT.xcdatamodeld */; };
 		E3F696031ACCB1CA00884BD8 /* Chrono_HIITTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F696021ACCB1CA00884BD8 /* Chrono_HIITTests.swift */; };
@@ -46,14 +38,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E304462E1AD34E0500DBEA58 /* CabinSketch-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CabinSketch-Bold.otf"; sourceTree = "<group>"; };
-		E304462F1AD34E0500DBEA58 /* CabinSketch-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CabinSketch-Regular.otf"; sourceTree = "<group>"; };
-		E30446321AD34E9200DBEA58 /* Blackout Midnight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Blackout Midnight.ttf"; sourceTree = "<group>"; };
-		E30446331AD34E9200DBEA58 /* Blackout Sunrise.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Blackout Sunrise.ttf"; sourceTree = "<group>"; };
-		E30446341AD34E9200DBEA58 /* Blackout Two AM.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Blackout Two AM.ttf"; sourceTree = "<group>"; };
-		E30446381AD34EA500DBEA58 /* VarsityPlaybook-DEMO.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VarsityPlaybook-DEMO.ttf"; sourceTree = "<group>"; };
-		E304463A1AD34EB300DBEA58 /* octin sports rg.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "octin sports rg.ttf"; sourceTree = "<group>"; };
-		E304463C1AD34ECA00DBEA58 /* handwriting-draft_free-version.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "handwriting-draft_free-version.ttf"; sourceTree = "<group>"; };
 		E3F695E41ACCB1CA00884BD8 /* Chrono HIIT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chrono HIIT.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3F695E91ACCB1CA00884BD8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3F695EC1ACCB1CA00884BD8 /* Chrono_HIIT.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Chrono_HIIT.xcdatamodel; sourceTree = "<group>"; };
@@ -99,14 +83,6 @@
 		E304463E1AD34F0C00DBEA58 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				E304463C1AD34ECA00DBEA58 /* handwriting-draft_free-version.ttf */,
-				E304463A1AD34EB300DBEA58 /* octin sports rg.ttf */,
-				E30446381AD34EA500DBEA58 /* VarsityPlaybook-DEMO.ttf */,
-				E30446321AD34E9200DBEA58 /* Blackout Midnight.ttf */,
-				E30446331AD34E9200DBEA58 /* Blackout Sunrise.ttf */,
-				E30446341AD34E9200DBEA58 /* Blackout Two AM.ttf */,
-				E304462E1AD34E0500DBEA58 /* CabinSketch-Bold.otf */,
-				E304462F1AD34E0500DBEA58 /* CabinSketch-Regular.otf */,
 			);
 			name = Fonts;
 			path = ..;
@@ -294,17 +270,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3F696431ACCC16100884BD8 /* Images.xcassets in Resources */,
-				E30446391AD34EA500DBEA58 /* VarsityPlaybook-DEMO.ttf in Resources */,
 				E3F6964C1ACCC1F900884BD8 /* Main.storyboard in Resources */,
 				E3F6964E1ACCC20300884BD8 /* LaunchScreen.xib in Resources */,
-				E304463B1AD34EB300DBEA58 /* octin sports rg.ttf in Resources */,
-				E30446371AD34E9200DBEA58 /* Blackout Two AM.ttf in Resources */,
 				E3F696441ACCC16100884BD8 /* Info.plist in Resources */,
-				E304463D1AD34ECA00DBEA58 /* handwriting-draft_free-version.ttf in Resources */,
-				E30446311AD34E0500DBEA58 /* CabinSketch-Regular.otf in Resources */,
-				E30446351AD34E9200DBEA58 /* Blackout Midnight.ttf in Resources */,
-				E30446361AD34E9200DBEA58 /* Blackout Sunrise.ttf in Resources */,
-				E30446301AD34E0500DBEA58 /* CabinSketch-Bold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
