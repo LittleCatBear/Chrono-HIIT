@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+
 class CircleAnimationView : UIView{
     let circleLayer: CAShapeLayer!
     let animation = CABasicAnimation(keyPath: "strokeEnd")
@@ -39,7 +40,7 @@ class CircleAnimationView : UIView{
         circleLayer = CAShapeLayer()
         circleLayer.path = circlePath.CGPath
         circleLayer.fillColor = UIColor.clearColor().CGColor
-        circleLayer.strokeColor = UIColor.brownColor().CGColor
+        circleLayer.strokeColor = UIColor(red: 0.494, green: 0.078, blue: 0.118, alpha: 1.0).CGColor
         circleLayer.lineWidth = line
         
         circleLayer.strokeEnd = 0.0
@@ -50,10 +51,15 @@ class CircleAnimationView : UIView{
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+   
+    func pauseAnim(){
+        //CATimeInterval pauseTime = circleLayer.convertTime(CACurrentMediaTime(), fromLayer: nil)
+        circleLayer.speed = 0.0
+        circleLayer.timeOffset = circleLayer.convertTime(CACurrentMediaTime(), fromLayer: circleLayer)
+    }
     
-    func pause(){
-        
-        
+    func resumeAnim(){
+        circleLayer.speed = 1.0
     }
     
     func animateCircle(duration: NSTimeInterval) {

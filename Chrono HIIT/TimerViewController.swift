@@ -45,6 +45,8 @@ class TimerViewController: UIViewController {
     let synth = AVSpeechSynthesizer()
     var myUtterance = AVSpeechUtterance(string: "")
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         UIApplication.sharedApplication().idleTimerDisabled = true
@@ -152,6 +154,9 @@ class TimerViewController: UIViewController {
     @IBAction func onClickPauseButton(sender: UIButton) {
         if(flag == false){
             flag = true
+            
+            var temp = view.subviews[view.subviews.count-1] as CircleAnimationView
+            temp.pauseAnim()
             pauseButton.setImage(UIImage(named: "start.png"), forState: UIControlState.Normal)
             timer.invalidate()
         } else{
@@ -162,7 +167,7 @@ class TimerViewController: UIViewController {
     }
     
     func addCircleView(attachableView:UIView, duration: NSTimeInterval, withFadeOut:Bool) {
-        var circleWidth = CGFloat(attachableView.frame.width)
+        var circleWidth = CGFloat(attachableView.frame.width-50)
         var circleHeight = circleWidth
         var circleAnimationView = CircleAnimationView(frame: CGRectMake(attachableView.center.x - circleWidth/2,attachableView.center.y - circleHeight/2, circleWidth, circleHeight), line: 50.0)
         view.addSubview(circleAnimationView)
