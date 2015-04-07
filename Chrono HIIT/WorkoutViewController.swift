@@ -76,11 +76,14 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
         var cell:UITableViewCell = self.workoutTable.dequeueReusableCellWithIdentifier("cellw") as UITableViewCell
         if(workouts.count == 0){
             cell.textLabel?.text = "You don't have any saved workouts"
+            //reset fields in others tabs
+            
         }else{
             if(String(workouts[indexPath.row].name) != nil){
                 cell.textLabel?.text = workouts[indexPath.row].name
             }
         }
+        
         return cell
     }
     
@@ -120,6 +123,8 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
                     
                    // tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
                 }
+                token1 = true
+                token2 = true
             }
         }
     }
