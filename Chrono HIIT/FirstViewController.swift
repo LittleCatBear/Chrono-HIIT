@@ -83,8 +83,9 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     //# MARK: snippet to find every available fonts
     func findFontNames(){
         for familyName in UIFont.familyNames(){
+            NSLog("\(familyName)")
             for fontName in UIFont.fontNamesForFamilyName(String(format: familyName as NSString)) {
-                NSLog("\(fontName)");
+                NSLog("    \(fontName)");
             }
         }
     }
