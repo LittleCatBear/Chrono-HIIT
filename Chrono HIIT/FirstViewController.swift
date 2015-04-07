@@ -23,10 +23,10 @@ var exercises:[ExerciseModel] = [ExerciseModel]()
 var workoutId:NSManagedObjectID = NSManagedObjectID()
 
 //when "new workout" (+) clicked on WorkoutViewController, token1 = true
-var token1:Bool = false
+var token1:Bool = true
 
 //for TimerViewController field cleaning when a new workout had been selected
-var token2:Bool = false
+var token2:Bool = true
 
 class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
 
@@ -42,7 +42,8 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     //# MARK: IBOutlet for design
     @IBOutlet weak var topBarView: UIView!
     @IBOutlet weak var addExerciseLabel: UILabel!
-    @IBOutlet var exercisesLabel: UIView!
+  
+    @IBOutlet weak var exercisesLabel: UILabel!
     @IBOutlet weak var plusButton: UIButton!
     
     //# MARK: prepare and load view, with tableview cleaning and loading if needed
@@ -66,11 +67,13 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
             token1 = false
             token2 = true
             workoutStatusLabel.text = "New workout"
+            blueDesign()
             self.exerciseTableView.reloadData()
         }
         else if(workoutModel.name != ""){
             self.exerciseTableView.reloadData()
-            workoutStatusLabel.text = "Editing workout \(workoutModel.name)"
+            workoutStatusLabel.text = "Workout \(workoutModel.name)"
+            redDesign()
         }
     }
     
@@ -139,8 +142,21 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     //# MARK: Label design (color)
-    func blueDesign(){
+    func redDesign(){
+        topBarView.backgroundColor = UIColor(red: 0.75, green: 0.118, blue: 0.176, alpha: 1.0)
+        addExerciseLabel.textColor = UIColor(red: 0.75, green: 0.118, blue: 0.176, alpha: 1.0)
+        exercisesLabel.textColor = UIColor(red: 0.75, green: 0.118, blue: 0.176, alpha: 1.0)
+        plusButton.setImage(UIImage(named: "plusRed.png"), forState: UIControlState.Normal)
         
     }
+    
+    func blueDesign(){
+        topBarView.backgroundColor = UIColor(red: 0.082, green: 0.647, blue: 0.859, alpha: 1.0)
+        addExerciseLabel.textColor = UIColor(red: 0.082, green: 0.647, blue: 0.859, alpha: 1.0)
+        exercisesLabel.textColor = UIColor(red: 0.082, green: 0.647, blue: 0.859, alpha: 1.0)
+        plusButton.setImage(UIImage(named: "plusBlue.png"), forState: UIControlState.Normal)
+        
+    }
+
 }
 

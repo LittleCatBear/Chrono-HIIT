@@ -198,7 +198,7 @@ class TimerViewController: UIViewController {
             let fractionalProgress = Float(counter) / Float(workoutModel.totalTime)
             let animated = counter != 0
             NSLog("\(fractionalProgress)")
-            progressBarView.setProgress(fractionalProgress, animated: animated)
+            progressBarView.setProgress(fractionalProgress, animated: true)
         }
     }
     
