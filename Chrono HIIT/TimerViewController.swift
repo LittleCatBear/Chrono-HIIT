@@ -54,7 +54,7 @@ class TimerViewController: UIViewController {
         repeatButton.enabled = false
         pauseButton.enabled = false
         
-        progressBarView.setProgress(1, animated: true)
+        progressBarView.setProgress(0, animated: true)
         
         cd = NSInteger(workoutModel.countdown)
         self.sec = NSInteger(workoutModel.totalTime)
@@ -63,7 +63,7 @@ class TimerViewController: UIViewController {
             countdown = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("countDownSub"), userInfo: nil, repeats: true)
         } else{
             //addCircleView(totalChronoView, duration:NSTimeInterval(sec), withFadeOut:false)
-            self.startProgressBar()
+            self.counter = 0
             self.lauchExercise(Float(sec))
             
         }
@@ -113,6 +113,7 @@ class TimerViewController: UIViewController {
             speech(self.exerciseLabel.text!)
         } else{
             self.exerciseLabel.text = "\(cd)"
+            self.counter = 0
             speech(self.exerciseLabel.text!)
         }
         cd--
@@ -121,6 +122,7 @@ class TimerViewController: UIViewController {
     func subtractTime() {
         sec--
         tempSwap--
+        startProgressBar()
         roundLabel.text = " \(sec)"
         if(sec == 0){
             var temp = view.subviews[view.subviews.count-1] as CircleAnimationView
@@ -195,21 +197,14 @@ class TimerViewController: UIViewController {
         didSet {
             let fractionalProgress = Float(counter) / Float(workoutModel.totalTime)
             let animated = counter != 0
+            NSLog("\(fractionalProgress)")
             progressBarView.setProgress(fractionalProgress, animated: animated)
         }
     }
     
     func startProgressBar(){
-        self.counter = 0
-        for i in 0..<workoutModel.totalTime {
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {
-                sleep(1)
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.counter++
-                    return
-                })
-            })
-        }
+       // self.counter = 0
+        self.counter++
     }
   
 }
