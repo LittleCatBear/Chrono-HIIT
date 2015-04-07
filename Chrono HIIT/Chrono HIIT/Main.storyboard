@@ -24,12 +24,15 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="New workout" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8E-dp-DHJ">
                                         <rect key="frame" x="244" y="20" width="112" height="20.5"/>
-                                        <fontDescription key="fontDescription" name="Copperplate-Bold" family="Copperplate" pointSize="20"/>
+                                        <fontDescription key="fontDescription" name="Copperplate-Bold" family="Copperplate" pointSize="25"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="20" y="22" width="176" height="25.5"/>
+                                        </variation>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.082365337169999997" green="0.64602179280000005" blue="0.85857833059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.082352941176470587" green="0.6470588235294118" blue="0.85882352941176465" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="J8E-dp-DHJ" firstAttribute="leading" secondItem="OyT-Dh-UKD" secondAttribute="leading" constant="20" id="3ic-yQ-d22"/>
                                     <constraint firstAttribute="centerY" secondItem="J8E-dp-DHJ" secondAttribute="centerY" id="KMy-M5-YmB"/>
@@ -68,6 +71,9 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="188" width="400" height="363"/>
+                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="9pv-A4-QxB" id="lCk-bK-eQB"/>
                                     <outlet property="delegate" destination="9pv-A4-QxB" id="RdZ-ZX-MoW"/>
@@ -75,8 +81,8 @@
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Add Exercise" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6WY-o1-ePH">
                                 <rect key="frame" x="213" y="60" width="173.5" height="21"/>
-                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="17"/>
-                                <color key="textColor" red="0.74509803919999995" green="0.1176470588" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="18"/>
+                                <color key="textColor" red="0.082365337169999997" green="0.64602179280000005" blue="0.85857833059999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z1M-pX-UeZ">
@@ -91,7 +97,8 @@
                                         <exclude reference="1fc-3M-nyP"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact">
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="24" y="113" width="312" height="30"/>
                                     <mask key="constraints">
                                         <include reference="1fc-3M-nyP"/>
                                     </mask>
@@ -99,9 +106,12 @@
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exercises " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bjq-mC-r7w">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" name="Copperplate-Light" family="Copperplate" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="17"/>
                                 <color key="textColor" red="0.082365337169999997" green="0.64602179280000005" blue="0.85857833059999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="24" y="163" width="89.5" height="17.5"/>
+                                </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="shM-Zg-Xzq">
                                 <rect key="frame" x="280" y="127" width="40" height="40"/>
@@ -110,7 +120,7 @@
                                     <constraint firstAttribute="height" constant="40" id="toO-0d-n1J"/>
                                     <constraint firstAttribute="width" secondItem="shM-Zg-Xzq" secondAttribute="height" multiplier="1:1" id="vSU-tr-V6V"/>
                                 </constraints>
-                                <state key="normal" image="plus">
+                                <state key="normal" image="plusBlue">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="default">
@@ -142,7 +152,9 @@
                             <constraint firstAttribute="trailingMargin" secondItem="Z1M-pX-UeZ" secondAttribute="trailing" constant="20" id="Gn4-zk-LG8"/>
                             <constraint firstAttribute="centerX" secondItem="Z1M-pX-UeZ" secondAttribute="centerX" id="HrA-Tr-Ra6"/>
                             <constraint firstItem="IQv-WM-jBd" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="-16" id="Jrf-DU-XEM"/>
-                            <constraint firstItem="6WY-o1-ePH" firstAttribute="top" secondItem="OyT-Dh-UKD" secondAttribute="bottom" constant="8" id="NGz-sY-Okg"/>
+                            <constraint firstItem="6WY-o1-ePH" firstAttribute="top" secondItem="OyT-Dh-UKD" secondAttribute="bottom" constant="8" id="NGz-sY-Okg">
+                                <variation key="widthClass=compact" constant="16"/>
+                            </constraint>
                             <constraint firstItem="Bjq-mC-r7w" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="Nau-GS-ryZ">
                                 <variation key="widthClass=compact" constant="8"/>
                             </constraint>
@@ -229,7 +241,11 @@
                     <tabBarItem key="tabBarItem" title="Exercises" image="liste" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="ExerciseTextField" destination="Z1M-pX-UeZ" id="rGP-bC-6d7"/>
+                        <outlet property="addExerciseLabel" destination="6WY-o1-ePH" id="tIF-gC-J4e"/>
                         <outlet property="exerciseTableView" destination="IQv-WM-jBd" id="I5r-VR-kpD"/>
+                        <outlet property="exercisesLabel" destination="tsR-hK-woN" id="pHZ-hE-jRH"/>
+                        <outlet property="plusButton" destination="shM-Zg-Xzq" id="o8f-5j-cnl"/>
+                        <outlet property="topBarView" destination="OyT-Dh-UKD" id="hib-id-MEJ"/>
                         <outlet property="workoutStatusLabel" destination="J8E-dp-DHJ" id="T8Z-8H-TG9"/>
                     </connections>
                 </viewController>
@@ -276,43 +292,85 @@
                                         <variation key="widthClass=compact" constant="40"/>
                                     </constraint>
                                 </constraints>
-                                <state key="normal" image="plus">
+                                <state key="normal" image="plusBlue">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="onClickAddWorkoutButton:" destination="5L7-oB-Bcn" eventType="touchUpInside" id="Ezj-UO-x0a"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Workouts saved" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Q6-Bl-2R7">
-                                <rect key="frame" x="239" y="40" width="122.5" height="20"/>
-                                <fontDescription key="fontDescription" name="Copperplate-Bold" family="Copperplate" pointSize="20"/>
-                                <color key="textColor" red="0.082365337171052627" green="0.64602179276315785" blue="0.85857833059210531" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wh6-yi-AUz">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Workouts saved" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Q6-Bl-2R7">
+                                        <rect key="frame" x="239" y="40" width="122.5" height="20"/>
+                                        <fontDescription key="fontDescription" name="Copperplate-Bold" family="Copperplate" pointSize="25"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.082365337169999997" green="0.64602179280000005" blue="0.85857833059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerY" secondItem="6Q6-Bl-2R7" secondAttribute="centerY" id="AOU-sr-4DA"/>
+                                    <constraint firstItem="6Q6-Bl-2R7" firstAttribute="leading" secondItem="wh6-yi-AUz" secondAttribute="leading" constant="20" id="UOe-lu-e5A"/>
+                                    <constraint firstAttribute="height" constant="72" id="vEz-NE-d73"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="6Q6-Bl-2R7"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <exclude reference="vEz-NE-d73"/>
+                                        <exclude reference="AOU-sr-4DA"/>
+                                        <exclude reference="UOe-lu-e5A"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="subviews">
+                                        <include reference="6Q6-Bl-2R7"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <include reference="vEz-NE-d73"/>
+                                        <include reference="AOU-sr-4DA"/>
+                                        <include reference="UOe-lu-e5A"/>
+                                    </mask>
+                                </variation>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="mII-YL-aG2" firstAttribute="top" secondItem="1or-AY-jCC" secondAttribute="bottom" id="Ik9-Px-Atg"/>
                             <constraint firstItem="wPP-7L-BwR" firstAttribute="top" secondItem="1or-AY-jCC" secondAttribute="bottom" constant="8" id="J7C-Sq-kbN"/>
-                            <constraint firstAttribute="centerX" secondItem="6Q6-Bl-2R7" secondAttribute="centerX" id="Oop-bO-Z5v"/>
-                            <constraint firstItem="6Q6-Bl-2R7" firstAttribute="leading" secondItem="U4E-H8-1O9" secondAttribute="leadingMargin" id="Vou-PJ-wWq"/>
-                            <constraint firstItem="6Q6-Bl-2R7" firstAttribute="top" secondItem="WWN-rx-09w" secondAttribute="bottom" constant="20" id="XG3-hR-jy8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wh6-yi-AUz" secondAttribute="trailing" constant="-16" id="NaY-Yy-lfP"/>
+                            <constraint firstItem="wh6-yi-AUz" firstAttribute="top" secondItem="U4E-H8-1O9" secondAttribute="topMargin" id="ZjM-Of-bdg"/>
                             <constraint firstAttribute="centerX" secondItem="wPP-7L-BwR" secondAttribute="centerX" id="bAI-Yp-jgl"/>
                             <constraint firstItem="1or-AY-jCC" firstAttribute="leading" secondItem="U4E-H8-1O9" secondAttribute="leadingMargin" constant="-16" id="jBy-Xn-NHd"/>
+                            <constraint firstItem="wh6-yi-AUz" firstAttribute="leading" secondItem="U4E-H8-1O9" secondAttribute="leadingMargin" constant="-16" id="lMH-Sn-Nbz"/>
+                            <constraint firstItem="1or-AY-jCC" firstAttribute="top" secondItem="wh6-yi-AUz" secondAttribute="bottom" constant="8" id="oMU-gO-tpN"/>
                             <constraint firstItem="mII-YL-aG2" firstAttribute="top" secondItem="wPP-7L-BwR" secondAttribute="bottom" constant="8" id="vM1-cV-wbK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="1or-AY-jCC" secondAttribute="trailing" constant="-16" id="xoY-Vl-rzz"/>
-                            <constraint firstItem="1or-AY-jCC" firstAttribute="top" secondItem="6Q6-Bl-2R7" secondAttribute="bottom" constant="8" id="ze1-MH-anI"/>
                         </constraints>
                         <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="wh6-yi-AUz"/>
+                            </mask>
                             <mask key="constraints">
-                                <exclude reference="Vou-PJ-wWq"/>
+                                <exclude reference="NaY-Yy-lfP"/>
+                                <exclude reference="ZjM-Of-bdg"/>
+                                <exclude reference="lMH-Sn-Nbz"/>
+                                <exclude reference="oMU-gO-tpN"/>
                                 <exclude reference="Ik9-Px-Atg"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="wh6-yi-AUz"/>
+                            </mask>
                             <mask key="constraints">
-                                <exclude reference="Oop-bO-Z5v"/>
-                                <include reference="Vou-PJ-wWq"/>
+                                <include reference="NaY-Yy-lfP"/>
+                                <include reference="ZjM-Of-bdg"/>
+                                <include reference="lMH-Sn-Nbz"/>
+                                <include reference="oMU-gO-tpN"/>
                             </mask>
                         </variation>
                     </view>
@@ -348,7 +406,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Workout Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0hu-1q-mys">
                                         <rect key="frame" x="242" y="307" width="114.5" height="20.5"/>
                                         <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="17"/>
-                                        <color key="textColor" red="0.74509803919999995" green="0.1176470588" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="0.082365337169999997" green="0.64602179280000005" blue="0.85857833059999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Duration of 1 exercise" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ioO-ec-JzT">
@@ -369,19 +427,19 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PXI-4f-2lg">
                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                         <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="17"/>
-                                        <color key="textColor" red="0.74509803919999995" green="0.1176470588" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="0.082365337169999997" green="0.64602179280000005" blue="0.85857833059999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swap frequency" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YZd-LZ-wu9">
                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                         <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="17"/>
-                                        <color key="textColor" red="0.74509803919999995" green="0.1176470588" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="0.082365337169999997" green="0.64602179280000005" blue="0.85857833059999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Countdown" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nRV-Dw-dFB">
                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                         <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="17"/>
-                                        <color key="textColor" red="0.74509803919999995" green="0.1176470588" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="0.082365337169999997" green="0.64602179280000005" blue="0.85857833059999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -502,7 +560,7 @@
                                                 <variation key="widthClass=compact" constant="30"/>
                                             </constraint>
                                         </constraints>
-                                        <state key="normal" image="save">
+                                        <state key="normal" image="saveBlue">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -512,7 +570,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Save" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1YU-SZ-Do6">
                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                         <fontDescription key="fontDescription" name="Copperplate-Light" family="Copperplate" pointSize="14"/>
-                                        <color key="textColor" red="0.74509803919999995" green="0.1176470588" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="0.082365337169999997" green="0.64602179280000005" blue="0.85857833059999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -558,7 +616,7 @@
                                                 <variation key="widthClass=compact" constant="30"/>
                                             </constraint>
                                         </constraints>
-                                        <state key="normal" image="start">
+                                        <state key="normal" image="startBlue">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -569,7 +627,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Play" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xfP-bg-lZ7">
                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                         <fontDescription key="fontDescription" name="Copperplate-Light" family="Copperplate" pointSize="14"/>
-                                        <color key="textColor" red="0.74509803919999995" green="0.1176470588" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="0.082365337169999997" green="0.64602179280000005" blue="0.85857833059999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -621,7 +679,7 @@
                                         <variation key="widthClass=compact" constant="30"/>
                                     </constraint>
                                 </constraints>
-                                <state key="normal" title="Button" image="update">
+                                <state key="normal" title="Button" image="updateRed">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -633,7 +691,7 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="New workout" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yeR-lF-T7K">
                                         <rect key="frame" x="243" y="20" width="114" height="20.5"/>
-                                        <fontDescription key="fontDescription" name="Copperplate-Bold" family="Copperplate" pointSize="20"/>
+                                        <fontDescription key="fontDescription" name="Copperplate-Bold" family="Copperplate" pointSize="25"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -796,7 +854,7 @@
                                         <variation key="widthClass=compact" constant="40"/>
                                     </constraint>
                                 </constraints>
-                                <state key="normal" image="stop">
+                                <state key="normal" image="stopBlue">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -814,7 +872,7 @@
                                         <variation key="widthClass=compact" constant="40"/>
                                     </constraint>
                                 </constraints>
-                                <state key="normal" image="repeat">
+                                <state key="normal" image="repeatBlue">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -831,7 +889,7 @@
                                         <variation key="widthClass=compact" constant="40"/>
                                     </constraint>
                                 </constraints>
-                                <state key="normal" image="pause">
+                                <state key="normal" image="pauseBlue">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -878,19 +936,19 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pause" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CCS-KC-dp1">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" name="Copperplate-Light" family="Copperplate" pointSize="14"/>
-                                <color key="textColor" red="0.74509803919999995" green="0.1176470588" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.082365337169999997" green="0.64602179280000005" blue="0.85857833059999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stop" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQC-Pa-56m">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" name="Copperplate-Light" family="Copperplate" pointSize="14"/>
-                                <color key="textColor" red="0.74509803919999995" green="0.1176470588" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.082365337169999997" green="0.64602179280000005" blue="0.85857833059999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repeat" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dnf-hp-CnY">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" name="Copperplate-Light" family="Copperplate" pointSize="14"/>
-                                <color key="textColor" red="0.74509803919999995" green="0.1176470588" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.082365337169999997" green="0.64602179280000005" blue="0.85857833059999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6yg-rK-7zN">
@@ -1064,13 +1122,13 @@
     <resources>
         <image name="chrono" width="44" height="50"/>
         <image name="liste" width="25" height="25"/>
-        <image name="pause" width="217" height="215"/>
-        <image name="plus" width="627" height="629"/>
-        <image name="repeat" width="232" height="216"/>
-        <image name="save" width="596" height="592"/>
-        <image name="start" width="217" height="217"/>
-        <image name="stop" width="217" height="218"/>
-        <image name="update" width="440" height="423"/>
+        <image name="pauseBlue" width="217" height="215"/>
+        <image name="plusBlue" width="627" height="629"/>
+        <image name="repeatBlue" width="232" height="216"/>
+        <image name="saveBlue" width="596" height="592"/>
+        <image name="startBlue" width="217" height="217"/>
+        <image name="stopBlue" width="217" height="218"/>
+        <image name="updateRed" width="440" height="423"/>
         <image name="workout" width="25" height="25"/>
     </resources>
 </document>

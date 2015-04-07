@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class CustomTabBarViewController: UITabBarController{
+class CustomTabBarViewController: UITabBarController, UITabBarControllerDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,4 +19,5 @@ class CustomTabBarViewController: UITabBarController{
     
     }
     
+
 }

@@ -39,6 +39,12 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     //tells the user what king of workout it is (saved, new..)
     @IBOutlet weak var workoutStatusLabel: UILabel!
     
+    //# MARK: IBOutlet for design
+    @IBOutlet weak var topBarView: UIView!
+    @IBOutlet weak var addExerciseLabel: UILabel!
+    @IBOutlet var exercisesLabel: UIView!
+    @IBOutlet weak var plusButton: UIButton!
+    
     //# MARK: prepare and load view, with tableview cleaning and loading if needed
     override func viewDidLoad() {
         
@@ -130,6 +136,11 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     {
         textField.resignFirstResponder()
         return true;
+    }
+    
+    //# MARK: Label design (color)
+    func blueDesign(){
+        
     }
 }
 
