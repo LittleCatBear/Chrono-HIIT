@@ -206,6 +206,16 @@ class TimerViewController: UIViewController {
        // self.counter = 0
         self.counter++
     }
+    
+    //# MARK: Design
+    
+    func red() -> UIColor{
+        return UIColor(red: 0.75, green: 0.118, blue: 0.176, alpha: 1.0)
+    }
+    
+    func blue() -> UIColor{
+        return UIColor(red: 0.082, green: 0.647, blue: 0.859, alpha: 1.0)
+    }
   
 }
 

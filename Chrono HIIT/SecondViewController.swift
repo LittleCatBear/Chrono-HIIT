@@ -16,12 +16,20 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     //swap field of a workout
     @IBOutlet weak var timingTextField: UITextField!
     
+    //top bar (blue or red)
+    @IBOutlet weak var topBarView: UIView!
+    
     //error label
     @IBOutlet weak var errorLabel: UILabel!
     
+    @IBOutlet weak var countdownLabel: UILabel!
+    @IBOutlet weak var swapLabel: UILabel!
+    @IBOutlet weak var totalTimeLabel: UILabel!
     //totalTime field of a workout
     @IBOutlet weak var roundTextField: UITextField!
     
+    @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var playLabel: UILabel!
     //countdown field of a workout
     @IBOutlet weak var countDownTextField: UITextField!
     
@@ -65,6 +73,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
             saveLabel.hidden = false
             workoutNameLabel.hidden = true
             workoutNameTextField.hidden = true
+            blueDesign()
         }
         else if workoutModel.name != ""{
             getWorkoutData()
@@ -76,6 +85,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
             saveLabel.hidden = true
             workoutNameLabel.hidden = false
             workoutNameTextField.hidden = false
+            blueDesign()
         }
         else{
             updateButton.hidden = true
@@ -83,6 +93,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
             updateLabel.hidden = true
             workoutNameLabel.hidden = true
             workoutNameTextField.hidden = true
+            redDesign()
         }
     }
     
@@ -232,6 +243,9 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         if !(managedObjectContext?.save(&error) != nil) {
             println("Could not save workout\(error), \(error?.userInfo)")
         }
+        else{
+            isRegistered = true
+        }
         managedObjectContext?.reset()
     }
     
@@ -330,6 +344,42 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
             println("Could not save workout\(error), \(error?.userInfo)")
         }
         managedObjectContext?.reset()
+    }
+    
+    //# MARK: Design
+    
+    func blueDesign(){
+        updateLabel.textColor = blue()
+        saveLabel.textColor = blue()
+      //  workoutNameLabel.textColor = UIColor(red: 0.082, green: 0.647, blue: 0.859, alpha: 1.0)
+        saveButton.setImage(UIImage(named: "saveBlue"), forState: UIControlState.Normal)
+        totalTimeLabel.textColor = blue()
+        swapLabel.textColor = blue()
+        countdownLabel.textColor = blue()
+        playButton.setImage(UIImage(named: "playBlue"), forState: UIControlState.Normal)
+        playLabel.textColor = blue()
+        topBarView.backgroundColor = blue()
+        
+    }
+    
+    func redDesign(){
+        updateLabel.textColor = red()
+        saveLabel.textColor = red()
+        workoutNameLabel.textColor = red()
+        totalTimeLabel.textColor = red()
+        swapLabel.textColor = red()
+        countdownLabel.textColor = red()
+        playButton.setImage(UIImage(named: "playRed"), forState: UIControlState.Normal)
+        playLabel.textColor = red()
+        topBarView.backgroundColor = red()
+    }
+    
+    func red() -> UIColor{
+        return UIColor(red: 0.75, green: 0.118, blue: 0.176, alpha: 1.0)
+    }
+    
+    func blue() -> UIColor{
+        return UIColor(red: 0.082, green: 0.647, blue: 0.859, alpha: 1.0)
     }
 }
 

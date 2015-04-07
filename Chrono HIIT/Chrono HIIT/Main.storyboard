@@ -828,11 +828,17 @@
                     <tabBarItem key="tabBarItem" title="Timer" image="chrono" id="cPa-gy-q4n"/>
                     <connections>
                         <outlet property="countDownTextField" destination="jPQ-KP-1FT" id="xeF-yB-BeU"/>
+                        <outlet property="countdownLabel" destination="nRV-Dw-dFB" id="XTW-Ho-3bI"/>
                         <outlet property="errorLabel" destination="4gg-u1-Nv4" id="cTP-Be-KJV"/>
+                        <outlet property="playButton" destination="6m5-S2-XJ8" id="LpO-bS-2hB"/>
+                        <outlet property="playLabel" destination="xfP-bg-lZ7" id="aGS-FY-wXf"/>
                         <outlet property="roundTextField" destination="AY2-0u-DXW" id="cwL-TP-iaU"/>
                         <outlet property="saveButton" destination="PfM-Ye-ynL" id="fVw-9n-Du6"/>
                         <outlet property="saveLabel" destination="1YU-SZ-Do6" id="yLs-P7-ezH"/>
+                        <outlet property="swapLabel" destination="YZd-LZ-wu9" id="tfU-c1-uD9"/>
                         <outlet property="timingTextField" destination="ioO-ec-JzT" id="bZs-qP-sm5"/>
+                        <outlet property="topBarView" destination="IF8-w6-Lyf" id="LH2-20-kJ7"/>
+                        <outlet property="totalTimeLabel" destination="PXI-4f-2lg" id="ImS-Sb-Yf3"/>
                         <outlet property="updateButton" destination="3SR-Sh-lhf" id="jyx-z2-XUY"/>
                         <outlet property="updateLabel" destination="OfI-gW-Hcr" id="mtF-Gi-8Bl"/>
                         <outlet property="workoutNameLabel" destination="0hu-1q-mys" id="KSg-TP-ScE"/>

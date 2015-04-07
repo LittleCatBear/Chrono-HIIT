@@ -28,6 +28,8 @@ var token1:Bool = true
 //for TimerViewController field cleaning when a new workout had been selected
 var token2:Bool = true
 
+var isRegistered:Bool = false
+
 class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
 
     //tableView of exercises, saved or to be saved, depending on the current context
@@ -143,19 +145,27 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     //# MARK: Label design (color)
     func redDesign(){
-        topBarView.backgroundColor = UIColor(red: 0.75, green: 0.118, blue: 0.176, alpha: 1.0)
-        addExerciseLabel.textColor = UIColor(red: 0.75, green: 0.118, blue: 0.176, alpha: 1.0)
-        exercisesLabel.textColor = UIColor(red: 0.75, green: 0.118, blue: 0.176, alpha: 1.0)
+        topBarView.backgroundColor = red()
+        addExerciseLabel.textColor = red()
+        exercisesLabel.textColor = red()
         plusButton.setImage(UIImage(named: "plusRed.png"), forState: UIControlState.Normal)
         
     }
     
     func blueDesign(){
-        topBarView.backgroundColor = UIColor(red: 0.082, green: 0.647, blue: 0.859, alpha: 1.0)
-        addExerciseLabel.textColor = UIColor(red: 0.082, green: 0.647, blue: 0.859, alpha: 1.0)
-        exercisesLabel.textColor = UIColor(red: 0.082, green: 0.647, blue: 0.859, alpha: 1.0)
+        topBarView.backgroundColor = blue()
+        addExerciseLabel.textColor = blue()
+        exercisesLabel.textColor = blue()
         plusButton.setImage(UIImage(named: "plusBlue.png"), forState: UIControlState.Normal)
         
+    }
+    
+    func red() -> UIColor{
+        return UIColor(red: 0.75, green: 0.118, blue: 0.176, alpha: 1.0)
+    }
+    
+    func blue() -> UIColor{
+        return UIColor(red: 0.082, green: 0.647, blue: 0.859, alpha: 1.0)
     }
 
 }

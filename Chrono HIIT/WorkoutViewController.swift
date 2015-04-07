@@ -103,6 +103,7 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
                 exercises.append(ex)
             }
             workoutModel.exercise = exercises
+            isRegistered = true
             tabBarController?.selectedIndex = 1
         }
     }
@@ -125,12 +126,14 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
                 }
                 token1 = true
                 token2 = true
+                isRegistered = false
             }
         }
     }
 
     @IBAction func onClickAddWorkoutButton(sender: UIButton) {
         token1 = true
+        isRegistered = false
         tabBarController?.selectedIndex = 0
     }
 }
