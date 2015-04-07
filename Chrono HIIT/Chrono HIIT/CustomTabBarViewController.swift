@@ -14,7 +14,9 @@ class CustomTabBarViewController: UITabBarController{
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBar.barTintColor = UIColor.blackColor()
+        self.tabBar.translucent = false
         self.tabBar.tintColor = UIColor(red: 0.082, green: 0.647, blue: 0.859, alpha: 1.0)
+    
     }
     
 }

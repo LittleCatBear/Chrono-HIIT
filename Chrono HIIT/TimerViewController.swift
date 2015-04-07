@@ -123,6 +123,8 @@ class TimerViewController: UIViewController {
         tempSwap--
         roundLabel.text = " \(sec)"
         if(sec == 0){
+            var temp = view.subviews[view.subviews.count-1] as CircleAnimationView
+            temp.pauseAnim()
             self.exerciseLabel.text = "Time completed"
             speech(self.exerciseLabel.text!)
             timer.invalidate()
