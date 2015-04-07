@@ -237,6 +237,7 @@ class TimerViewController: UIViewController {
     
     func blueDesign(){
         titleLabel.textColor = blue()
+        titleLabel.text = "Unregistered workout"
         topBarView.backgroundColor = blue()
         pauseLabel.textColor = blue()
         stopLabel.textColor = blue()
@@ -248,6 +249,7 @@ class TimerViewController: UIViewController {
     
     func redDesign(){
         titleLabel.textColor = red()
+        titleLabel.text = "\(workoutModel.name) exercises"
         topBarView.backgroundColor = red()
         pauseLabel.textColor = red()
         stopLabel.textColor = red()

@@ -23,10 +23,10 @@ var exercises:[ExerciseModel] = [ExerciseModel]()
 var workoutId:NSManagedObjectID = NSManagedObjectID()
 
 //when "new workout" (+) clicked on WorkoutViewController, token1 = true
-var token1:Bool = true
+var token1:Bool = false
 
 //for TimerViewController field cleaning when a new workout had been selected
-var token2:Bool = true
+var token2:Bool = false
 
 var isRegistered:Bool = false
 

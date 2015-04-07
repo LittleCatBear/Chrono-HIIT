@@ -57,10 +57,22 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         self.countDownTextField.delegate = self
         self.countDownTextField.text = "5"
         self.errorLabel.text = ""
+        
     }
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
+        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
+        if(isRegistered){
+            redDesign()
+            getWorkoutData()
+        } else{
+            blueDesign()
+        }
         
         if token2{
             cleanFields()
@@ -73,7 +85,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
             saveLabel.hidden = false
             workoutNameLabel.hidden = true
             workoutNameTextField.hidden = true
-            blueDesign()
+            //  blueDesign()
         }
         else if workoutModel.name != ""{
             getWorkoutData()
@@ -85,7 +97,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
             saveLabel.hidden = true
             workoutNameLabel.hidden = false
             workoutNameTextField.hidden = false
-            redDesign()
+            // redDesign()
         }
         else{
             updateButton.hidden = true
@@ -93,7 +105,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
             updateLabel.hidden = true
             workoutNameLabel.hidden = true
             workoutNameTextField.hidden = true
-            blueDesign()
+            // blueDesign()
         }
     }
     
