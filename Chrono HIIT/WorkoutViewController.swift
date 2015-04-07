@@ -25,18 +25,21 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        println(isRegistered)
         workoutTable.delegate = self
         self.workoutTable.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellw")
+
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        
         
         if(isRegistered){
             redDesign()
         } else{
             blueDesign()
         }
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(true)
         getWorkouts()
     }
     

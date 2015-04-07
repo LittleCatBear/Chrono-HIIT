@@ -85,7 +85,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
             saveLabel.hidden = true
             workoutNameLabel.hidden = false
             workoutNameTextField.hidden = false
-            blueDesign()
+            redDesign()
         }
         else{
             updateButton.hidden = true
@@ -93,7 +93,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
             updateLabel.hidden = true
             workoutNameLabel.hidden = true
             workoutNameTextField.hidden = true
-            redDesign()
+            blueDesign()
         }
     }
     
