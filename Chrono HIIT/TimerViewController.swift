@@ -13,6 +13,7 @@ import CoreData
 
 class TimerViewController: UIViewController {
     
+    
     @IBOutlet weak var totalChronoView: UIView!
     
     //totalTime
@@ -47,6 +48,17 @@ class TimerViewController: UIViewController {
     let synth = AVSpeechSynthesizer()
     var myUtterance = AVSpeechUtterance(string: "")
     
+    //# MARK: design var
+  
+    @IBOutlet weak var topBarView: UIView!
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    @IBOutlet weak var stopButton: UIButton!
+    @IBOutlet weak var repeatLabel: UILabel!
+    @IBOutlet weak var stopLabel: UILabel!
+    
+    @IBOutlet weak var pauseLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -59,13 +71,19 @@ class TimerViewController: UIViewController {
         cd = NSInteger(workoutModel.countdown)
         self.sec = NSInteger(workoutModel.totalTime)
         self.tempSwap = NSInteger(workoutModel.swap)
+        
+        if(isRegistered){
+            redDesign()
+        } else{
+            blueDesign()
+        }
+        
         if(cd > 0){
             countdown = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("countDownSub"), userInfo: nil, repeats: true)
         } else{
             //addCircleView(totalChronoView, duration:NSTimeInterval(sec), withFadeOut:false)
             self.counter = 0
             self.lauchExercise(Float(sec))
-            
         }
     }
     
@@ -169,7 +187,11 @@ class TimerViewController: UIViewController {
             
             var temp = view.subviews[view.subviews.count-1] as CircleAnimationView
             temp.pauseAnim()
-            pauseButton.setImage(UIImage(named: "start.png"), forState: UIControlState.Normal)
+            if(isRegistered){
+                pauseButton.setImage(UIImage(named: "startRed.png"), forState: UIControlState.Normal)
+            }else{
+                pauseButton.setImage(UIImage(named: "startBlue.png"), forState: UIControlState.Normal)
+            }
             timer.invalidate()
         } else{
             var temp = view.subviews[view.subviews.count-1] as CircleAnimationView
@@ -177,7 +199,11 @@ class TimerViewController: UIViewController {
            // timer.fire()
             lauchExercise(Float(sec))
             flag =  false
-            pauseButton.setImage(UIImage(named: "pause.png"), forState: UIControlState.Normal)
+            if(isRegistered){
+                pauseButton.setImage(UIImage(named: "pausetRed.png"), forState: UIControlState.Normal)
+            }else{
+                pauseButton.setImage(UIImage(named: "pauseBlue.png"), forState: UIControlState.Normal)
+            }
         }
     }
     
@@ -208,6 +234,28 @@ class TimerViewController: UIViewController {
     }
     
     //# MARK: Design
+    
+    func blueDesign(){
+        titleLabel.textColor = blue()
+        topBarView.backgroundColor = blue()
+        pauseLabel.textColor = blue()
+        stopLabel.textColor = blue()
+        repeatLabel.textColor = blue()
+        pauseButton.setImage(UIImage(named: "pauseBlue"), forState: UIControlState.Normal)
+        stopButton.setImage(UIImage(named: "stopBlue"), forState: UIControlState.Normal)
+        repeatButton.setImage(UIImage(named: "repeatBlue"), forState: UIControlState.Normal)
+    }
+    
+    func redDesign(){
+        titleLabel.textColor = red()
+        topBarView.backgroundColor = red()
+        pauseLabel.textColor = red()
+        stopLabel.textColor = red()
+        repeatLabel.textColor = red()
+        pauseButton.setImage(UIImage(named: "pauseRed"), forState: UIControlState.Normal)
+        stopButton.setImage(UIImage(named: "stopRed"), forState: UIControlState.Normal)
+        repeatButton.setImage(UIImage(named: "repeatRed"), forState: UIControlState.Normal)
+    }
     
     func red() -> UIColor{
         return UIColor(red: 0.75, green: 0.118, blue: 0.176, alpha: 1.0)

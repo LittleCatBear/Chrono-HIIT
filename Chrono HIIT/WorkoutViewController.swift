@@ -16,12 +16,23 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
     var index = -1
     
     @IBOutlet weak var workoutTable: UITableView!
+    @IBOutlet weak var topBarView: UIView!
 
+    @IBOutlet weak var plusbutton: UIButton!
+    
+    @IBOutlet weak var newWorkoutLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         workoutTable.delegate = self
         self.workoutTable.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellw")
+        
+        if(isRegistered){
+            redDesign()
+        } else{
+            blueDesign()
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -135,5 +146,27 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
         token1 = true
         isRegistered = false
         tabBarController?.selectedIndex = 0
+    }
+    
+    //# MARK: design
+    
+    func blueDesign(){
+        topBarView.backgroundColor = blue()
+        newWorkoutLabel.textColor = blue()
+        plusbutton.setImage(UIImage(named: "plusBlue.png"), forState: UIControlState.Normal)
+    }
+    
+    func redDesign(){
+        topBarView.backgroundColor = red()
+        newWorkoutLabel.textColor = red()
+        plusbutton.setImage(UIImage(named: "plusRed.png"), forState: UIControlState.Normal)
+    }
+    
+    func red() -> UIColor{
+        return UIColor(red: 0.75, green: 0.118, blue: 0.176, alpha: 1.0)
+    }
+    
+    func blue() -> UIColor{
+        return UIColor(red: 0.082, green: 0.647, blue: 0.859, alpha: 1.0)
     }
 }

@@ -340,46 +340,65 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New workout" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g1D-fO-0Af">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" name="Copperplate-Light" family="Copperplate" pointSize="14"/>
+                                <color key="textColor" red="0.082365337169999997" green="0.64602179280000005" blue="0.85857833059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="mII-YL-aG2" firstAttribute="top" secondItem="1or-AY-jCC" secondAttribute="bottom" id="Ik9-Px-Atg"/>
                             <constraint firstItem="wPP-7L-BwR" firstAttribute="top" secondItem="1or-AY-jCC" secondAttribute="bottom" constant="8" id="J7C-Sq-kbN"/>
                             <constraint firstAttribute="trailingMargin" secondItem="wh6-yi-AUz" secondAttribute="trailing" constant="-16" id="NaY-Yy-lfP"/>
+                            <constraint firstItem="g1D-fO-0Af" firstAttribute="top" secondItem="wPP-7L-BwR" secondAttribute="bottom" constant="2" id="QDW-6g-i0E"/>
                             <constraint firstItem="wh6-yi-AUz" firstAttribute="top" secondItem="U4E-H8-1O9" secondAttribute="topMargin" id="ZjM-Of-bdg"/>
                             <constraint firstAttribute="centerX" secondItem="wPP-7L-BwR" secondAttribute="centerX" id="bAI-Yp-jgl"/>
                             <constraint firstItem="1or-AY-jCC" firstAttribute="leading" secondItem="U4E-H8-1O9" secondAttribute="leadingMargin" constant="-16" id="jBy-Xn-NHd"/>
                             <constraint firstItem="wh6-yi-AUz" firstAttribute="leading" secondItem="U4E-H8-1O9" secondAttribute="leadingMargin" constant="-16" id="lMH-Sn-Nbz"/>
                             <constraint firstItem="1or-AY-jCC" firstAttribute="top" secondItem="wh6-yi-AUz" secondAttribute="bottom" constant="8" id="oMU-gO-tpN"/>
-                            <constraint firstItem="mII-YL-aG2" firstAttribute="top" secondItem="wPP-7L-BwR" secondAttribute="bottom" constant="8" id="vM1-cV-wbK"/>
+                            <constraint firstItem="g1D-fO-0Af" firstAttribute="centerX" secondItem="wPP-7L-BwR" secondAttribute="centerX" id="tPM-Gb-7hq"/>
+                            <constraint firstItem="mII-YL-aG2" firstAttribute="top" secondItem="wPP-7L-BwR" secondAttribute="bottom" constant="8" id="vM1-cV-wbK">
+                                <variation key="widthClass=compact" constant="30"/>
+                            </constraint>
                             <constraint firstAttribute="trailingMargin" secondItem="1or-AY-jCC" secondAttribute="trailing" constant="-16" id="xoY-Vl-rzz"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="wh6-yi-AUz"/>
+                                <exclude reference="g1D-fO-0Af"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="oMU-gO-tpN"/>
-                                <exclude reference="Ik9-Px-Atg"/>
                                 <exclude reference="NaY-Yy-lfP"/>
                                 <exclude reference="ZjM-Of-bdg"/>
                                 <exclude reference="lMH-Sn-Nbz"/>
+                                <exclude reference="oMU-gO-tpN"/>
+                                <exclude reference="QDW-6g-i0E"/>
+                                <exclude reference="tPM-Gb-7hq"/>
+                                <exclude reference="Ik9-Px-Atg"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="wh6-yi-AUz"/>
+                                <include reference="g1D-fO-0Af"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="oMU-gO-tpN"/>
                                 <include reference="NaY-Yy-lfP"/>
                                 <include reference="ZjM-Of-bdg"/>
                                 <include reference="lMH-Sn-Nbz"/>
+                                <include reference="oMU-gO-tpN"/>
+                                <include reference="QDW-6g-i0E"/>
+                                <include reference="tPM-Gb-7hq"/>
                             </mask>
                         </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Workouts" image="workout" id="MLm-yI-3wx"/>
                     <connections>
+                        <outlet property="newWorkoutLabel" destination="g1D-fO-0Af" id="x1i-yg-ZfP"/>
+                        <outlet property="plusbutton" destination="wPP-7L-BwR" id="qnP-SA-Hx0"/>
+                        <outlet property="topBarView" destination="wh6-yi-AUz" id="W32-fF-974"/>
                         <outlet property="workoutTable" destination="1or-AY-jCC" id="8dR-1J-CTH"/>
                     </connections>
                 </viewController>
@@ -1164,9 +1183,15 @@
                         <outlet property="circleView" destination="xR5-Ov-Dqg" id="aBQ-jZ-JyR"/>
                         <outlet property="exerciseLabel" destination="3Sq-0t-INf" id="RGi-Tb-8a5"/>
                         <outlet property="pauseButton" destination="0Rh-ev-Re2" id="cOj-Hw-yEU"/>
+                        <outlet property="pauseLabel" destination="CCS-KC-dp1" id="vX0-NC-OwM"/>
                         <outlet property="progressBarView" destination="5e5-7K-b7w" id="U1o-lY-FDk"/>
-                        <outlet property="repeatButton" destination="qE0-dP-iQM" id="XT6-A1-heS"/>
+                        <outlet property="repeatButton" destination="qE0-dP-iQM" id="pyB-C3-SXd"/>
+                        <outlet property="repeatLabel" destination="Dnf-hp-CnY" id="gmU-I2-2rO"/>
                         <outlet property="roundLabel" destination="De7-RF-AHq" id="gnZ-Hz-cwO"/>
+                        <outlet property="stopButton" destination="Vcs-bD-6C2" id="F0j-zw-2nz"/>
+                        <outlet property="stopLabel" destination="FQC-Pa-56m" id="smZ-ag-Bm1"/>
+                        <outlet property="titleLabel" destination="now-pu-hgW" id="MAz-Ff-dKd"/>
+                        <outlet property="topBarView" destination="Pxx-pw-Pzh" id="UjW-C5-yzv"/>
                         <outlet property="totalChronoView" destination="6yg-rK-7zN" id="jYp-Yc-L7S"/>
                     </connections>
                 </viewController>

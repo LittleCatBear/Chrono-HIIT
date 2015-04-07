@@ -356,7 +356,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         totalTimeLabel.textColor = blue()
         swapLabel.textColor = blue()
         countdownLabel.textColor = blue()
-        playButton.setImage(UIImage(named: "playBlue"), forState: UIControlState.Normal)
+        playButton.setImage(UIImage(named: "startBlue"), forState: UIControlState.Normal)
         playLabel.textColor = blue()
         topBarView.backgroundColor = blue()
         
@@ -369,7 +369,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         totalTimeLabel.textColor = red()
         swapLabel.textColor = red()
         countdownLabel.textColor = red()
-        playButton.setImage(UIImage(named: "playRed"), forState: UIControlState.Normal)
+        playButton.setImage(UIImage(named: "startRed"), forState: UIControlState.Normal)
         playLabel.textColor = red()
         topBarView.backgroundColor = red()
     }
