@@ -70,10 +70,27 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         if(isRegistered){
             redDesign()
             getWorkoutData()
+            updateButton.hidden = false
+            updateButton.enabled = true
+            updateLabel.hidden = false
+            saveButton.enabled = false
+            saveButton.hidden = true
+            saveLabel.hidden = true
+            workoutNameLabel.hidden = false
+            workoutNameTextField.hidden = false
         } else{
+            cleanFields()
             blueDesign()
+            updateButton.hidden = true
+            updateButton.enabled = false
+            updateLabel.hidden = true
+            saveButton.enabled = true
+            saveButton.hidden = false
+            saveLabel.hidden = false
+            workoutNameLabel.hidden = true
+            workoutNameTextField.hidden = true
         }
-        
+        /*
         if token2{
             cleanFields()
             token2 = false
@@ -107,6 +124,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
             workoutNameTextField.hidden = true
             // blueDesign()
         }
+*/
     }
     
     func cleanFields(){

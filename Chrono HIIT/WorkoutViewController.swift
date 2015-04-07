@@ -118,6 +118,7 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
             }
             workoutModel.exercise = exercises
             isRegistered = true
+            self.tabBarController?.tabBar.tintColor = red()
             tabBarController?.selectedIndex = 1
         }
     }
@@ -141,6 +142,7 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
                 token1 = true
                 token2 = true
                 isRegistered = false
+                self.tabBarController?.tabBar.tintColor = blue()
             }
         }
     }
@@ -148,6 +150,7 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
     @IBAction func onClickAddWorkoutButton(sender: UIButton) {
         token1 = true
         isRegistered = false
+        self.tabBarController?.tabBar.tintColor = blue()
         tabBarController?.selectedIndex = 0
     }
     
