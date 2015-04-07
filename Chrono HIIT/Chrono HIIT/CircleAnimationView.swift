@@ -40,7 +40,7 @@ class CircleAnimationView : UIView{
         circleLayer = CAShapeLayer()
         circleLayer.path = circlePath.CGPath
         circleLayer.fillColor = UIColor.clearColor().CGColor
-        circleLayer.strokeColor = UIColor(red: 1.0, green: 0.459, blue: 0.106, alpha: 1.0).CGColor
+        circleLayer.strokeColor = UIColor(red: 0.75, green: 0.118, blue: 0.176, alpha: 1.0).CGColor
         circleLayer.lineWidth = line
         
         circleLayer.strokeEnd = 0.0

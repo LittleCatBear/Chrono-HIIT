@@ -41,6 +41,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     //# MARK: prepare and load view, with tableview cleaning and loading if needed
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         var appDel: AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
