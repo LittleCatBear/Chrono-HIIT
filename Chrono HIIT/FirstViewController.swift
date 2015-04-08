@@ -66,15 +66,17 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         
-        if (!isRegistered){
+        if (isUnregistered){
+            workoutStatusLabel.text = "New workout"
+            blueDesign()
+            //rself.exerciseTableView.reloadData()
+        }
+        else if (!isRegistered){
             cleanData()
-            token1 = false
-            token2 = true
             workoutStatusLabel.text = "New workout"
             blueDesign()
             self.exerciseTableView.reloadData()
-        }
-        else {
+        }else{
             self.exerciseTableView.reloadData()
             workoutStatusLabel.text = "Workout \(workoutModel.name)"
             redDesign()
@@ -115,6 +117,8 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
            // globalExerciceTable.append(self.ExerciseTextField.text)
             self.ExerciseTextField.text = ""
             self.exerciseTableView.reloadData()
+            isNew = false
+            isUnregistered = true
         }
     }
     

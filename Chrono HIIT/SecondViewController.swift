@@ -191,6 +191,8 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
                     if(self.countDownTextField.text!.toInt()<0){
                         errorLabel.textColor = UIColor.redColor()
                         errorLabel.text = "Invalid data for COUNTDOWN. Countdown should be >= 0 sec"
+                        errorLabel.sizeToFit()
+                    
                     }
                     else{
                         flag = true
