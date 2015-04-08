@@ -126,6 +126,8 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
             cell.beginWorkoutLabel.hidden = true
             cell.noData.hidden = false
             cell.userInteractionEnabled = false
+            tabBarController?.tabBar.tintColor = blue()
+            blueDesign()
             //cell.textLabel?.text = "You don't have any saved workouts"
             //reset fields in others tabs
             

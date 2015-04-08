@@ -291,6 +291,8 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         else{
             isRegistered = true
             isUnregistered = false
+            redDesign()
+            tabBarController?.tabBar.tintColor = red()
         }
         managedObjectContext?.reset()
     }
