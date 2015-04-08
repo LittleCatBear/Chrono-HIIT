@@ -66,15 +66,17 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         
-        if (isUnregistered){
-            workoutStatusLabel.text = "New workout"
-            blueDesign()
-        }
-        else if (!isRegistered){
+        if (isNew){
+            println("test")
             cleanData()
             workoutStatusLabel.text = "New workout"
             blueDesign()
             self.exerciseTableView.reloadData()
+            
+        }
+        else if (isUnregistered){
+            workoutStatusLabel.text = "New workout"
+            blueDesign()
         }else{
             self.exerciseTableView.reloadData()
             workoutStatusLabel.text = "Workout \(workoutModel.name)"

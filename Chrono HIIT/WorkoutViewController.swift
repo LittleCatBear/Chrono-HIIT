@@ -132,7 +132,7 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
         if(workouts.count > 0){
             generateWorkoutModel(indexPath.row)
             registerWorkout()
-            
+            isNew = false
             self.tabBarController?.tabBar.tintColor = red()
             tabBarController?.selectedIndex = 1
         }
@@ -194,6 +194,7 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
     func registerWorkout(){
         isRegistered = true
         isUnregistered = false
+        isNew = false
     }
     
     func unregisterWorkout(){
@@ -204,6 +205,7 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
     func newWorkout(){
         isNew = true
     }
+    
     //# MARK: design
     
     func blueDesign(){

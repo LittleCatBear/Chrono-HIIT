@@ -220,6 +220,10 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldDidBeginEditing(textField: UITextField) {
         self.errorLabel.text = ""
+        if(isNew){
+            isNew = false
+            isUnregistered = true
+        }
        // self.errorLabel.textColor = UIColor.blackColor()
     }
     
