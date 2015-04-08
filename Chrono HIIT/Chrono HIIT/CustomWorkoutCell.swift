@@ -17,6 +17,6 @@ class CustomWorkoutCell: UITableViewCell{
     @IBOutlet weak var totalTimeLabel: UILabel!
     @IBOutlet weak var nbExLabel: UILabel!
     
-    @IBAction func onClickStartButton(sender: UIButton) {
-    }
+    
+
 }

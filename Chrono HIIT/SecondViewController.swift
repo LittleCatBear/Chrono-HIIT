@@ -78,6 +78,17 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
             saveLabel.hidden = true
             workoutNameLabel.hidden = false
             workoutNameTextField.hidden = false
+        } else if(isUnregistered){
+            //cleanFields()
+            blueDesign()
+            updateButton.hidden = true
+            updateButton.enabled = false
+            updateLabel.hidden = true
+            saveButton.enabled = true
+            saveButton.hidden = false
+            saveLabel.hidden = false
+            workoutNameLabel.hidden = true
+            workoutNameTextField.hidden = true
         } else{
             cleanFields()
             blueDesign()
@@ -149,7 +160,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     
     //# MARK: Unwind segue from TimerViewController
     @IBAction func goToInit(segue:UIStoryboardSegue){
-        self.errorLabel.text = ""
+       // self.errorLabel.text = ""
       //  self.errorLabel.textColor = UIColor.blackColor()
     }
     
@@ -185,6 +196,10 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func onClickStartButton(sender: UIButton) {
+        
+        if(!isRegistered){
+            isUnregistered = true
+        }
         
         if shouldPerformSegueWithIdentifier("showTimer", sender: sender){
             self.performSegueWithIdentifier("showTimer", sender: sender)
@@ -275,6 +290,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         }
         else{
             isRegistered = true
+            isUnregistered = false
         }
         managedObjectContext?.reset()
     }

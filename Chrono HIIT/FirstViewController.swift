@@ -29,6 +29,8 @@ var token1:Bool = false
 var token2:Bool = false
 
 var isRegistered:Bool = false
+var isUnregistered:Bool = false
+var isNew:Bool = true
 
 class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
 

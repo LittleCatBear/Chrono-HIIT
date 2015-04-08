@@ -270,7 +270,7 @@
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="customWorkoutCell" rowHeight="82" id="VKf-iN-3Nf" customClass="CustomWorkoutCell" customModule="Chrono_HIIT" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VKf-iN-3Nf" id="A59-UV-hQ8">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" placeholderIntrinsicWidth="400" placeholderIntrinsicHeight="82" tableViewCell="VKf-iN-3Nf" id="A59-UV-hQ8">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F6z-oe-bnX">
@@ -316,7 +316,8 @@
                                                         </mask>
                                                     </variation>
                                                     <connections>
-                                                        <action selector="onClickStartButton:" destination="VKf-iN-3Nf" eventType="touchUpInside" id="dH4-5J-CbR"/>
+                                                        <action selector="onClickStartButton:" destination="5L7-oB-Bcn" eventType="touchUpInside" id="dA6-aH-wmo"/>
+                                                        <segue destination="Lzg-xa-e1d" kind="show" identifier="showTimerFromSavedWorkout" id="hkj-HZ-yyg"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -369,6 +370,8 @@
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.74509803919999995" green="0.1176470588" blue="0.1764705882" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <inset key="separatorInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
                                         <connections>
                                             <outlet property="nbExLabel" destination="Dsy-Xo-nJS" id="kkA-2E-B6O"/>
                                             <outlet property="startButton" destination="5U2-8A-lNE" id="7qN-K8-PCp"/>
@@ -506,7 +509,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vzY-a0-qqa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="826"/>
+            <point key="canvasLocation" x="0.0" y="1158"/>
         </scene>
         <!--Timer-->
         <scene sceneID="wg7-f3-ORb">
@@ -1300,7 +1303,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jJ7-eL-Qi7" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="lya-qv-fUs" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1462.5" y="360"/>
+            <point key="canvasLocation" x="750" y="1158"/>
         </scene>
         <!--Custom Tab Bar View Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -1336,4 +1339,7 @@
         <image name="updateRed" width="440" height="423"/>
         <image name="workout" width="25" height="25"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="hkj-HZ-yyg"/>
+    </inferredMetricsTieBreakers>
 </document>

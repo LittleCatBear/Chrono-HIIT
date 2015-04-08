@@ -144,7 +144,6 @@
 				E3F6963D1ACCC16100884BD8 /* UIViewAnimationExt.swift */,
 				E3F696651ACE7A2200884BD8 /* CircleAnimationView.swift */,
 				E3F6964B1ACCC1F900884BD8 /* Main.storyboard */,
-				E35DA46A1AD4AE780012C93E /* CustomWorkoutCell.swift */,
 				E3F696391ACCC16100884BD8 /* Images.xcassets */,
 				E3F6964D1ACCC20300884BD8 /* LaunchScreen.xib */,
 				E304463E1AD34F0C00DBEA58 /* Fonts */,
@@ -192,9 +191,10 @@
 			isa = PBXGroup;
 			children = (
 				E3F696361ACCC16100884BD8 /* FirstViewController.swift */,
-				E304463F1AD3A11100DBEA58 /* CustomTabBarViewController.swift */,
 				E3F6963B1ACCC16100884BD8 /* SecondViewController.swift */,
 				E3F6963C1ACCC16100884BD8 /* TimerViewController.swift */,
+				E304463F1AD3A11100DBEA58 /* CustomTabBarViewController.swift */,
+				E35DA46A1AD4AE780012C93E /* CustomWorkoutCell.swift */,
 				E3F6965C1ACCC6DC00884BD8 /* WorkoutViewController.swift */,
 			);
 			name = Controllers;

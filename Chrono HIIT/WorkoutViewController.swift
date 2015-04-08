@@ -25,9 +25,10 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        println(isRegistered)
+     //   println(isRegistered)
         workoutTable.delegate = self
-        self.workoutTable.registerClass(UITableViewCell.self, forCellReuseIdentifier: "customWorkoutCell")
+        self.workoutTable.rowHeight = 82.0
+      //  self.workoutTable.registerClass(UITableViewCell.self, forCellReuseIdentifier: "customWorkoutCell")
 
     }
     
@@ -113,7 +114,7 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func customWorkoutCellAtIndexPath(indexPath: NSIndexPath) -> CustomWorkoutCell{
-        var cell:CustomWorkoutCell = self.workoutTable.dequeueReusableCellWithIdentifier("customWorkoutCell") as CustomWorkoutCell
+        var cell = self.workoutTable.dequeueReusableCellWithIdentifier("customWorkoutCell") as CustomWorkoutCell
         if(workouts.count == 0){
             cell.titleLabel.text = "You don't have any saved workouts"
             cell.totalTimeLabel.text = ""
@@ -130,6 +131,7 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
                 cell.nbExLabel.text = String(workouts[indexPath.row].exercise.count)
                 cell.startButton.hidden = false
                 cell.startButton.enabled = true
+                cell.startButton.tag = indexPath.row
                 //cell.textLabel?.text = workouts[indexPath.row].name
             }
         }
@@ -152,6 +154,7 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
             }
             workoutModel.exercise = exercises
             isRegistered = true
+            isUnregistered = false
             self.tabBarController?.tabBar.tintColor = red()
             tabBarController?.selectedIndex = 1
         }
@@ -176,6 +179,7 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
                 token1 = true
                 token2 = true
                 isRegistered = false
+                isUnregistered = true
                 self.tabBarController?.tabBar.tintColor = blue()
             }
         }
@@ -184,8 +188,34 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
     @IBAction func onClickAddWorkoutButton(sender: UIButton) {
         token1 = true
         isRegistered = false
+        isUnregistered = true
         self.tabBarController?.tabBar.tintColor = blue()
         tabBarController?.selectedIndex = 0
+    }
+    
+    @IBAction func onClickStartButton(sender: UIButton) {
+        performSegueWithIdentifier("showTimerFromSavedWorkout", sender: sender)
+    }
+    
+    override func performSegueWithIdentifier(identifier: String?, sender: AnyObject?) {
+        var button = sender as UIButton
+        workoutId = workouts[button.tag].objectID
+        workoutModel.name = workouts[button.tag].name
+        workoutModel.swap = workouts[button.tag].swap
+        workoutModel.countdown = workouts[button.tag].countdown
+        workoutModel.totalTime = workouts[button.tag].totalTime
+        
+        exercises.removeAll()
+        for (var i = 0; i<workouts[button.tag].exercise.count ; i++){
+            let ex = ExerciseModel()
+            ex.name = workouts[button.tag].exercise[i].name
+            exercises.append(ex)
+        }
+        workoutModel.exercise = exercises
+        isRegistered = true
+        isUnregistered = false
+
+        //self.tableView(self.workoutTable, didSelectRowAtIndexPath: workoutTable.indexPathForSelectedRow()!)
     }
     
     //# MARK: design
