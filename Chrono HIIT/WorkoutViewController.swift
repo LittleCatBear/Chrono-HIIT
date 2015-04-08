@@ -127,8 +127,8 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
         }else{
             if(String(workouts[indexPath.row].name) != nil){
                 cell.titleLabel.text = workouts[indexPath.row].name
-                cell.totalTimeLabel.text = String(workouts[indexPath.row].totalTime)
-                cell.nbExLabel.text = String(workouts[indexPath.row].exercise.count)
+                cell.totalTimeLabel.text = "\(String(workouts[indexPath.row].totalTime))' workout"
+                cell.nbExLabel.text = " \(String(workouts[indexPath.row].exercise.count)) exercises"
                 cell.startButton.hidden = false
                 cell.startButton.enabled = true
                 cell.startButton.tag = indexPath.row

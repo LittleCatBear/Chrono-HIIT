@@ -275,7 +275,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F6z-oe-bnX">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" name="Copperplate-Bold" family="Copperplate" pointSize="18"/>
+                                                    <fontDescription key="fontDescription" name="Copperplate-Bold" family="Copperplate" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -320,18 +320,35 @@
                                                         <segue destination="Lzg-xa-e1d" kind="show" identifier="showTimerFromSavedWorkout" id="hkj-HZ-yyg"/>
                                                     </connections>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Begin workout" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5iT-A5-kCt">
+                                                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" red="0.74509803919999995" green="0.1176470588" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Click to edit workout" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i9H-Bn-WLP">
+                                                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="14"/>
+                                                    <color key="textColor" red="0.70196080207824707" green="0.70196080207824707" blue="0.70196080207824707" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="5U2-8A-lNE" secondAttribute="trailing" constant="20" id="1Uz-vj-r4g"/>
                                                 <constraint firstItem="Dsy-Xo-nJS" firstAttribute="leading" secondItem="A59-UV-hQ8" secondAttribute="leadingMargin" constant="8" id="7Nc-RV-ukb"/>
                                                 <constraint firstItem="F6z-oe-bnX" firstAttribute="top" secondItem="A59-UV-hQ8" secondAttribute="topMargin" id="F2z-gm-DIO"/>
+                                                <constraint firstItem="5iT-A5-kCt" firstAttribute="centerX" secondItem="5U2-8A-lNE" secondAttribute="centerX" id="RHZ-Zu-3wU"/>
                                                 <constraint firstItem="ave-Xi-h69" firstAttribute="leading" secondItem="A59-UV-hQ8" secondAttribute="leadingMargin" constant="8" id="a9q-BZ-5XT"/>
                                                 <constraint firstItem="F6z-oe-bnX" firstAttribute="leading" secondItem="A59-UV-hQ8" secondAttribute="leadingMargin" constant="8" id="aKN-n0-qfa"/>
+                                                <constraint firstItem="5iT-A5-kCt" firstAttribute="top" secondItem="5U2-8A-lNE" secondAttribute="bottom" constant="2" id="cly-WB-iy7"/>
                                                 <constraint firstItem="5U2-8A-lNE" firstAttribute="top" secondItem="A59-UV-hQ8" secondAttribute="topMargin" constant="13" id="iAM-0s-dpg"/>
                                                 <constraint firstItem="Dsy-Xo-nJS" firstAttribute="top" secondItem="F6z-oe-bnX" secondAttribute="bottom" constant="2" id="jQC-RH-GdR">
                                                     <variation key="widthClass=compact" constant="6"/>
                                                 </constraint>
+                                                <constraint firstItem="i9H-Bn-WLP" firstAttribute="top" secondItem="A59-UV-hQ8" secondAttribute="topMargin" id="nN5-zQ-aKa"/>
                                                 <constraint firstItem="ave-Xi-h69" firstAttribute="top" secondItem="Dsy-Xo-nJS" secondAttribute="bottom" constant="2" id="qh0-bG-evN"/>
+                                                <constraint firstAttribute="centerY" secondItem="i9H-Bn-WLP" secondAttribute="centerY" id="s2K-S8-1uf"/>
+                                                <constraint firstAttribute="centerX" secondItem="i9H-Bn-WLP" secondAttribute="centerX" id="y1e-pr-kvA"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="subviews">
@@ -339,6 +356,8 @@
                                                     <exclude reference="Dsy-Xo-nJS"/>
                                                     <exclude reference="ave-Xi-h69"/>
                                                     <exclude reference="5U2-8A-lNE"/>
+                                                    <exclude reference="5iT-A5-kCt"/>
+                                                    <exclude reference="i9H-Bn-WLP"/>
                                                 </mask>
                                                 <mask key="constraints">
                                                     <exclude reference="F2z-gm-DIO"/>
@@ -347,6 +366,11 @@
                                                     <exclude reference="jQC-RH-GdR"/>
                                                     <exclude reference="a9q-BZ-5XT"/>
                                                     <exclude reference="qh0-bG-evN"/>
+                                                    <exclude reference="nN5-zQ-aKa"/>
+                                                    <exclude reference="s2K-S8-1uf"/>
+                                                    <exclude reference="y1e-pr-kvA"/>
+                                                    <exclude reference="RHZ-Zu-3wU"/>
+                                                    <exclude reference="cly-WB-iy7"/>
                                                     <exclude reference="1Uz-vj-r4g"/>
                                                     <exclude reference="iAM-0s-dpg"/>
                                                 </mask>
@@ -357,6 +381,8 @@
                                                     <include reference="Dsy-Xo-nJS"/>
                                                     <include reference="ave-Xi-h69"/>
                                                     <include reference="5U2-8A-lNE"/>
+                                                    <include reference="5iT-A5-kCt"/>
+                                                    <include reference="i9H-Bn-WLP"/>
                                                 </mask>
                                                 <mask key="constraints">
                                                     <include reference="F2z-gm-DIO"/>
@@ -365,12 +391,16 @@
                                                     <include reference="jQC-RH-GdR"/>
                                                     <include reference="a9q-BZ-5XT"/>
                                                     <include reference="qh0-bG-evN"/>
+                                                    <include reference="nN5-zQ-aKa"/>
+                                                    <exclude reference="s2K-S8-1uf"/>
+                                                    <include reference="y1e-pr-kvA"/>
+                                                    <include reference="RHZ-Zu-3wU"/>
+                                                    <include reference="cly-WB-iy7"/>
                                                     <include reference="1Uz-vj-r4g"/>
                                                     <include reference="iAM-0s-dpg"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.74509803919999995" green="0.1176470588" blue="0.1764705882" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                         <inset key="separatorInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
                                         <connections>
                                             <outlet property="nbExLabel" destination="Dsy-Xo-nJS" id="kkA-2E-B6O"/>
