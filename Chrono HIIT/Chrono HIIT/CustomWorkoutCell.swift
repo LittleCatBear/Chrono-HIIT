@@ -18,6 +18,7 @@ class CustomWorkoutCell: UITableViewCell{
     @IBOutlet weak var nbExLabel: UILabel!
     @IBOutlet weak var beginWorkoutLabel: UILabel!
     @IBOutlet weak var toEditLabel: UILabel!
+    @IBOutlet weak var noData: UILabel!
     
     
 
