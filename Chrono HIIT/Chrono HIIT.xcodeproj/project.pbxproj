@@ -118,6 +118,25 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		E3AF70B41AD5030900FB500C /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				E3F6963D1ACCC16100884BD8 /* UIViewAnimationExt.swift */,
+				E3F696651ACE7A2200884BD8 /* CircleAnimationView.swift */,
+			);
+			name = Animations;
+			sourceTree = "<group>";
+		};
+		E3AF70B51AD51B3A00FB500C /* Customisation */ = {
+			isa = PBXGroup;
+			children = (
+				E304463F1AD3A11100DBEA58 /* CustomTabBarViewController.swift */,
+				E35DA46A1AD4AE780012C93E /* CustomWorkoutCell.swift */,
+				E3AF70B11AD4ECA800FB500C /* CustomExerciseCell.swift */,
+			);
+			name = Customisation;
+			sourceTree = "<group>";
+		};
 		E3F695DB1ACCB1CA00884BD8 = {
 			isa = PBXGroup;
 			children = (
@@ -143,8 +162,7 @@
 				E3F695E91ACCB1CA00884BD8 /* AppDelegate.swift */,
 				E3F696621ACD40C400884BD8 /* Controllers */,
 				E3F696631ACD40D200884BD8 /* Models */,
-				E3F6963D1ACCC16100884BD8 /* UIViewAnimationExt.swift */,
-				E3F696651ACE7A2200884BD8 /* CircleAnimationView.swift */,
+				E3AF70B41AD5030900FB500C /* Animations */,
 				E3F6964B1ACCC1F900884BD8 /* Main.storyboard */,
 				E3F696391ACCC16100884BD8 /* Images.xcassets */,
 				E3F6964D1ACCC20300884BD8 /* LaunchScreen.xib */,
@@ -195,10 +213,8 @@
 				E3F696361ACCC16100884BD8 /* FirstViewController.swift */,
 				E3F6963B1ACCC16100884BD8 /* SecondViewController.swift */,
 				E3F6963C1ACCC16100884BD8 /* TimerViewController.swift */,
-				E304463F1AD3A11100DBEA58 /* CustomTabBarViewController.swift */,
-				E35DA46A1AD4AE780012C93E /* CustomWorkoutCell.swift */,
 				E3F6965C1ACCC6DC00884BD8 /* WorkoutViewController.swift */,
-				E3AF70B11AD4ECA800FB500C /* CustomExerciseCell.swift */,
+				E3AF70B51AD51B3A00FB500C /* Customisation */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";

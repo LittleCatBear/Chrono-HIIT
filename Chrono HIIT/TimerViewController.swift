@@ -72,6 +72,12 @@ class TimerViewController: UIViewController {
         self.sec = NSInteger(workoutModel.totalTime)
         self.tempSwap = NSInteger(workoutModel.swap)
         
+        if(workoutModel.name != ""){
+            titleLabel.text = workoutModel.name
+        } else{
+            titleLabel.text = "Unregistered workout"
+        }
+        
         if(isRegistered){
             redDesign()
         } else{

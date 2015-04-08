@@ -149,9 +149,8 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
                 } else{
                     tableView.reloadData()
                 }
-                token1 = true
-                token2 = true
                 unregisterWorkout()
+                newWorkout()
                 self.tabBarController?.tabBar.tintColor = blue()
             }
         }

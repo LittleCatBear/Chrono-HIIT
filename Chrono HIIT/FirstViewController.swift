@@ -69,7 +69,6 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         if (isUnregistered){
             workoutStatusLabel.text = "New workout"
             blueDesign()
-            //rself.exerciseTableView.reloadData()
         }
         else if (!isRegistered){
             cleanData()
@@ -117,8 +116,11 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
            // globalExerciceTable.append(self.ExerciseTextField.text)
             self.ExerciseTextField.text = ""
             self.exerciseTableView.reloadData()
-            isNew = false
-            isUnregistered = true
+            if(isNew){
+                isNew = false
+                isUnregistered = true
+            }
+            
         }
     }
     

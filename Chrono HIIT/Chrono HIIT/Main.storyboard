@@ -282,7 +282,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="-320"/>
+            <point key="canvasLocation" x="-771" y="1108"/>
         </scene>
         <!--Workouts-->
         <scene sceneID="fLk-ic-BMF">
@@ -602,7 +602,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vzY-a0-qqa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="1158"/>
+            <point key="canvasLocation" x="27" y="1108"/>
         </scene>
         <!--Timer-->
         <scene sceneID="wg7-f3-ORb">
@@ -1094,7 +1094,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="360"/>
+            <point key="canvasLocation" x="27" y="398"/>
         </scene>
         <!--Timer View Controller-->
         <scene sceneID="UBy-hG-HfL">
@@ -1425,7 +1425,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jJ7-eL-Qi7" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="lya-qv-fUs" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="750" y="1158"/>
+            <point key="canvasLocation" x="789" y="754"/>
         </scene>
         <!--Custom Tab Bar View Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -1445,7 +1445,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="0.0"/>
+            <point key="canvasLocation" x="-771" y="398"/>
         </scene>
     </scenes>
     <resources>
@@ -1462,6 +1462,6 @@
         <image name="workout" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="RYf-u4-5AI"/>
+        <segue reference="hkj-HZ-yyg"/>
     </inferredMetricsTieBreakers>
 </document>
