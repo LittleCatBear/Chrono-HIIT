@@ -121,6 +121,9 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
             cell.nbExLabel.text = ""
             cell.startButton.hidden = true
             cell.startButton.enabled = false
+            cell.toEditLabel.hidden = true
+            cell.beginWorkoutLabel.hidden = true
+            cell.editing = false
             //cell.textLabel?.text = "You don't have any saved workouts"
             //reset fields in others tabs
             
@@ -131,6 +134,9 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
                 cell.nbExLabel.text = " \(String(workouts[indexPath.row].exercise.count)) exercises"
                 cell.startButton.hidden = false
                 cell.startButton.enabled = true
+                cell.toEditLabel.hidden = false
+                cell.beginWorkoutLabel.hidden = false
+                cell.editing = true
                 cell.startButton.tag = indexPath.row
                 //cell.textLabel?.text = workouts[indexPath.row].name
             }
