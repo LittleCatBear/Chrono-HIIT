@@ -68,16 +68,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
         if(isRegistered){
-            redDesign()
-            getWorkoutData()
-            updateButton.hidden = false
-            updateButton.enabled = true
-            updateLabel.hidden = false
-            saveButton.enabled = false
-            saveButton.hidden = true
-            saveLabel.hidden = true
-            workoutNameLabel.hidden = false
-            workoutNameTextField.hidden = false
+            updateViewForRegisteredWorkout()
         } else if(isUnregistered){
             //cleanFields()
             blueDesign()
@@ -101,41 +92,19 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
             workoutNameLabel.hidden = true
             workoutNameTextField.hidden = true
         }
-        /*
-        if token2{
-            cleanFields()
-            token2 = false
-            updateButton.hidden = true
-            updateButton.enabled = false
-            updateLabel.hidden = true
-            saveButton.enabled = true
-            saveButton.hidden = false
-            saveLabel.hidden = false
-            workoutNameLabel.hidden = true
-            workoutNameTextField.hidden = true
-            //  blueDesign()
-        }
-        else if workoutModel.name != ""{
-            getWorkoutData()
-            updateButton.hidden = false
-            updateButton.enabled = true
-            updateLabel.hidden = false
-            saveButton.enabled = false
-            saveButton.hidden = true
-            saveLabel.hidden = true
-            workoutNameLabel.hidden = false
-            workoutNameTextField.hidden = false
-            // redDesign()
-        }
-        else{
-            updateButton.hidden = true
-            updateButton.enabled = false
-            updateLabel.hidden = true
-            workoutNameLabel.hidden = true
-            workoutNameTextField.hidden = true
-            // blueDesign()
-        }
-*/
+    }
+    
+   func  updateViewForRegisteredWorkout(){
+    redDesign()
+        getWorkoutData()
+        updateButton.hidden = false
+        updateButton.enabled = true
+        updateLabel.hidden = false
+        saveButton.enabled = false
+        saveButton.hidden = true
+        saveLabel.hidden = true
+        workoutNameLabel.hidden = false
+        workoutNameTextField.hidden = false
     }
     
     func cleanFields(){
@@ -146,7 +115,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     }
     
     func getWorkoutData(){
-        self.workoutStatusLabel.text = "Editing workout \(workoutModel.name)"
+        self.workoutStatusLabel.text = "Workout \(workoutModel.name)"
         timingTextField.text = String(workoutModel.swap)
         countDownTextField.text = String(workoutModel.countdown)
         roundTextField.text = String(workoutModel.totalTime)
@@ -291,7 +260,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         else{
             isRegistered = true
             isUnregistered = false
-            redDesign()
+            updateViewForRegisteredWorkout()
             tabBarController?.tabBar.tintColor = red()
         }
         managedObjectContext?.reset()
