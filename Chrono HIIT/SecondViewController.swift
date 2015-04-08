@@ -70,7 +70,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         if(isRegistered){
             updateViewForRegisteredWorkout()
         } else if(isUnregistered){
-            //cleanFields()
+            
             blueDesign()
             updateButton.hidden = true
             updateButton.enabled = false
@@ -80,6 +80,10 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
             saveLabel.hidden = false
             workoutNameLabel.hidden = true
             workoutNameTextField.hidden = true
+            if(isNew){
+                cleanFields()
+                isNew = false
+            }
         } else{
             cleanFields()
             blueDesign()

@@ -24,17 +24,12 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-     //   println(isRegistered)
+  
         workoutTable.delegate = self
-        //self.workoutTable.rowHeight = 82.0
-      //  self.workoutTable.registerClass(UITableViewCell.self, forCellReuseIdentifier: "customWorkoutCell")
-
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        
         
         if(isRegistered){
             redDesign()
@@ -88,85 +83,56 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        /*
-        var cell:CustomWorkoutCell = self.workoutTable.dequeueReusableCellWithIdentifier("customWorkoutCell") as CustomWorkoutCell
-        if(workouts.count == 0){
-            cell.titleLabel.text = "You don't have any saved workouts"
-            cell.totalTimeLabel.text = ""
-            cell.nbExLabel.text = ""
-            cell.startButton.hidden = true
-            cell.startButton.enabled = false
-            //cell.textLabel?.text = "You don't have any saved workouts"
-            //reset fields in others tabs
-            
-        }else{
-            if(String(workouts[indexPath.row].name) != nil){
-                cell.titleLabel.text = workouts[indexPath.row].name
-                cell.totalTimeLabel.text = String(workouts[indexPath.row].totalTime)
-                cell.nbExLabel.text = String(workouts[indexPath.row].exercise.count)
-                cell.startButton.hidden = false
-                cell.startButton.enabled = true
-                //cell.textLabel?.text = workouts[indexPath.row].name
-            }
-        }
-        */
         return customWorkoutCellAtIndexPath(indexPath)
     }
     
     func customWorkoutCellAtIndexPath(indexPath: NSIndexPath) -> CustomWorkoutCell{
         var cell = self.workoutTable.dequeueReusableCellWithIdentifier("customWorkoutCell") as CustomWorkoutCell
         if(workouts.count == 0){
-            cell.titleLabel.hidden = true
-            cell.titleLabel.sizeToFit()
-            cell.totalTimeLabel.text = ""
-            cell.nbExLabel.text = ""
-            cell.startButton.hidden = true
-            cell.startButton.enabled = false
-            cell.toEditLabel.hidden = true
-            cell.beginWorkoutLabel.hidden = true
-            cell.noData.hidden = false
-            cell.userInteractionEnabled = false
-            tabBarController?.tabBar.tintColor = blue()
-            blueDesign()
-            //cell.textLabel?.text = "You don't have any saved workouts"
-            //reset fields in others tabs
-            
+            hideAll(cell, indexPath: indexPath)
         }else{
             if(String(workouts[indexPath.row].name) != nil){
-                cell.titleLabel.text = workouts[indexPath.row].name
-                cell.titleLabel.hidden = false
-                cell.totalTimeLabel.text = "\(String(workouts[indexPath.row].totalTime))' workout"
-                cell.nbExLabel.text = " \(String(workouts[indexPath.row].exercise.count)) exercises"
-                cell.startButton.hidden = false
-                cell.startButton.enabled = true
-                cell.toEditLabel.hidden = false
-                cell.beginWorkoutLabel.hidden = false
-                cell.userInteractionEnabled = true
-                cell.noData.hidden = true
-                cell.startButton.tag = indexPath.row
-                //cell.textLabel?.text = workouts[indexPath.row].name
+                showAll(cell, indexPath: indexPath)
             }
         }
         return cell
     }
     
+    func hideAll(cell: CustomWorkoutCell, indexPath: NSIndexPath){
+        cell.titleLabel.hidden = true
+        cell.titleLabel.sizeToFit()
+        cell.totalTimeLabel.text = ""
+        cell.nbExLabel.text = ""
+        cell.startButton.hidden = true
+        cell.startButton.enabled = false
+        cell.toEditLabel.hidden = true
+        cell.beginWorkoutLabel.hidden = true
+        cell.noData.hidden = false
+        cell.userInteractionEnabled = false
+        tabBarController?.tabBar.tintColor = blue()
+        blueDesign()
+    }
+    
+    func showAll(cell: CustomWorkoutCell, indexPath: NSIndexPath){
+        cell.titleLabel.text = workouts[indexPath.row].name
+        cell.titleLabel.hidden = false
+        cell.totalTimeLabel.text = "\(String(workouts[indexPath.row].totalTime))' workout"
+        cell.nbExLabel.text = " \(String(workouts[indexPath.row].exercise.count)) exercises"
+        cell.startButton.hidden = false
+        cell.startButton.enabled = true
+        cell.toEditLabel.hidden = false
+        cell.beginWorkoutLabel.hidden = false
+        cell.userInteractionEnabled = true
+        cell.noData.hidden = true
+        cell.startButton.tag = indexPath.row
+    }
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         index = indexPath.row
         if(workouts.count > 0){
-            workoutId = workouts[indexPath.row].objectID
-            workoutModel.name = workouts[indexPath.row].name
-            workoutModel.swap = workouts[indexPath.row].swap
-            workoutModel.countdown = workouts[indexPath.row].countdown
-            workoutModel.totalTime = workouts[indexPath.row].totalTime
-            exercises.removeAll()
-            for (var i = 0; i<workouts[indexPath.row].exercise.count ; i++){
-                let ex = ExerciseModel()
-                ex.name = workouts[indexPath.row].exercise[i].name
-                exercises.append(ex)
-            }
-            workoutModel.exercise = exercises
-            isRegistered = true
-            isUnregistered = false
+            generateWorkoutModel(indexPath.row)
+            registerWorkout()
+            
             self.tabBarController?.tabBar.tintColor = red()
             tabBarController?.selectedIndex = 1
         }
@@ -182,25 +148,35 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
                     tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
                 } else{
                     tableView.reloadData()
-                 //   tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
-                   // tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
-                   // tableView.cellForRowAtIndexPath(indexPath)?.textLabel?.text = "You don't have any saved workouts"
-                    
-                   // tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
                 }
                 token1 = true
                 token2 = true
-                isRegistered = false
-                isUnregistered = true
+                unregisterWorkout()
                 self.tabBarController?.tabBar.tintColor = blue()
             }
         }
     }
+    
+    func generateWorkoutModel(index: NSInteger){
+        workoutId = workouts[index].objectID
+        workoutModel.name = workouts[index].name
+        workoutModel.swap = workouts[index].swap
+        workoutModel.countdown = workouts[index].countdown
+        workoutModel.totalTime = workouts[index].totalTime
+        
+        exercises.removeAll()
+        for (var i = 0; i<workouts[index].exercise.count ; i++){
+            let ex = ExerciseModel()
+            ex.name = workouts[index].exercise[i].name
+            exercises.append(ex)
+        }
+        workoutModel.exercise = exercises
+    }
 
     @IBAction func onClickAddWorkoutButton(sender: UIButton) {
         token1 = true
-        isRegistered = false
-        isUnregistered = true
+        unregisterWorkout()
+        newWorkout()
         self.tabBarController?.tabBar.tintColor = blue()
         tabBarController?.selectedIndex = 0
     }
@@ -211,25 +187,24 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
     
     override func performSegueWithIdentifier(identifier: String?, sender: AnyObject?) {
         var button = sender as UIButton
-        workoutId = workouts[button.tag].objectID
-        workoutModel.name = workouts[button.tag].name
-        workoutModel.swap = workouts[button.tag].swap
-        workoutModel.countdown = workouts[button.tag].countdown
-        workoutModel.totalTime = workouts[button.tag].totalTime
         
-        exercises.removeAll()
-        for (var i = 0; i<workouts[button.tag].exercise.count ; i++){
-            let ex = ExerciseModel()
-            ex.name = workouts[button.tag].exercise[i].name
-            exercises.append(ex)
-        }
-        workoutModel.exercise = exercises
-        isRegistered = true
-        isUnregistered = false
-
-        //self.tableView(self.workoutTable, didSelectRowAtIndexPath: workoutTable.indexPathForSelectedRow()!)
+        generateWorkoutModel(button.tag)
+        registerWorkout()
     }
     
+    func registerWorkout(){
+        isRegistered = true
+        isUnregistered = false
+    }
+    
+    func unregisterWorkout(){
+        isRegistered = false
+        isUnregistered = true
+    }
+    
+    func newWorkout(){
+        isNew = true
+    }
     //# MARK: design
     
     func blueDesign(){
