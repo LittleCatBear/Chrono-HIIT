@@ -72,12 +72,6 @@ class TimerViewController: UIViewController {
         self.sec = NSInteger(workoutModel.totalTime)
         self.tempSwap = NSInteger(workoutModel.swap)
         
-        if(workoutModel.name != ""){
-            titleLabel.text = workoutModel.name
-        } else{
-            titleLabel.text = "Unregistered workout"
-        }
-        
         if(isRegistered){
             redDesign()
         } else{
@@ -242,7 +236,7 @@ class TimerViewController: UIViewController {
     //# MARK: Design
     
     func blueDesign(){
-        titleLabel.textColor = blue()
+        
         titleLabel.text = "Unregistered workout"
         topBarView.backgroundColor = blue()
         pauseLabel.textColor = blue()
@@ -254,7 +248,7 @@ class TimerViewController: UIViewController {
     }
     
     func redDesign(){
-        titleLabel.textColor = red()
+       
         titleLabel.text = "\(workoutModel.name) exercises"
         topBarView.backgroundColor = red()
         pauseLabel.textColor = red()
