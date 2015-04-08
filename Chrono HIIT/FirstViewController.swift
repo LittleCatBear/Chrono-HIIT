@@ -60,7 +60,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         workoutModel.exercise = exercises
      //   findFontNames()
         ExerciseTextField.delegate = self
-        self.exerciseTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+      //  self.exerciseTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -124,9 +124,13 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell:UITableViewCell = self.exerciseTableView.dequeueReusableCellWithIdentifier("cell") as UITableViewCell
-        cell.textLabel?.text = exercises[indexPath.row].name
-        return cell
+        return customExerciseCellAtIndexPath(indexPath)
+    }
+    
+    func customExerciseCellAtIndexPath(indexPath: NSIndexPath) -> CustomExerciseCell{
+    var cell = self.exerciseTableView.dequeueReusableCellWithIdentifier("customExerciseCell") as CustomExerciseCell
+    cell.exerciseCellLabel.text = exercises[indexPath.row].name
+    return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {}
