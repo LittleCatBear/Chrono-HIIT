@@ -267,12 +267,114 @@
                                 <rect key="frame" x="0.0" y="68" width="600" height="417"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellw" id="Oca-6k-UGC">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="customWorkoutCell" rowHeight="82" id="VKf-iN-3Nf" customClass="CustomWorkoutCell" customModule="Chrono_HIIT" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Oca-6k-UGC" id="Yaj-um-ZTN">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VKf-iN-3Nf" id="A59-UV-hQ8">
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F6z-oe-bnX">
+                                                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" name="Copperplate-Bold" family="Copperplate" pointSize="18"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nb of ex" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dsy-Xo-nJS">
+                                                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="14"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ave-Xi-h69">
+                                                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="14"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5U2-8A-lNE">
+                                                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="M67-KU-HTk"/>
+                                                        <constraint firstAttribute="width" secondItem="5U2-8A-lNE" secondAttribute="height" multiplier="23:15" id="MxY-LB-doS"/>
+                                                        <constraint firstAttribute="height" constant="40" id="WfQ-Re-cs0"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button" image="startRed">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="M67-KU-HTk"/>
+                                                            <exclude reference="MxY-LB-doS"/>
+                                                            <exclude reference="WfQ-Re-cs0"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="widthClass=compact">
+                                                        <mask key="constraints">
+                                                            <include reference="M67-KU-HTk"/>
+                                                            <exclude reference="MxY-LB-doS"/>
+                                                            <include reference="WfQ-Re-cs0"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <connections>
+                                                        <action selector="onClickStartButton:" destination="VKf-iN-3Nf" eventType="touchUpInside" id="dH4-5J-CbR"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="5U2-8A-lNE" secondAttribute="trailing" constant="20" id="1Uz-vj-r4g"/>
+                                                <constraint firstItem="Dsy-Xo-nJS" firstAttribute="leading" secondItem="A59-UV-hQ8" secondAttribute="leadingMargin" constant="8" id="7Nc-RV-ukb"/>
+                                                <constraint firstItem="F6z-oe-bnX" firstAttribute="top" secondItem="A59-UV-hQ8" secondAttribute="topMargin" id="F2z-gm-DIO"/>
+                                                <constraint firstItem="ave-Xi-h69" firstAttribute="leading" secondItem="A59-UV-hQ8" secondAttribute="leadingMargin" constant="8" id="a9q-BZ-5XT"/>
+                                                <constraint firstItem="F6z-oe-bnX" firstAttribute="leading" secondItem="A59-UV-hQ8" secondAttribute="leadingMargin" constant="8" id="aKN-n0-qfa"/>
+                                                <constraint firstItem="5U2-8A-lNE" firstAttribute="top" secondItem="A59-UV-hQ8" secondAttribute="topMargin" constant="13" id="iAM-0s-dpg"/>
+                                                <constraint firstItem="Dsy-Xo-nJS" firstAttribute="top" secondItem="F6z-oe-bnX" secondAttribute="bottom" constant="2" id="jQC-RH-GdR">
+                                                    <variation key="widthClass=compact" constant="6"/>
+                                                </constraint>
+                                                <constraint firstItem="ave-Xi-h69" firstAttribute="top" secondItem="Dsy-Xo-nJS" secondAttribute="bottom" constant="2" id="qh0-bG-evN"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="F6z-oe-bnX"/>
+                                                    <exclude reference="Dsy-Xo-nJS"/>
+                                                    <exclude reference="ave-Xi-h69"/>
+                                                    <exclude reference="5U2-8A-lNE"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <exclude reference="F2z-gm-DIO"/>
+                                                    <exclude reference="aKN-n0-qfa"/>
+                                                    <exclude reference="7Nc-RV-ukb"/>
+                                                    <exclude reference="jQC-RH-GdR"/>
+                                                    <exclude reference="a9q-BZ-5XT"/>
+                                                    <exclude reference="qh0-bG-evN"/>
+                                                    <exclude reference="1Uz-vj-r4g"/>
+                                                    <exclude reference="iAM-0s-dpg"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="widthClass=compact">
+                                                <mask key="subviews">
+                                                    <include reference="F6z-oe-bnX"/>
+                                                    <include reference="Dsy-Xo-nJS"/>
+                                                    <include reference="ave-Xi-h69"/>
+                                                    <include reference="5U2-8A-lNE"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <include reference="F2z-gm-DIO"/>
+                                                    <include reference="aKN-n0-qfa"/>
+                                                    <include reference="7Nc-RV-ukb"/>
+                                                    <include reference="jQC-RH-GdR"/>
+                                                    <include reference="a9q-BZ-5XT"/>
+                                                    <include reference="qh0-bG-evN"/>
+                                                    <include reference="1Uz-vj-r4g"/>
+                                                    <include reference="iAM-0s-dpg"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nbExLabel" destination="Dsy-Xo-nJS" id="kkA-2E-B6O"/>
+                                            <outlet property="startButton" destination="5U2-8A-lNE" id="7qN-K8-PCp"/>
+                                            <outlet property="titleLabel" destination="F6z-oe-bnX" id="3Mc-Gj-065"/>
+                                            <outlet property="totalTimeLabel" destination="ave-Xi-h69" id="GK4-RN-Hcv"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -1229,6 +1331,7 @@
         <image name="repeatBlue" width="232" height="216"/>
         <image name="saveBlue" width="596" height="592"/>
         <image name="startBlue" width="217" height="217"/>
+        <image name="startRed" width="217" height="217"/>
         <image name="stopBlue" width="217" height="218"/>
         <image name="updateRed" width="440" height="423"/>
         <image name="workout" width="25" height="25"/>

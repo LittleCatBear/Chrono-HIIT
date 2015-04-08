@@ -16,6 +16,7 @@
 		E304463B1AD34EB300DBEA58 /* octin sports rg.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E304463A1AD34EB300DBEA58 /* octin sports rg.ttf */; };
 		E304463D1AD34ECA00DBEA58 /* handwriting-draft_free-version.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E304463C1AD34ECA00DBEA58 /* handwriting-draft_free-version.ttf */; };
 		E30446401AD3A11100DBEA58 /* CustomTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E304463F1AD3A11100DBEA58 /* CustomTabBarViewController.swift */; };
+		E35DA46B1AD4AE780012C93E /* CustomWorkoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35DA46A1AD4AE780012C93E /* CustomWorkoutCell.swift */; };
 		E3F695EA1ACCB1CA00884BD8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F695E91ACCB1CA00884BD8 /* AppDelegate.swift */; };
 		E3F695ED1ACCB1CA00884BD8 /* Chrono_HIIT.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E3F695EB1ACCB1CA00884BD8 /* Chrono_HIIT.xcdatamodeld */; };
 		E3F696031ACCB1CA00884BD8 /* Chrono_HIITTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F696021ACCB1CA00884BD8 /* Chrono_HIITTests.swift */; };
@@ -56,6 +57,7 @@
 		E304463A1AD34EB300DBEA58 /* octin sports rg.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "octin sports rg.ttf"; sourceTree = "<group>"; };
 		E304463C1AD34ECA00DBEA58 /* handwriting-draft_free-version.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "handwriting-draft_free-version.ttf"; sourceTree = "<group>"; };
 		E304463F1AD3A11100DBEA58 /* CustomTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarViewController.swift; sourceTree = "<group>"; };
+		E35DA46A1AD4AE780012C93E /* CustomWorkoutCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomWorkoutCell.swift; sourceTree = "<group>"; };
 		E3F695E41ACCB1CA00884BD8 /* Chrono HIIT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chrono HIIT.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3F695E91ACCB1CA00884BD8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3F695EC1ACCB1CA00884BD8 /* Chrono_HIIT.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Chrono_HIIT.xcdatamodel; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				E3F6963D1ACCC16100884BD8 /* UIViewAnimationExt.swift */,
 				E3F696651ACE7A2200884BD8 /* CircleAnimationView.swift */,
 				E3F6964B1ACCC1F900884BD8 /* Main.storyboard */,
+				E35DA46A1AD4AE780012C93E /* CustomWorkoutCell.swift */,
 				E3F696391ACCC16100884BD8 /* Images.xcassets */,
 				E3F6964D1ACCC20300884BD8 /* LaunchScreen.xib */,
 				E304463E1AD34F0C00DBEA58 /* Fonts */,
@@ -327,6 +330,7 @@
 			files = (
 				E3F696401ACCC16100884BD8 /* FirstViewController.swift in Sources */,
 				E3F696661ACE7A2200884BD8 /* CircleAnimationView.swift in Sources */,
+				E35DA46B1AD4AE780012C93E /* CustomWorkoutCell.swift in Sources */,
 				E3F6965F1ACD405A00884BD8 /* WorkoutModel.swift in Sources */,
 				E3F696331ACCBC9500884BD8 /* Workout.swift in Sources */,
 				E3F6965D1ACCC6DC00884BD8 /* WorkoutViewController.swift in Sources */,

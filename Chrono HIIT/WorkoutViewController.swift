@@ -27,7 +27,7 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
 
         println(isRegistered)
         workoutTable.delegate = self
-        self.workoutTable.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellw")
+        self.workoutTable.registerClass(UITableViewCell.self, forCellReuseIdentifier: "customWorkoutCell")
 
     }
     
@@ -87,20 +87,54 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell:UITableViewCell = self.workoutTable.dequeueReusableCellWithIdentifier("cellw") as UITableViewCell
+        /*
+        var cell:CustomWorkoutCell = self.workoutTable.dequeueReusableCellWithIdentifier("customWorkoutCell") as CustomWorkoutCell
         if(workouts.count == 0){
-            cell.textLabel?.text = "You don't have any saved workouts"
+            cell.titleLabel.text = "You don't have any saved workouts"
+            cell.totalTimeLabel.text = ""
+            cell.nbExLabel.text = ""
+            cell.startButton.hidden = true
+            cell.startButton.enabled = false
+            //cell.textLabel?.text = "You don't have any saved workouts"
             //reset fields in others tabs
             
         }else{
             if(String(workouts[indexPath.row].name) != nil){
-                cell.textLabel?.text = workouts[indexPath.row].name
+                cell.titleLabel.text = workouts[indexPath.row].name
+                cell.totalTimeLabel.text = String(workouts[indexPath.row].totalTime)
+                cell.nbExLabel.text = String(workouts[indexPath.row].exercise.count)
+                cell.startButton.hidden = false
+                cell.startButton.enabled = true
+                //cell.textLabel?.text = workouts[indexPath.row].name
             }
         }
-        
-        return cell
+        */
+        return customWorkoutCellAtIndexPath(indexPath)
     }
     
+    func customWorkoutCellAtIndexPath(indexPath: NSIndexPath) -> CustomWorkoutCell{
+        var cell:CustomWorkoutCell = self.workoutTable.dequeueReusableCellWithIdentifier("customWorkoutCell") as CustomWorkoutCell
+        if(workouts.count == 0){
+            cell.titleLabel.text = "You don't have any saved workouts"
+            cell.totalTimeLabel.text = ""
+            cell.nbExLabel.text = ""
+            cell.startButton.hidden = true
+            cell.startButton.enabled = false
+            //cell.textLabel?.text = "You don't have any saved workouts"
+            //reset fields in others tabs
+            
+        }else{
+            if(String(workouts[indexPath.row].name) != nil){
+                cell.titleLabel.text = workouts[indexPath.row].name
+                cell.totalTimeLabel.text = String(workouts[indexPath.row].totalTime)
+                cell.nbExLabel.text = String(workouts[indexPath.row].exercise.count)
+                cell.startButton.hidden = false
+                cell.startButton.enabled = true
+                //cell.textLabel?.text = workouts[indexPath.row].name
+            }
+        }
+        return cell
+    }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         index = indexPath.row
