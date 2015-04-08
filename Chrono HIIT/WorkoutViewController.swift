@@ -27,7 +27,7 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
 
      //   println(isRegistered)
         workoutTable.delegate = self
-        self.workoutTable.rowHeight = 82.0
+        //self.workoutTable.rowHeight = 82.0
       //  self.workoutTable.registerClass(UITableViewCell.self, forCellReuseIdentifier: "customWorkoutCell")
 
     }
