@@ -25,6 +25,8 @@ class TimerViewController: UIViewController {
     @IBOutlet weak var repeatButton: UIButton!
     @IBOutlet weak var pauseButton: UIButton!
     
+  
+    @IBOutlet weak var pauseLabel: UILabel!
     @IBOutlet weak var circleView: UIView!
     
     @IBOutlet weak var progressBarView: UIProgressView!
@@ -57,7 +59,8 @@ class TimerViewController: UIViewController {
     @IBOutlet weak var repeatLabel: UILabel!
     @IBOutlet weak var stopLabel: UILabel!
     
-    @IBOutlet weak var pauseLabel: UILabel!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -187,6 +190,7 @@ class TimerViewController: UIViewController {
             
             var temp = view.subviews[view.subviews.count-1] as CircleAnimationView
             temp.pauseAnim()
+            pauseLabel.text = "Resume"
             if(isRegistered){
                 pauseButton.setImage(UIImage(named: "startRed.png"), forState: UIControlState.Normal)
             }else{
@@ -196,11 +200,12 @@ class TimerViewController: UIViewController {
         } else{
             var temp = view.subviews[view.subviews.count-1] as CircleAnimationView
             temp.resumeAnim()
+            pauseLabel.text = "Pause"
            // timer.fire()
             lauchExercise(Float(sec))
-            flag =  false
+            flag = false
             if(isRegistered){
-                pauseButton.setImage(UIImage(named: "pausetRed.png"), forState: UIControlState.Normal)
+                pauseButton.setImage(UIImage(named: "pauseRed.png"), forState: UIControlState.Normal)
             }else{
                 pauseButton.setImage(UIImage(named: "pauseBlue.png"), forState: UIControlState.Normal)
             }
@@ -223,7 +228,6 @@ class TimerViewController: UIViewController {
         didSet {
             let fractionalProgress = Float(counter) / Float(workoutModel.totalTime)
             let animated = counter != 0
-            NSLog("\(fractionalProgress)")
             progressBarView.setProgress(fractionalProgress, animated: true)
         }
     }
