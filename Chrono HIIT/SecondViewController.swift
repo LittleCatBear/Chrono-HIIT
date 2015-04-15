@@ -332,7 +332,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     //Get the Core Data Workout to update by its ManagedObjectID got from WorkoutViewController (when a cell is selected)
     func getWorkoutToUpdatewithId()->Workout{
         var toUpdate:Workout = managedObjectContext?.objectWithID(workoutId) as Workout
-        println("to update \(toUpdate.name)")
+      //  println("to update \(toUpdate.name)")
         return toUpdate
     }
     
@@ -347,7 +347,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         var err: NSError? = nil
         var exeToDelete = managedObjectContext!.executeFetchRequest(fetchRequest,error: &err)! as [Exercise]
         for e in exeToDelete{
-            NSLog("deletion: %@", e)
+        //    NSLog("deletion: %@", e)
             managedObjectContext!.deleteObject(e as Exercise)
         }
         
