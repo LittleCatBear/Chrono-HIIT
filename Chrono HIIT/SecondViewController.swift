@@ -213,11 +213,16 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     }
     
     //# MARK: keyboard behaviour
+    /*
     func textFieldShouldReturn(textField: UITextField) -> Bool
     {
         self.view.endEditing(true)
       //  textField.resignFirstResponder()
         return true;
+    }
+    */
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        self.view.endEditing(true)
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
