@@ -51,7 +51,7 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
         
         let fetchedResults =
         managedObjectContext?.executeFetchRequest(fetchRequest,
-            error: &error) as [Workout]?
+            error: &error) as! [Workout]?
         if let results = fetchedResults {
             if(results.count>=1 && String(results[0].name) != nil){
                 workouts = results as [Workout]
@@ -68,7 +68,7 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
         
         let fetchedResults =
         managedObjectContext?.executeFetchRequest(fetchRequest,
-            error: &error) as [Workout]?
+            error: &error) as! [Workout]?
         if let results = fetchedResults {
             if(results.count>=1 && String(results[0].name) != nil){
                 workouts = results as [Workout]
@@ -87,7 +87,7 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func customWorkoutCellAtIndexPath(indexPath: NSIndexPath) -> CustomWorkoutCell{
-        var cell = self.workoutTable.dequeueReusableCellWithIdentifier("customWorkoutCell") as CustomWorkoutCell
+        var cell = self.workoutTable.dequeueReusableCellWithIdentifier("customWorkoutCell") as! CustomWorkoutCell
         if(workouts.count == 0){
             hideAll(cell, indexPath: indexPath)
         }else{
@@ -185,7 +185,7 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     override func performSegueWithIdentifier(identifier: String?, sender: AnyObject?) {
-        var button = sender as UIButton
+        var button = sender as! UIButton
         
         generateWorkoutModel(button.tag)
         registerWorkout()

@@ -55,6 +55,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         self.timingTextField.delegate = self
         self.roundTextField.delegate = self
         self.countDownTextField.delegate = self
+        self.workoutNameTextField.delegate = self
         self.countDownTextField.text = "5"
         self.errorLabel.text = ""
         
@@ -255,7 +256,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         var exe:[Exercise] = [Exercise]()
         for e in workoutModel.exercise{
             let ent = NSEntityDescription.entityForName("Exercise", inManagedObjectContext: managedObjectContext!)
-            let ex = NSManagedObject(entity: ent!, insertIntoManagedObjectContext:managedObjectContext) as Exercise
+            let ex = NSManagedObject(entity: ent!, insertIntoManagedObjectContext:managedObjectContext) as! Exercise
             ex.setValue(e.name, forKey: "name")
             exe.append(ex)
         }
@@ -286,7 +287,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
            
         })
         alert.addAction(UIAlertAction(title: "Save", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
-            let textField = alert.textFields![0] as UITextField
+            let textField = alert.textFields![0] as! UITextField
             name = textField.text
             if name != ""{
                 workoutModel.name = name
@@ -314,7 +315,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
                     
                 })
                 alert.addAction(UIAlertAction(title: "Save", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
-                    let textField = alert.textFields![0] as UITextField
+                    let textField = alert.textFields![0] as! UITextField
                     name = textField.text
                     if name != ""{
                         workoutModel.name = name
@@ -331,7 +332,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     
     //Get the Core Data Workout to update by its ManagedObjectID got from WorkoutViewController (when a cell is selected)
     func getWorkoutToUpdatewithId()->Workout{
-        var toUpdate:Workout = managedObjectContext?.objectWithID(workoutId) as Workout
+        var toUpdate:Workout = managedObjectContext?.objectWithID(workoutId) as! Workout
       //  println("to update \(toUpdate.name)")
         return toUpdate
     }
@@ -345,7 +346,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         fetchRequest.predicate = predicate
         
         var err: NSError? = nil
-        var exeToDelete = managedObjectContext!.executeFetchRequest(fetchRequest,error: &err)! as [Exercise]
+        var exeToDelete = managedObjectContext!.executeFetchRequest(fetchRequest,error: &err)! as! [Exercise]
         for e in exeToDelete{
         //    NSLog("deletion: %@", e)
             managedObjectContext!.deleteObject(e as Exercise)
@@ -359,7 +360,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         var exe:[Exercise] = [Exercise]()
         for e in workoutModel.exercise{
             let ent = NSEntityDescription.entityForName("Exercise", inManagedObjectContext: managedObjectContext!)
-            let ex = NSManagedObject(entity: ent!, insertIntoManagedObjectContext:managedObjectContext) as Exercise
+            let ex = NSManagedObject(entity: ent!, insertIntoManagedObjectContext:managedObjectContext) as! Exercise
             ex.setValue(e.name, forKey: "name")
             exe.append(ex)
         }

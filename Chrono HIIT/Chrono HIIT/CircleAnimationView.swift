@@ -11,7 +11,7 @@ import UIKit
 
 
 class CircleAnimationView : UIView{
-    let circleLayer: CAShapeLayer!
+    var circleLayer: CAShapeLayer!
     let animation = CABasicAnimation(keyPath: "strokeEnd")
     
     override init(frame: CGRect) {

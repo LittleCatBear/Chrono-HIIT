@@ -102,7 +102,7 @@ class TimerViewController: UIViewController {
     func lauchExercise(timing:Float){
         pauseButton.enabled = true
         var t = NSTimeInterval(timing-0.2)
-        self.exerciseLabel.text = getExercise()
+        self.exerciseLabel.text = getExercise() as String
         self.exerciseLabel.sizeToFit()
         self.exerciseLabel.numberOfLines = 0
         self.exerciseLabel.fadeIn(completion: {
@@ -117,7 +117,7 @@ class TimerViewController: UIViewController {
         timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("subtractTime"), userInfo: nil, repeats: true)
     }
     
-    func speech(say:NSString){
+    func speech(say:String){
         myUtterance = AVSpeechUtterance(string:say)
         myUtterance.rate = 0.1
         synth.speakUtterance(myUtterance)
@@ -146,7 +146,7 @@ class TimerViewController: UIViewController {
         startProgressBar()
         roundLabel.text = " \(sec)"
         if(sec == 0){
-            var temp = view.subviews[view.subviews.count-1] as CircleAnimationView
+            var temp = view.subviews[view.subviews.count-1] as! CircleAnimationView
             temp.pauseAnim()
             self.exerciseLabel.text = "Time completed"
             speech(self.exerciseLabel.text!)
@@ -188,7 +188,7 @@ class TimerViewController: UIViewController {
             flag = true
             
             
-            var temp = view.subviews[view.subviews.count-1] as CircleAnimationView
+            var temp = view.subviews[view.subviews.count-1]as! CircleAnimationView
             temp.pauseAnim()
             pauseLabel.text = "Resume"
             if(isRegistered){
@@ -198,7 +198,7 @@ class TimerViewController: UIViewController {
             }
             timer.invalidate()
         } else{
-            var temp = view.subviews[view.subviews.count-1] as CircleAnimationView
+            var temp = view.subviews[view.subviews.count-1] as! CircleAnimationView
             temp.resumeAnim()
             pauseLabel.text = "Pause"
            // timer.fire()

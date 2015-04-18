@@ -55,7 +55,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         super.viewDidLoad()
         
-        var appDel: AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        var appDel: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         managedObjectContext = appDel.managedObjectContext!
         workoutModel.exercise = exercises
      //   findFontNames()
@@ -101,7 +101,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func findFontNames(){
         for familyName in UIFont.familyNames(){
             NSLog("\(familyName)")
-            for fontName in UIFont.fontNamesForFamilyName(String(format: familyName as NSString)) {
+            for fontName in UIFont.fontNamesForFamilyName(String(format: (familyName as! NSString) as String)) {
                 NSLog("    \(fontName)");
             }
         }
@@ -136,7 +136,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func customExerciseCellAtIndexPath(indexPath: NSIndexPath) -> CustomExerciseCell{
-    var cell = self.exerciseTableView.dequeueReusableCellWithIdentifier("customExerciseCell") as CustomExerciseCell
+    var cell = self.exerciseTableView.dequeueReusableCellWithIdentifier("customExerciseCell") as! CustomExerciseCell
     cell.exerciseCellLabel.text = exercises[indexPath.row].name
     return cell
     }
@@ -151,7 +151,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     //# MARK: keyboard behaviour
-    func textFieldShouldReturn(textField: UITextField!) -> Bool
+    func textFieldShouldReturn(textField: UITextField) -> Bool
     {
         textField.resignFirstResponder()
         return true;
