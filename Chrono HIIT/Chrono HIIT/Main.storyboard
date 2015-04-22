@@ -1022,6 +1022,17 @@
                                 <exclude reference="IF8-w6-Lyf"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="4no-ml-8O0"/>
+                                <exclude reference="KSm-Vy-mI3"/>
+                                <exclude reference="LxJ-Ac-Kig"/>
+                                <exclude reference="UXu-IT-mWV"/>
+                                <exclude reference="g5p-tN-AST"/>
+                                <exclude reference="8DS-I1-PVb"/>
+                                <exclude reference="HBK-8z-uSk"/>
+                                <exclude reference="HUf-oY-3ja"/>
+                                <exclude reference="W14-cy-qtQ"/>
+                                <exclude reference="isw-NI-SN9"/>
+                                <exclude reference="rfi-ts-H2y"/>
                                 <exclude reference="7ZL-g5-1Vm"/>
                                 <exclude reference="Apd-N2-INC"/>
                                 <exclude reference="KnN-3S-B9D"/>
@@ -1034,17 +1045,6 @@
                                 <exclude reference="bCl-38-kru"/>
                                 <exclude reference="oZD-I2-brC"/>
                                 <exclude reference="x3q-AW-ugF"/>
-                                <exclude reference="g5p-tN-AST"/>
-                                <exclude reference="8DS-I1-PVb"/>
-                                <exclude reference="HBK-8z-uSk"/>
-                                <exclude reference="HUf-oY-3ja"/>
-                                <exclude reference="W14-cy-qtQ"/>
-                                <exclude reference="isw-NI-SN9"/>
-                                <exclude reference="rfi-ts-H2y"/>
-                                <exclude reference="4no-ml-8O0"/>
-                                <exclude reference="KSm-Vy-mI3"/>
-                                <exclude reference="LxJ-Ac-Kig"/>
-                                <exclude reference="UXu-IT-mWV"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -1054,6 +1054,19 @@
                                 <include reference="IF8-w6-Lyf"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="4no-ml-8O0"/>
+                                <exclude reference="KSm-Vy-mI3"/>
+                                <include reference="LxJ-Ac-Kig"/>
+                                <include reference="UXu-IT-mWV"/>
+                                <include reference="g5p-tN-AST"/>
+                                <exclude reference="17f-mh-4CJ"/>
+                                <exclude reference="Azh-Z0-Kce"/>
+                                <include reference="HBK-8z-uSk"/>
+                                <include reference="HUf-oY-3ja"/>
+                                <include reference="W14-cy-qtQ"/>
+                                <exclude reference="XGz-MT-zGk"/>
+                                <include reference="isw-NI-SN9"/>
+                                <include reference="rfi-ts-H2y"/>
                                 <include reference="7ZL-g5-1Vm"/>
                                 <exclude reference="Apd-N2-INC"/>
                                 <exclude reference="KnN-3S-B9D"/>
@@ -1066,19 +1079,6 @@
                                 <include reference="bCl-38-kru"/>
                                 <exclude reference="oZD-I2-brC"/>
                                 <include reference="x3q-AW-ugF"/>
-                                <include reference="g5p-tN-AST"/>
-                                <exclude reference="17f-mh-4CJ"/>
-                                <exclude reference="Azh-Z0-Kce"/>
-                                <include reference="HBK-8z-uSk"/>
-                                <include reference="HUf-oY-3ja"/>
-                                <include reference="W14-cy-qtQ"/>
-                                <exclude reference="XGz-MT-zGk"/>
-                                <include reference="isw-NI-SN9"/>
-                                <include reference="rfi-ts-H2y"/>
-                                <exclude reference="4no-ml-8O0"/>
-                                <exclude reference="KSm-Vy-mI3"/>
-                                <include reference="LxJ-Ac-Kig"/>
-                                <include reference="UXu-IT-mWV"/>
                             </mask>
                         </variation>
                     </view>

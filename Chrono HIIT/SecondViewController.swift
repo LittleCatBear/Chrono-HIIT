@@ -278,6 +278,8 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
             isRegistered = true
             isUnregistered = false
             updateViewForRegisteredWorkout()
+            println(wo.objectID)
+            workoutId = wo.objectID
             tabBarController?.tabBar.tintColor = red()
         }
         managedObjectContext?.reset()
