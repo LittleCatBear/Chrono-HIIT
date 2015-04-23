@@ -37,6 +37,7 @@
 		E3F696611ACD408F00884BD8 /* ExerciseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F696601ACD408F00884BD8 /* ExerciseModel.swift */; };
 		E3F696661ACE7A2200884BD8 /* CircleAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F696651ACE7A2200884BD8 /* CircleAnimationView.swift */; };
 		E3F696681ACE82D700884BD8 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F696671ACE82D700884BD8 /* Exercise.swift */; };
+		E3FB4D841AE91C34002EB83B /* HRToast+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FB4D831AE91C34002EB83B /* HRToast+UIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		E3F696601ACD408F00884BD8 /* ExerciseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseModel.swift; sourceTree = "<group>"; };
 		E3F696651ACE7A2200884BD8 /* CircleAnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleAnimationView.swift; sourceTree = "<group>"; };
 		E3F696671ACE82D700884BD8 /* Exercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Exercise.swift; path = ../Exercise.swift; sourceTree = "<group>"; };
+		E3FB4D831AE91C34002EB83B /* HRToast+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HRToast+UIView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 		E3AF70B41AD5030900FB500C /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				E3FB4D831AE91C34002EB83B /* HRToast+UIView.swift */,
 				E3F6963D1ACCC16100884BD8 /* UIViewAnimationExt.swift */,
 				E3F696651ACE7A2200884BD8 /* CircleAnimationView.swift */,
 			);
@@ -358,6 +361,7 @@
 				E3F696331ACCBC9500884BD8 /* Workout.swift in Sources */,
 				E3F6965D1ACCC6DC00884BD8 /* WorkoutViewController.swift in Sources */,
 				E3F696681ACE82D700884BD8 /* Exercise.swift in Sources */,
+				E3FB4D841AE91C34002EB83B /* HRToast+UIView.swift in Sources */,
 				E3F696471ACCC16100884BD8 /* UIViewAnimationExt.swift in Sources */,
 				E3F695ED1ACCB1CA00884BD8 /* Chrono_HIIT.xcdatamodeld in Sources */,
 				E3F695EA1ACCB1CA00884BD8 /* AppDelegate.swift in Sources */,
