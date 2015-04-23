@@ -280,8 +280,12 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         var error: NSError?
         if !(managedObjectContext?.save(&error) != nil) {
             println("Could not save workout\(error), \(error?.userInfo)")
+            errorLabel.textColor = UIColor.redColor()
+            errorLabel.text = "An error occured, your workout is not saved"
         }
         else{
+            errorLabel.textColor = UIColor.blueColor()
+            errorLabel.text = "Workout saved!"
             isRegistered = true
             isUnregistered = false
             updateViewForRegisteredWorkout()
@@ -386,6 +390,12 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         var error: NSError?
         if !(managedObjectContext?.save(&error) != nil) {
             println("Could not save workout\(error), \(error?.userInfo)")
+            errorLabel.textColor = UIColor.redColor()
+            errorLabel.text = "An error occured, your workout is not updated"
+        }
+        else{
+            errorLabel.textColor = UIColor.blueColor()
+            errorLabel.text = "Workout updated! "
         }
         managedObjectContext?.reset()
     }
