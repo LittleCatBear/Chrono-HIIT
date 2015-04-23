@@ -58,6 +58,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         self.workoutNameTextField.delegate = self
         self.countDownTextField.text = "5"
         self.errorLabel.text = ""
+        println("testcommit")
         
     }
 
