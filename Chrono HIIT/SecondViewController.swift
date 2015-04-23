@@ -211,31 +211,21 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         var flag:Bool = false
         if(exercises.count>0){
             
-            
             if (self.timingTextField.text != "" && self.timingTextField.text!.toInt() != nil && self.timingTextField.text.toInt() > 0){
                 if(self.roundTextField.text != "" && self.roundTextField.text!.toInt() != nil && self.roundTextField.text.toInt() > 0){
-                    if(self.countDownTextField.text!.toInt()<0){
-                        errorLabel.textColor = UIColor.redColor()
-                        errorLabel.text = "Countdown should be >= 0 sec"
-                        errorLabel.sizeToFit()
-                        
-                    }
-                    else{
+                    if(self.countDownTextField.text!.toInt()>0){
                         flag = true
+                    }else{
+                        self.view.makeToast(message: "Countdown should be >= 0 sec ", duration:3.0, title: "Invalid data", type:"ko")
                     }
-                    
                 } else{
-                    errorLabel.textColor = UIColor.redColor()
-                    errorLabel.text = "Total time should be >= 1 sec"
+                    self.view.makeToast(message: "Total time should be >= 1 sec", duration:3.0, title: "Invalid data", type:"ko")
                 }
-                
             } else{
-                errorLabel.textColor = UIColor.redColor()
-                errorLabel.text = "Swap timing should be >= 1 sec"
+                self.view.makeToast(message: "Swap timing should be >= 1 sec", duration:3.0, title: "Invalid data", type:"ko")
             }
         }else{
-            errorLabel.textColor = UIColor.redColor()
-            errorLabel.text = "You should at least have 1 exercise in your workout "
+            self.view.makeToast(message: "You should at least have 1 exercise in your workout ", duration:3.0, title: "Invalid data", type:"ko")
         }
         return flag
     }

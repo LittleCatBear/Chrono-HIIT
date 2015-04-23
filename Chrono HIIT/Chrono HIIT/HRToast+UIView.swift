@@ -78,6 +78,15 @@ extension UIView {
     func makeToast(message msg: String, type:String) {
         self.makeToast(message: msg, duration: HRToastDefaultDuration, position: HRToastPositionDefault, type:type)
     }
+    /* add custom methods */
+    func makeToast(message msg: String, duration: Double, title: String, type:String) {
+        self.makeToast(message: msg, duration: duration, position: HRToastPositionDefault, title: title, type:type)
+    }
+    
+    func makeToast(message msg: String, duration: Double, type:String) {
+        self.makeToast(message: msg, duration: duration, position: HRToastPositionDefault, type:type)
+    }
+    /* end custom methods */
     
     func makeToast(message msg: String, duration: Double, position: AnyObject, type: String) {
         var toast = self.viewForMessage(msg, title: nil, image: nil, type: type)
