@@ -11,9 +11,9 @@ import Foundation
 class WorkoutModel {
     
     var name: String = ""
-    var swap: NSInteger = 0
-    var countdown: NSInteger = 0
-    var totalTime: NSInteger = 0
+    var swap: NSNumber = 0
+    var countdown: NSNumber = 0
+    var totalTime: NSNumber = 0
     var exercise:[ExerciseModel] = [ExerciseModel]()
     
 }

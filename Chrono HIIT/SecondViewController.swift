@@ -48,6 +48,9 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     // Save a workout in Core Data
     @IBOutlet weak var saveButton: UIButton!
     
+    
+    // token to know if keyboard has already push the view up
+    var keyboardIsAlreadyShown:Bool = false
     //# MARK: Prepare and load current view according to context (new workout, unregistered workout, saved workout)
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,11 +63,29 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         self.errorLabel.text = ""
         
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: nil);
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: nil);
+    }
+    
+    func keyboardWillShow(sender: NSNotification) {
+        println(sender)
+        if(!keyboardIsAlreadyShown){
+            self.view.frame.origin.y -= 75
+            keyboardIsAlreadyShown = true
+        }
+        
+    }
+    func keyboardWillHide(sender: NSNotification) {
+        if(keyboardIsAlreadyShown){
+            self.view.frame.origin.y += 75
+            keyboardIsAlreadyShown = false
+        }
+                
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        
+        self.workoutNameTextField.tag = 1
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -123,9 +144,9 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     
     func getWorkoutData(){
         self.workoutStatusLabel.text = "Workout \(workoutModel.name)"
-        timingTextField.text = String(workoutModel.swap)
-        countDownTextField.text = String(workoutModel.countdown)
-        roundTextField.text = String(workoutModel.totalTime)
+        timingTextField.text = "\(workoutModel.swap)"
+        countDownTextField.text = "\(workoutModel.countdown)"
+        roundTextField.text = "\(workoutModel.totalTime)"
         workoutNameTextField.text = workoutModel.name
     }
     
