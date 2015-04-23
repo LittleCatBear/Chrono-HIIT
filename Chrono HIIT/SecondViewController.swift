@@ -97,6 +97,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
             workoutNameLabel.hidden = true
             workoutNameTextField.hidden = true
         }
+        errorLabel.text = ""
     }
     
    func  updateViewForRegisteredWorkout(){
@@ -186,12 +187,15 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     
     func validateData() -> Bool {
         var flag:Bool = false
-        if (self.timingTextField.text != ""){
-            if(self.timingTextField.text!.toInt() != nil && self.timingTextField.text.toInt() > 0){
+        println(exercises.count)
+        if(exercises.count>0){
+            
+        
+        if (self.timingTextField.text != "" && self.timingTextField.text!.toInt() != nil && self.timingTextField.text.toInt() > 0){
                 if(self.roundTextField.text != "" && self.roundTextField.text!.toInt() != nil && self.roundTextField.text.toInt() > 0){
                     if(self.countDownTextField.text!.toInt()<0){
                         errorLabel.textColor = UIColor.redColor()
-                        errorLabel.text = "Invalid data for COUNTDOWN. Countdown should be >= 0 sec"
+                        errorLabel.text = "Countdown should be >= 0 sec"
                         errorLabel.sizeToFit()
                     
                     }
@@ -201,14 +205,17 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
                     
                 } else{
                     errorLabel.textColor = UIColor.redColor()
-                    errorLabel.text = "Invalid data for TOTAL TIME. Total time should be >= 1 sec"
+                    errorLabel.text = "Total time should be >= 1 sec"
                 }
                 
             } else{
                 errorLabel.textColor = UIColor.redColor()
-                errorLabel.text = "Invalid data for SWAP. Swap timing should be >= 1 sec"
+                errorLabel.text = "Swap timing should be >= 1 sec"
             }
-        }
+        }else{
+            errorLabel.textColor = UIColor.redColor()
+            errorLabel.text = "You should at least have 1 exercise in your workout "
+            }
         return flag
     }
     
@@ -309,6 +316,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     
     //# MARK: update workout
     @IBAction func onClickUpdateButton(sender: UIButton) {
+        println(validateData())
         if(validateData()){
             getDataForSaving()
             workoutModel.name = workoutNameTextField.text
