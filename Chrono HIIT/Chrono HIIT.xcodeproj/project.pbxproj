@@ -25,7 +25,6 @@
 		E3F696261ACCB28300884BD8 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3F696251ACCB28300884BD8 /* AVFoundation.framework */; };
 		E3F696331ACCBC9500884BD8 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F696321ACCBC9500884BD8 /* Workout.swift */; };
 		E3F696401ACCC16100884BD8 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F696361ACCC16100884BD8 /* FirstViewController.swift */; };
-		E3F696431ACCC16100884BD8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3F696391ACCC16100884BD8 /* Images.xcassets */; };
 		E3F696441ACCC16100884BD8 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3F6963A1ACCC16100884BD8 /* Info.plist */; };
 		E3F696451ACCC16100884BD8 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F6963B1ACCC16100884BD8 /* SecondViewController.swift */; };
 		E3F696461ACCC16100884BD8 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F6963C1ACCC16100884BD8 /* TimerViewController.swift */; };
@@ -71,7 +70,6 @@
 		E3F696251ACCB28300884BD8 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.2.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = "<absolute>"; };
 		E3F696321ACCBC9500884BD8 /* Workout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		E3F696361ACCC16100884BD8 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirstViewController.swift; path = ../FirstViewController.swift; sourceTree = "<group>"; };
-		E3F696391ACCC16100884BD8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../Images.xcassets; sourceTree = "<group>"; };
 		E3F6963A1ACCC16100884BD8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 		E3F6963B1ACCC16100884BD8 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SecondViewController.swift; path = ../SecondViewController.swift; sourceTree = "<group>"; };
 		E3F6963C1ACCC16100884BD8 /* TimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimerViewController.swift; path = ../TimerViewController.swift; sourceTree = "<group>"; };
@@ -166,7 +164,6 @@
 				E3F696631ACD40D200884BD8 /* Models */,
 				E3AF70B41AD5030900FB500C /* Animations */,
 				E3F6964B1ACCC1F900884BD8 /* Main.storyboard */,
-				E3F696391ACCC16100884BD8 /* Images.xcassets */,
 				E3F6964D1ACCC20300884BD8 /* LaunchScreen.xib */,
 				E304463E1AD34F0C00DBEA58 /* Fonts */,
 				E3F696641ACD40EF00884BD8 /* Entities */,
@@ -321,7 +318,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3F696431ACCC16100884BD8 /* Images.xcassets in Resources */,
 				E30446391AD34EA500DBEA58 /* VarsityPlaybook-DEMO.ttf in Resources */,
 				E3F6964C1ACCC1F900884BD8 /* Main.storyboard in Resources */,
 				E3F6964E1ACCC20300884BD8 /* LaunchScreen.xib in Resources */,
