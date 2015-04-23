@@ -58,10 +58,10 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         self.workoutNameTextField.delegate = self
         self.countDownTextField.text = "5"
         self.errorLabel.text = ""
-        println("testcommit")
+        
         
     }
-
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         
@@ -101,8 +101,8 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         errorLabel.text = ""
     }
     
-   func  updateViewForRegisteredWorkout(){
-    redDesign()
+    func  updateViewForRegisteredWorkout(){
+        redDesign()
         getWorkoutData()
         updateButton.hidden = false
         updateButton.enabled = true
@@ -136,13 +136,13 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     
     //# MARK: Unwind segue from TimerViewController
     @IBAction func goToInit(segue:UIStoryboardSegue){
-       // self.errorLabel.text = ""
-      //  self.errorLabel.textColor = UIColor.blackColor()
+        // self.errorLabel.text = ""
+        //  self.errorLabel.textColor = UIColor.blackColor()
     }
     
-   //# MARK: Data validation before segue & segue to chrono (TimerViewController)
+    //# MARK: Data validation before segue & segue to chrono (TimerViewController)
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-       
+        
         if (segue.identifier == "showTimer"){
             var temp = 0
             var tempCd = 5
@@ -183,22 +183,21 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
-      return validateData()
+        return validateData()
     }
     
     func validateData() -> Bool {
         var flag:Bool = false
-        println(exercises.count)
         if(exercises.count>0){
             
-        
-        if (self.timingTextField.text != "" && self.timingTextField.text!.toInt() != nil && self.timingTextField.text.toInt() > 0){
+            
+            if (self.timingTextField.text != "" && self.timingTextField.text!.toInt() != nil && self.timingTextField.text.toInt() > 0){
                 if(self.roundTextField.text != "" && self.roundTextField.text!.toInt() != nil && self.roundTextField.text.toInt() > 0){
                     if(self.countDownTextField.text!.toInt()<0){
                         errorLabel.textColor = UIColor.redColor()
                         errorLabel.text = "Countdown should be >= 0 sec"
                         errorLabel.sizeToFit()
-                    
+                        
                     }
                     else{
                         flag = true
@@ -216,7 +215,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         }else{
             errorLabel.textColor = UIColor.redColor()
             errorLabel.text = "You should at least have 1 exercise in your workout "
-            }
+        }
         return flag
     }
     
@@ -224,9 +223,9 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     /*
     func textFieldShouldReturn(textField: UITextField) -> Bool
     {
-        self.view.endEditing(true)
-      //  textField.resignFirstResponder()
-        return true;
+    self.view.endEditing(true)
+    //  textField.resignFirstResponder()
+    return true;
     }
     */
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
@@ -239,7 +238,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
             isNew = false
             isUnregistered = true
         }
-       // self.errorLabel.textColor = UIColor.blackColor()
+        // self.errorLabel.textColor = UIColor.blackColor()
     }
     
     //# MARK: Save workout
@@ -290,7 +289,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
             isRegistered = true
             isUnregistered = false
             updateViewForRegisteredWorkout()
-            println(wo.objectID)
+            
             workoutId = wo.objectID
             tabBarController?.tabBar.tintColor = red()
         }
@@ -304,7 +303,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         
         alert.addTextFieldWithConfigurationHandler({(textField: UITextField!) in
             textField.placeholder = "Enter workout name:"
-           
+            
         })
         alert.addAction(UIAlertAction(title: "Save", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
             let textField = alert.textFields![0] as! UITextField
@@ -321,7 +320,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     
     //# MARK: update workout
     @IBAction func onClickUpdateButton(sender: UIButton) {
-        println(validateData())
+        
         if(validateData()){
             getDataForSaving()
             workoutModel.name = workoutNameTextField.text
@@ -354,7 +353,6 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     //Get the Core Data Workout to update by its ManagedObjectID got from WorkoutViewController (when a cell is selected)
     func getWorkoutToUpdatewithId()->Workout{
         var toUpdate:Workout = managedObjectContext?.objectWithID(workoutId) as! Workout
-      //  println("to update \(toUpdate.name)")
         return toUpdate
     }
     
@@ -369,7 +367,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         var err: NSError? = nil
         var exeToDelete = managedObjectContext!.executeFetchRequest(fetchRequest,error: &err)! as! [Exercise]
         for e in exeToDelete{
-        //    NSLog("deletion: %@", e)
+            //    NSLog("deletion: %@", e)
             managedObjectContext!.deleteObject(e as Exercise)
         }
         
@@ -406,7 +404,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     func blueDesign(){
         updateLabel.textColor = blue()
         saveLabel.textColor = blue()
-      //  workoutNameLabel.textColor = UIColor(red: 0.082, green: 0.647, blue: 0.859, alpha: 1.0)
+        //  workoutNameLabel.textColor = UIColor(red: 0.082, green: 0.647, blue: 0.859, alpha: 1.0)
         saveButton.setImage(UIImage(named: "saveBlue"), forState: UIControlState.Normal)
         totalTimeLabel.textColor = blue()
         swapLabel.textColor = blue()

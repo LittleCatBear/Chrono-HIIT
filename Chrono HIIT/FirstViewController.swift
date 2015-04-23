@@ -33,7 +33,7 @@ var isUnregistered:Bool = false
 var isNew:Bool = true
 
 class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
-
+    
     //tableView of exercises, saved or to be saved, depending on the current context
     @IBOutlet weak var exerciseTableView: UITableView!
     
@@ -46,7 +46,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     //# MARK: IBOutlet for design
     @IBOutlet weak var topBarView: UIView!
     @IBOutlet weak var addExerciseLabel: UILabel!
-  
+    
     @IBOutlet weak var exercisesLabel: UILabel!
     @IBOutlet weak var plusButton: UIButton!
     
@@ -58,16 +58,15 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         var appDel: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         managedObjectContext = appDel.managedObjectContext!
         workoutModel.exercise = exercises
-     //   findFontNames()
+        //   findFontNames()
         ExerciseTextField.delegate = self
-      //  self.exerciseTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        //  self.exerciseTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         
         if (isNew){
-            println("test")
             cleanData()
             workoutStatusLabel.text = "New workout"
             blueDesign()
@@ -106,24 +105,28 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
             }
         }
     }
-
-    //# MARK: add a new exercise in tableview and temporary exercises array of a workout 
+    
+    //# MARK: add a new exercise in tableview and temporary exercises array of a workout
     @IBAction func onClickAddExercise(sender: UIButton) {
         if (self.ExerciseTextField.text != ""){
-           // var ex = NSEntityDescription.insertNewObjectForEntityForName("Exercise", inManagedObjectContext: managedObjectContext!) as Exercise
+            // var ex = NSEntityDescription.insertNewObjectForEntityForName("Exercise", inManagedObjectContext: managedObjectContext!) as Exercise
             var ex = ExerciseModel()
             ex.name = self.ExerciseTextField.text
             exercises.append(ex)
-            workoutModel.exercise =  exercises
-           // globalExerciceTable.append(self.ExerciseTextField.text)
+            updateExercisesList()
+            // globalExerciceTable.append(self.ExerciseTextField.text)
             self.ExerciseTextField.text = ""
             self.exerciseTableView.reloadData()
             if(isNew){
-              //  isNew = false
+                //  isNew = false
                 isUnregistered = true
             }
             
         }
+    }
+    
+    func updateExercisesList(){
+        workoutModel.exercise =  exercises
     }
     
     //# MARK: exercises tableview management
@@ -136,9 +139,9 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func customExerciseCellAtIndexPath(indexPath: NSIndexPath) -> CustomExerciseCell{
-    var cell = self.exerciseTableView.dequeueReusableCellWithIdentifier("customExerciseCell") as! CustomExerciseCell
-    cell.exerciseCellLabel.text = exercises[indexPath.row].name
-    return cell
+        var cell = self.exerciseTableView.dequeueReusableCellWithIdentifier("customExerciseCell") as! CustomExerciseCell
+        cell.exerciseCellLabel.text = exercises[indexPath.row].name
+        return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {}
@@ -147,6 +150,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         if editingStyle == UITableViewCellEditingStyle.Delete {
             exercises.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            updateExercisesList()
         }
     }
     
@@ -181,6 +185,6 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func blue() -> UIColor{
         return UIColor(red: 0.082, green: 0.647, blue: 0.859, alpha: 1.0)
     }
-
+    
 }
 
