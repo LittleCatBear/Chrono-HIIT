@@ -395,7 +395,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         }
         else{
             errorLabel.textColor = UIColor.blueColor()
-            errorLabel.text = "Workout updated! "
+            errorLabel.text = "Workout updated!"
         }
         managedObjectContext?.reset()
     }
