@@ -19,9 +19,6 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     //top bar (blue or red)
     @IBOutlet weak var topBarView: UIView!
     
-    //error label
-    @IBOutlet weak var errorLabel: UILabel!
-    
     @IBOutlet weak var countdownLabel: UILabel!
     @IBOutlet weak var swapLabel: UILabel!
     @IBOutlet weak var totalTimeLabel: UILabel!
@@ -60,7 +57,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         self.countDownTextField.delegate = self
         self.workoutNameTextField.delegate = self
         self.countDownTextField.text = "5"
-        self.errorLabel.text = ""
+      
         
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: nil);
@@ -119,7 +116,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
             workoutNameLabel.hidden = true
             workoutNameTextField.hidden = true
         }
-        errorLabel.text = ""
+       
     }
     
     func  updateViewForRegisteredWorkout(){
@@ -213,7 +210,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
             
             if (self.timingTextField.text != "" && self.timingTextField.text!.toInt() != nil && self.timingTextField.text.toInt() > 0){
                 if(self.roundTextField.text != "" && self.roundTextField.text!.toInt() != nil && self.roundTextField.text.toInt() > 0){
-                    if(self.countDownTextField.text!.toInt()>0){
+                    if(self.countDownTextField.text!.toInt() == nil || self.countDownTextField.text!.toInt() >= 0){
                         flag = true
                     }else{
                         self.view.makeToast(message: "Countdown should be >= 0 sec ", duration:3.0, title: "Invalid data", type:"ko")
@@ -244,7 +241,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
-        self.errorLabel.text = ""
+       
         if(isNew){
             isNew = false
             isUnregistered = true

@@ -127,7 +127,7 @@ class TimerViewController: UIViewController {
         if(cd == -1){
             countdown.invalidate()
            // addCircleView(totalChronoView, duration:NSTimeInterval(sec), withFadeOut:false)
-            startProgressBar()
+            
             lauchExercise(Float(workoutModel.totalTime))
         } else if(cd == 0){
             self.exerciseLabel.text = "Begin"
@@ -227,7 +227,7 @@ class TimerViewController: UIViewController {
     //# MARK: progress bar
     var counter:Int = 0 {
         didSet {
-            let fractionalProgress = (Float(counter) / Float(workoutModel.totalTime) ) - 1 / Float(workoutModel.totalTime)
+            let fractionalProgress = (Float(counter) / Float(workoutModel.totalTime) )
             let animated = counter != 0
             progressBarView.setProgress(fractionalProgress, animated: true)
         }

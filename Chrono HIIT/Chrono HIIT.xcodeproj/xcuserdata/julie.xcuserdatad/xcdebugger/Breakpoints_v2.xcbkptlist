@@ -56,11 +56,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SecondViewController.swift"
-            timestampString = "451486467.922005"
+            timestampString = "451533464.105024"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "372"
-            endingLineNumber = "372"
+            startingLineNumber = "369"
+            endingLineNumber = "369"
             landmarkName = "updateWorkout()"
             landmarkType = "5">
          </BreakpointContent>
@@ -88,11 +88,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SecondViewController.swift"
-            timestampString = "451486467.922005"
+            timestampString = "451533464.105024"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "371"
-            endingLineNumber = "371"
+            startingLineNumber = "368"
+            endingLineNumber = "368"
             landmarkName = "updateWorkout()"
             landmarkType = "5">
          </BreakpointContent>
@@ -111,6 +111,84 @@
             endingLineNumber = "54"
             landmarkName = "TimerViewController"
             landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SecondViewController.swift"
+            timestampString = "451533385.534526"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "SecondViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Chrono_HIIT.SecondViewController.updateLabel.setter : weak Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.UILabel&gt;"
+                  moduleName = "Chrono HIIT"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/julie/Documents/Projets/Proprie%CC%81taire/Chrono-HIIT/Chrono%20HIIT/SecondViewController.swift"
+                  timestampString = "451533464.438469"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Chrono_HIIT.SecondViewController.updateLabel.materializeForSet : weak Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.UILabel&gt;"
+                  moduleName = "Chrono HIIT"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/julie/Documents/Projets/Proprie%CC%81taire/Chrono-HIIT/Chrono%20HIIT/SecondViewController.swift"
+                  timestampString = "451533464.438692"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Chrono_HIIT.SecondViewController.init (Chrono_HIIT.SecondViewController.Type)(nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;ObjectiveC.NSBundle&gt;) -&gt; Chrono_HIIT.SecondViewController"
+                  moduleName = "Chrono HIIT"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/julie/Documents/Projets/Proprie%CC%81taire/Chrono-HIIT/Chrono%20HIIT/SecondViewController.swift"
+                  timestampString = "451533464.438903"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "53">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Chrono_HIIT.SecondViewController.init (Chrono_HIIT.SecondViewController.Type)(coder : ObjectiveC.NSCoder) -&gt; Chrono_HIIT.SecondViewController"
+                  moduleName = "Chrono HIIT"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/julie/Documents/Projets/Proprie%CC%81taire/Chrono-HIIT/Chrono%20HIIT/SecondViewController.swift"
+                  timestampString = "451533464.439141"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "31">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
