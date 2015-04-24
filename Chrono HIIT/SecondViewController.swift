@@ -48,6 +48,15 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     
     // token to know if keyboard has already push the view up
     var keyboardIsAlreadyShown:Bool = false
+   
+    
+    //constraint
+    
+    @IBOutlet weak var totalTimeHeight: NSLayoutConstraint!
+    @IBOutlet weak var swapHeight: NSLayoutConstraint!
+    @IBOutlet weak var countDownHeight: NSLayoutConstraint!
+    @IBOutlet weak var workoutNameHeight: NSLayoutConstraint!
+    
     //# MARK: Prepare and load current view according to context (new workout, unregistered workout, saved workout)
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,6 +92,8 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         self.workoutNameTextField.tag = 1
+        
+        adjustViewLayout(UIScreen.mainScreen().bounds.size)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -150,6 +161,31 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    //# MARK: adjust layout
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        adjustViewLayout(size)
+    }
+    
+    func adjustViewLayout(size: CGSize) {
+        println("height: \(size.height), width: \(size.width)")
+        
+        switch(size.width, size.height) {
+        case (320, 480):                        // iPhone 4S in portrait
+            totalTimeHeight.constant = 25
+            swapHeight.constant = 25
+            workoutNameHeight.constant = 25
+            countDownHeight.constant = 25
+        case (414, 736):                        // iPhone 6 Plus in portrait
+            totalTimeHeight.constant = 50
+            swapHeight.constant = 50
+            workoutNameHeight.constant = 50
+            countDownHeight.constant = 50
+            view.setNeedsLayout()
+        default:
+            break
+        }
     }
     
     //# MARK: Unwind segue from TimerViewController
@@ -229,11 +265,9 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     
     //# MARK: keyboard behaviour
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool
-    {
-    self.view.endEditing(true)
-    //  textField.resignFirstResponder()
-    return true;
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true;
     }
 
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
