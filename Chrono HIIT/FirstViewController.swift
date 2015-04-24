@@ -163,9 +163,35 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBAction func onClickUpdateButton(sender: UIButton) {
         
         if(validateData()){
+            if(workoutModel.name != " "){
                 updateWorkout()
-            } 
+            } else{
+                    var alert = UIAlertController(title: "Updating your workout", message: "Please enter a name for your workout: ", preferredStyle: UIAlertControllerStyle.Alert)
+                    var name = ""
+                    
+                    alert.addTextFieldWithConfigurationHandler({(textField: UITextField!) in
+                        textField.placeholder = "Enter workout name:"
+                        
+                    })
+                    var cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) {
+                    UIAlertAction in
+                    }
+                    alert.addAction(cancelAction)
+                
+                    alert.addAction(UIAlertAction(title: "Save", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
+                        let textField = alert.textFields![0] as! UITextField
+                        name = textField.text
+                        if name != ""{
+                            workoutModel.name = name
+                            self.updateWorkout()
+                        } else{
+                            self.presentViewController(alert, animated: true, completion: nil)
+                        }
+                    }))
+                    self.presentViewController(alert, animated: true, completion: nil)
+            }
         }
+    }
     
     
     //Get the Core Data Workout to update by its ManagedObjectID got from WorkoutViewController (when a cell is selected)

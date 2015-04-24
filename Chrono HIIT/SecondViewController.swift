@@ -340,6 +340,12 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
                     textField.placeholder = "Enter workout name:"
                     
                 })
+                
+                var cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) {
+                    UIAlertAction in
+                }
+                alert.addAction(cancelAction)
+                
                 alert.addAction(UIAlertAction(title: "Save", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
                     let textField = alert.textFields![0] as! UITextField
                     name = textField.text
