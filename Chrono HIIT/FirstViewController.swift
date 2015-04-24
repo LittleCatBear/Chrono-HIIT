@@ -280,6 +280,10 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return true;
     }
     
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        self.view.endEditing(true)
+    }
+    
     //# MARK: Label design (color)
     func redDesign(){
         topBarView.backgroundColor = red()
