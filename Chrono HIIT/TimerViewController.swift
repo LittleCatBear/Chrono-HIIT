@@ -174,6 +174,7 @@ class TimerViewController: UIViewController {
     
     @IBAction func onClickStopButton(sender: UIButton) {
         timer.invalidate()
+        synth.stopSpeakingAtBoundary(AVSpeechBoundary.Immediate)
         countdown.invalidate()
         UIApplication.sharedApplication().idleTimerDisabled = false
         repeatButton.enabled = true
@@ -191,8 +192,7 @@ class TimerViewController: UIViewController {
     @IBAction func onClickPauseButton(sender: UIButton) {
         if(flag == false){
             flag = true
-            
-            
+            synth.stopSpeakingAtBoundary(AVSpeechBoundary.Immediate)
             var temp = view.subviews[view.subviews.count-1]as! CircleAnimationView
             temp.pauseAnim()
             pauseLabel.text = "Resume"
