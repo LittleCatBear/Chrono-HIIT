@@ -28,4 +28,16 @@ class CustomTabBarViewController: UITabBarController, UITabBarControllerDelegate
         }
     }
     
+    func tabBarController(tabBarController: UITabBarController, didSelectViewController viewController: UIViewController) {
+
+        if(viewController is FirstViewController && isRegistered){
+            if let viewControllers = self.viewControllers {
+                for vc in viewControllers {
+                    if (vc is SecondViewController) {
+                       (vc as! SecondViewController).getDataForUpdating()
+                    }
+                } 
+            }
+        }
+    }
 }

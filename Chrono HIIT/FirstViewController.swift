@@ -50,6 +50,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var exercisesLabel: UILabel!
     @IBOutlet weak var plusButton: UIButton!
     
+    @IBOutlet weak var updateButton: UIButton!
     //# MARK: prepare and load view, with tableview cleaning and loading if needed
     override func viewDidLoad() {
         
@@ -69,16 +70,19 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         if (isNew){
             cleanData()
             workoutStatusLabel.text = "New workout"
+            hideUpdateButton()
             blueDesign()
             self.exerciseTableView.reloadData()
             
         }
         else if (isUnregistered){
             workoutStatusLabel.text = "New workout"
+            hideUpdateButton()
             blueDesign()
         }else{
             self.exerciseTableView.reloadData()
             workoutStatusLabel.text = "Workout \(workoutModel.name)"
+            showUpdateButton()
             redDesign()
         }
     }
@@ -154,6 +158,95 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
+    //# MARK: update workout
+    
+    @IBAction func onClickUpdateButton(sender: UIButton) {
+        
+        if(validateData()){
+                updateWorkout()
+            } 
+        }
+    
+    
+    //Get the Core Data Workout to update by its ManagedObjectID got from WorkoutViewController (when a cell is selected)
+    func getWorkoutToUpdatewithId()->Workout{
+        var toUpdate:Workout = managedObjectContext?.objectWithID(workoutId) as! Workout
+        return toUpdate
+    }
+    
+    // updating a workout: delete odl exercises array and create a new one with current exercise array from FirstViewController
+    func updateWorkout(){
+        var toUpdate = getWorkoutToUpdatewithId()
+        
+        let fetchRequest = NSFetchRequest(entityName:"Exercise")
+        let predicate = NSPredicate(format: "workout == %@", toUpdate)
+        fetchRequest.predicate = predicate
+        
+        var err: NSError? = nil
+        var exeToDelete = managedObjectContext!.executeFetchRequest(fetchRequest,error: &err)! as! [Exercise]
+        for e in exeToDelete{
+            //    NSLog("deletion: %@", e)
+            managedObjectContext!.deleteObject(e as Exercise)
+        }
+        
+        toUpdate.setValue(workoutModel.name, forKey: "name")
+        toUpdate.setValue(workoutModel.countdown, forKey: "countdown")
+        toUpdate.setValue(workoutModel.totalTime, forKey: "totalTime")
+        toUpdate.setValue(workoutModel.swap, forKey: "swap")
+        
+        var exe:[Exercise] = [Exercise]()
+        for e in workoutModel.exercise{
+            let ent = NSEntityDescription.entityForName("Exercise", inManagedObjectContext: managedObjectContext!)
+            let ex = NSManagedObject(entity: ent!, insertIntoManagedObjectContext:managedObjectContext) as! Exercise
+            ex.setValue(e.name, forKey: "name")
+            exe.append(ex)
+        }
+        
+        toUpdate.setValue(NSOrderedSet(array: exe), forKey: "exercise")
+        
+        var error: NSError?
+        if !(managedObjectContext?.save(&error) != nil) {
+            println("Could not save workout\(error), \(error?.userInfo)")
+            self.view.makeToast(message: "An error occured, your workout is not updated", type:"ko")
+        }
+        else{
+            self.view.makeToast(message: "Workout updated!", type:"ok")
+        }
+        managedObjectContext?.reset()
+    }
+
+    
+    
+    func validateData() -> Bool {
+        var flag:Bool = false
+        
+        if(exercises.count > 0){
+            
+            if (NSInteger(workoutModel.swap) > 0){
+                if(NSInteger(workoutModel.totalTime) > 0){
+                    if(NSInteger(workoutModel.countdown) > 0){
+                        if(workoutModel.name != ""){
+                            flag = true
+                        }else{
+                            self.view.makeToast(message: "Workout name shouldn't be empty", duration:3.0, title: "Invalid data", type:"ko")
+                        }
+                        
+                    }else{
+                        self.view.makeToast(message: "Countdown should be >= 0 sec ", duration:3.0, title: "Invalid data", type:"ko")
+                    }
+                } else{
+                    self.view.makeToast(message: "Total time should be >= 1 sec", duration:3.0, title: "Invalid data", type:"ko")
+                }
+            } else{
+                self.view.makeToast(message: "Swap timing should be >= 1 sec", duration:3.0, title: "Invalid data", type:"ko")
+            }
+        }else{
+            self.view.makeToast(message: "You should at least have 1 exercise in your workout ", duration:3.0, title: "Invalid data", type:"ko")
+        }
+        return flag
+    }
+
+    
     //# MARK: keyboard behaviour
     func textFieldShouldReturn(textField: UITextField) -> Bool
     {
@@ -186,5 +279,13 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return UIColor(red: 0.082, green: 0.647, blue: 0.859, alpha: 1.0)
     }
     
+    func hideUpdateButton(){
+        updateButton.enabled = false
+        updateButton.hidden = true
+    }
+    func showUpdateButton(){
+        updateButton.enabled = true
+        updateButton.hidden = false
+    }
 }
 

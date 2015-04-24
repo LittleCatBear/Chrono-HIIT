@@ -170,21 +170,21 @@ extension UIView {
        
         switch(type){
             case "normal": activityView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(HRToastOpacity)
-            case "ok":activityView.backgroundColor = UIColor.greenColor().colorWithAlphaComponent(HRToastOpacity)
-            case "ko":activityView.backgroundColor = UIColor.orangeColor().colorWithAlphaComponent(HRToastOpacity)
+            case "ok":activityView.backgroundColor = UIColor(red: 0.396, green: 0.875, blue: 0.0, alpha: 1.0).colorWithAlphaComponent(HRToastOpacity)
+            case "ko":activityView.backgroundColor = UIColor(red: 0.98, green: 0.427, blue: 0.0, alpha: 1.0).colorWithAlphaComponent(HRToastOpacity)
             default:activityView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(HRToastOpacity)
         }
         
-        activityView.alpha = 0.0
+        activityView.alpha = 1.0
         activityView.autoresizingMask = (.FlexibleLeftMargin | .FlexibleTopMargin | .FlexibleRightMargin | .FlexibleBottomMargin)
         activityView.layer.cornerRadius = HRToastCornerRadius
         
         if HRToastDisplayShadow {
             switch(type){
-            case "normal": activityView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(HRToastOpacity)
-            case "ok":activityView.layer.shadowColor = UIColor.greenColor().CGColor
-            case "ko":activityView.layer.shadowColor = UIColor.orangeColor().CGColor
-            default:activityView.layer.shadowColor = UIColor.blackColor().CGColor
+                case "normal": activityView.layer.shadowColor = UIColor.blackColor().CGColor
+                case "ok":activityView.layer.shadowColor = UIColor(red: 0.396, green: 0.875, blue: 0.0, alpha: 1.0).CGColor
+                case "ko":activityView.layer.shadowColor = UIColor(red: 0.98, green: 0.427, blue: 0.0, alpha: 1.0).CGColor
+                default:activityView.layer.shadowColor = UIColor.blackColor().CGColor
             }
             
             activityView.layer.shadowOpacity = Float(HRToastShadowOpacity)
@@ -305,8 +305,8 @@ extension UIView {
        
         switch(type){
             case "normal": wrapperView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(HRToastOpacity)
-            case "ok":wrapperView.backgroundColor = UIColor.greenColor().colorWithAlphaComponent(HRToastOpacity)
-            case "ko":wrapperView.backgroundColor = UIColor.orangeColor().colorWithAlphaComponent(HRToastOpacity)
+            case "ok":wrapperView.backgroundColor = UIColor(red: 0.396, green: 0.875, blue: 0.0, alpha: 1.0).colorWithAlphaComponent(HRToastOpacity)
+            case "ko":wrapperView.backgroundColor = UIColor(red: 0.98, green: 0.427, blue: 0.0, alpha: 1.0).colorWithAlphaComponent(HRToastOpacity)
             default:wrapperView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(HRToastOpacity)
         }
         

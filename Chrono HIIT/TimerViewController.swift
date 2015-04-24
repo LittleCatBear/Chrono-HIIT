@@ -157,6 +157,7 @@ class TimerViewController: UIViewController {
             timer.invalidate()
             lauchExercise(Float(workoutModel.totalTime))
         }
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -226,14 +227,13 @@ class TimerViewController: UIViewController {
     //# MARK: progress bar
     var counter:Int = 0 {
         didSet {
-            let fractionalProgress = Float(counter) / Float(workoutModel.totalTime)
+            let fractionalProgress = (Float(counter) / Float(workoutModel.totalTime) ) - 1 / Float(workoutModel.totalTime)
             let animated = counter != 0
             progressBarView.setProgress(fractionalProgress, animated: true)
         }
     }
     
     func startProgressBar(){
-       // self.counter = 0
         self.counter++
     }
     

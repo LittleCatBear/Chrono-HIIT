@@ -406,6 +406,33 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         managedObjectContext?.reset()
     }
     
+    
+    //# MARK: prepare for update when changing tab
+    
+    func getDataForUpdating(){
+        if(self.workoutNameTextField.text != ""){
+            workoutModel.name = self.workoutNameTextField.text
+        } else{
+            workoutModel.name = " "
+        }
+            if(self.timingTextField.text!.toInt() != nil){
+                workoutModel.swap = self.timingTextField.text!.toInt()!
+            } else{
+             workoutModel.swap = 0
+        }
+        if(self.countDownTextField!.text.toInt() != nil){
+            workoutModel.countdown = self.countDownTextField!.text.toInt()!
+        } else{
+            workoutModel.countdown = 0
+        }
+        if(self.roundTextField!.text.toInt() != nil){
+             workoutModel.totalTime = self.roundTextField!.text.toInt()!
+        } else{
+             workoutModel.totalTime = 0
+        }
+    }
+    
+    
     //# MARK: Design
     
     func blueDesign(){

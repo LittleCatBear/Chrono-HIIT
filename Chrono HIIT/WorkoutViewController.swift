@@ -173,7 +173,6 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
     }
 
     @IBAction func onClickAddWorkoutButton(sender: UIButton) {
-       // token1 = true
         unregisterWorkout()
         newWorkout()
         self.tabBarController?.tabBar.tintColor = blue()
