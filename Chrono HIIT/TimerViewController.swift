@@ -50,6 +50,8 @@ class TimerViewController: UIViewController {
     let synth = AVSpeechSynthesizer()
     var myUtterance = AVSpeechUtterance(string: "")
     
+    
+    var screenSize: CGSize = CGSize()
     //# MARK: design var
   
     @IBOutlet weak var topBarView: UIView!
@@ -64,6 +66,8 @@ class TimerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        screenSize = UIScreen.mainScreen().bounds.size
         
         UIApplication.sharedApplication().idleTimerDisabled = true
         repeatButton.enabled = false
@@ -214,14 +218,38 @@ class TimerViewController: UIViewController {
     }
     
     func addCircleView(attachableView:UIView, duration: NSTimeInterval, withFadeOut:Bool) {
-        var circleWidth = CGFloat(attachableView.frame.width-50)
-        var circleHeight = circleWidth
-        var circleAnimationView = CircleAnimationView(frame: CGRectMake(attachableView.center.x - circleWidth/2,attachableView.center.y - circleHeight/2, circleWidth, circleHeight), line: 50.0)
-        view.addSubview(circleAnimationView)
-        circleAnimationView.animateCircle(duration)
-        if(withFadeOut){
-            circleAnimationView.fadeOutNoRepeat(duration: duration, delay: 1.0)
+        
+        switch(screenSize.width, screenSize.height) {
+            
+            case (320, 480):
+                var circleWidth = CGFloat(attachableView.frame.width - 50)
+                var circleHeight = circleWidth
+                var circleAnimationView = CircleAnimationView(frame: CGRectMake(attachableView.center.x - circleWidth/2,attachableView.center.y - circleHeight/2, circleWidth, circleHeight), line: 10.0)
+            view.addSubview(circleAnimationView)
+            circleAnimationView.animateCircle(duration)
+            if(withFadeOut){
+                circleAnimationView.fadeOutNoRepeat(duration: duration, delay: 1.0)
+            }
+            case (414, 736):
+                var circleWidth = CGFloat(attachableView.frame.width - 50)
+                var circleHeight = circleWidth
+                var circleAnimationView = CircleAnimationView(frame: CGRectMake(attachableView.center.x - circleWidth/2,attachableView.center.y - circleHeight/2, circleWidth, circleHeight), line: 50.0)
+                view.addSubview(circleAnimationView)
+                circleAnimationView.animateCircle(duration)
+                if(withFadeOut){
+                    circleAnimationView.fadeOutNoRepeat(duration: duration, delay: 1.0)
+                }
+            default:
+                var circleWidth = CGFloat(attachableView.frame.width - 50)
+                var circleHeight = circleWidth
+                var circleAnimationView = CircleAnimationView(frame: CGRectMake(attachableView.center.x - circleWidth/2,attachableView.center.y - circleHeight/2, circleWidth, circleHeight), line: 50.0)
+            view.addSubview(circleAnimationView)
+            circleAnimationView.animateCircle(duration)
+            if(withFadeOut){
+                circleAnimationView.fadeOutNoRepeat(duration: duration, delay: 1.0)
+            }
         }
+        
     }
     
     //# MARK: progress bar

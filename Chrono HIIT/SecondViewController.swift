@@ -169,7 +169,6 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     }
     
     func adjustViewLayout(size: CGSize) {
-        println("height: \(size.height), width: \(size.width)")
         
         switch(size.width, size.height) {
         case (320, 480):                        // iPhone 4S in portrait
@@ -293,7 +292,11 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     //Move data from the textfields view to object workoutModel
     func getDataForSaving(){
         workoutModel.swap = self.timingTextField.text!.toInt()!
-        workoutModel.countdown = self.countDownTextField!.text.toInt()!
+        if (self.countDownTextField!.text.toInt() == nil){
+            workoutModel.countdown = 0
+        } else{
+            workoutModel.countdown = self.countDownTextField!.text.toInt()!
+        }
         workoutModel.totalTime = self.roundTextField!.text.toInt()!
     }
     

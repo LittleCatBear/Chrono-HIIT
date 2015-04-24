@@ -250,13 +250,12 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
             
             if (NSInteger(workoutModel.swap) > 0){
                 if(NSInteger(workoutModel.totalTime) > 0){
-                    if(NSInteger(workoutModel.countdown) > 0){
+                    if(NSInteger(workoutModel.countdown) >= 0){
                         if(workoutModel.name != ""){
                             flag = true
                         }else{
                             self.view.makeToast(message: "Workout name shouldn't be empty", duration:3.0, title: "Invalid data", type:"ko")
                         }
-                        
                     }else{
                         self.view.makeToast(message: "Countdown should be >= 0 sec ", duration:3.0, title: "Invalid data", type:"ko")
                     }
