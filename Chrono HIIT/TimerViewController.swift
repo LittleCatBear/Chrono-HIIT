@@ -21,11 +21,11 @@ class TimerViewController: UIViewController {
     @IBOutlet weak var exerciseLabel: UILabel!
     
     //swap
-    @IBOutlet weak var timingLab: UILabel!
     @IBOutlet weak var repeatButton: UIButton!
     @IBOutlet weak var pauseButton: UIButton!
     
   
+    @IBOutlet weak var repeatLabel: UILabel!
     @IBOutlet weak var pauseLabel: UILabel!
     @IBOutlet weak var circleView: UIView!
     
@@ -58,7 +58,6 @@ class TimerViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     
     @IBOutlet weak var stopButton: UIButton!
-    @IBOutlet weak var repeatLabel: UILabel!
     @IBOutlet weak var stopLabel: UILabel!
     
     
@@ -87,11 +86,16 @@ class TimerViewController: UIViewController {
         
         if(cd > 0){
             countdown = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("countDownSub"), userInfo: nil, repeats: true)
+            pauseButton.enabled = false
         } else{
             //addCircleView(totalChronoView, duration:NSTimeInterval(sec), withFadeOut:false)
+            repeatButton.enabled = true
+            repeatLabel.text = "Restart"
             self.counter = 0
             self.lauchExercise(Float(sec))
         }
+        
+        
     }
     
     func getExercise() -> NSString{
@@ -129,6 +133,8 @@ class TimerViewController: UIViewController {
     
     func countDownSub(){
         if(cd == -1){
+            repeatButton.enabled = true
+            repeatLabel.text = "Restart"
             countdown.invalidate()
            // addCircleView(totalChronoView, duration:NSTimeInterval(sec), withFadeOut:false)
             
@@ -136,7 +142,11 @@ class TimerViewController: UIViewController {
         } else if(cd == 0){
             self.exerciseLabel.text = "Begin"
             speech(self.exerciseLabel.text!)
+            
         } else{
+            pauseButton.enabled = false
+            repeatButton.enabled = false
+            repeatLabel.text = "Restart"
             self.exerciseLabel.text = "\(cd)"
             self.counter = 0
             speech(self.exerciseLabel.text!)
@@ -156,9 +166,11 @@ class TimerViewController: UIViewController {
             speech(self.exerciseLabel.text!)
             timer.invalidate()
             repeatButton.enabled = true
+            repeatLabel.text = "Repeat"
             pauseButton.enabled = false
         }else if(tempSwap == 0)  {
             timer.invalidate()
+           
             lauchExercise(Float(workoutModel.totalTime))
         }
         
@@ -181,7 +193,18 @@ class TimerViewController: UIViewController {
     }
     
     @IBAction func onClickRepeatButton(sender: UIButton) {
-        repeatButton.enabled = false
+        if(flag){
+            flag = false
+            
+            pauseLabel.text = "Pause"
+            if(isRegistered){
+                pauseButton.setImage(UIImage(named: "pauseRed.png"), forState: UIControlState.Normal)
+            }else{
+                pauseButton.setImage(UIImage(named: "pauseBlue.png"), forState: UIControlState.Normal)
+            }
+
+        }
+       // repeatButton.enabled = false
         timer.invalidate()
         cd = NSInteger(workoutModel.countdown)
         sec = NSInteger(workoutModel.totalTime)
@@ -190,7 +213,7 @@ class TimerViewController: UIViewController {
     }
     
     @IBAction func onClickPauseButton(sender: UIButton) {
-        if(flag == false){
+        if(!flag ){
             flag = true
             synth.stopSpeakingAtBoundary(AVSpeechBoundary.Immediate)
             var temp = view.subviews[view.subviews.count-1]as! CircleAnimationView

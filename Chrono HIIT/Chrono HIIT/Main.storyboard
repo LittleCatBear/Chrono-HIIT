@@ -1546,7 +1546,7 @@
                         <outlet property="pauseLabel" destination="CCS-KC-dp1" id="3Cq-AA-4vF"/>
                         <outlet property="progressBarView" destination="5e5-7K-b7w" id="U1o-lY-FDk"/>
                         <outlet property="repeatButton" destination="qE0-dP-iQM" id="pyB-C3-SXd"/>
-                        <outlet property="repeatLabel" destination="Dnf-hp-CnY" id="gmU-I2-2rO"/>
+                        <outlet property="repeatLabel" destination="Dnf-hp-CnY" id="IQ1-Sh-ezP"/>
                         <outlet property="roundLabel" destination="De7-RF-AHq" id="gnZ-Hz-cwO"/>
                         <outlet property="stopButton" destination="Vcs-bD-6C2" id="F0j-zw-2nz"/>
                         <outlet property="stopLabel" destination="FQC-Pa-56m" id="smZ-ag-Bm1"/>
