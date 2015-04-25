@@ -25,6 +25,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     //# MARK: IBOutlet for design
     @IBOutlet weak var topBarView: UIView!
+    
     @IBOutlet weak var addExerciseLabel: UILabel!
     
     @IBOutlet weak var exercisesLabel: UILabel!
@@ -32,6 +33,9 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     @IBOutlet weak var updateButton: UIButton!
     
+    @IBOutlet weak var addLabel: UILabel!
+    @IBOutlet weak var updateLabel: UILabel!
+   
     //# MARK: prepare and load view, with tableview cleaning and loading if needed
     override func viewDidLoad() {
         
@@ -261,6 +265,8 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         topBarView.backgroundColor = red()
         addExerciseLabel.textColor = red()
         exercisesLabel.textColor = red()
+        addLabel.textColor = red()
+        updateLabel.textColor = red()
         plusButton.setImage(UIImage(named: "plusRed.png"), forState: UIControlState.Normal)
         
     }
@@ -268,6 +274,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func blueDesign(){
         topBarView.backgroundColor = blue()
         addExerciseLabel.textColor = blue()
+        addLabel.textColor = blue()
         exercisesLabel.textColor = blue()
         plusButton.setImage(UIImage(named: "plusBlue.png"), forState: UIControlState.Normal)
         
@@ -284,10 +291,12 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func hideUpdateButton(){
         updateButton.enabled = false
         updateButton.hidden = true
+        updateLabel.hidden = true
     }
     func showUpdateButton(){
         updateButton.enabled = true
         updateButton.hidden = false
+        updateLabel.hidden = false
     }
 }
 
