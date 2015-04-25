@@ -36,6 +36,10 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var addLabel: UILabel!
     @IBOutlet weak var updateLabel: UILabel!
    
+    
+    let synth = AVSpeechSynthesizer()
+    var myUtterance = AVSpeechUtterance(string: "")
+    
     //# MARK: prepare and load view, with tableview cleaning and loading if needed
     override func viewDidLoad() {
         
@@ -129,7 +133,18 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {}
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    
+        var say = exercises[indexPath.row].name
+        speech(say)
+        
+    }
+    
+    func speech(say:String){
+        myUtterance = AVSpeechUtterance(string:say)
+        myUtterance.rate = 0.1
+        synth.speakUtterance(myUtterance)
+    }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete {
