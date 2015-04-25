@@ -10,6 +10,30 @@ import Foundation
 import UIKit
 import CoreData
 
+
+//global ManagedObjectContext for the whole app
+var managedObjectContext: NSManagedObjectContext? = nil
+
+//global workout object
+var workoutModel:WorkoutModel = WorkoutModel()
+
+//global array of exercises object
+var exercises:[ExerciseModel] = [ExerciseModel]()
+
+//global MAnagedObjectId for a selected previously saved workout (from Core Data)
+var workoutId:NSManagedObjectID = NSManagedObjectID()
+
+//when "new workout" (+) clicked on WorkoutViewController, token1 = true
+var token1:Bool = false
+
+//for TimerViewController field cleaning when a new workout had been selected
+var token2:Bool = false
+
+var isRegistered:Bool = false
+var isUnregistered:Bool = false
+var isNew:Bool = true
+
+
 class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDataSource{
    
     var workouts:[Workout] = [Workout]()
@@ -27,8 +51,9 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
   
         workoutTable.delegate = self
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        storyboard.instantiateViewControllerWithIdentifier("WorkoutViewController") as! UIViewController
+        var appDel: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        managedObjectContext = appDel.managedObjectContext!
+        workoutModel.exercise = exercises
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -179,7 +204,7 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
         unregisterWorkout()
         newWorkout()
         self.tabBarController?.tabBar.tintColor = blue()
-        tabBarController?.selectedIndex = 0
+        tabBarController?.selectedIndex = 1
     }
     
     @IBAction func onClickStartButton(sender: UIButton) {

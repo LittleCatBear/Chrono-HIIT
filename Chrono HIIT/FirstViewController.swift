@@ -10,27 +10,7 @@ import UIKit
 import CoreData
 import AVFoundation
 
-//global ManagedObjectContext for the whole app
-var managedObjectContext: NSManagedObjectContext? = nil
 
-//global workout object
-var workoutModel:WorkoutModel = WorkoutModel()
-
-//global array of exercises object
-var exercises:[ExerciseModel] = [ExerciseModel]()
-
-//global MAnagedObjectId for a selected previously saved workout (from Core Data)
-var workoutId:NSManagedObjectID = NSManagedObjectID()
-
-//when "new workout" (+) clicked on WorkoutViewController, token1 = true
-var token1:Bool = false
-
-//for TimerViewController field cleaning when a new workout had been selected
-var token2:Bool = false
-
-var isRegistered:Bool = false
-var isUnregistered:Bool = false
-var isNew:Bool = true
 
 class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
@@ -56,10 +36,6 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
-        var appDel: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        managedObjectContext = appDel.managedObjectContext!
-        workoutModel.exercise = exercises
         //   findFontNames()
         
     }

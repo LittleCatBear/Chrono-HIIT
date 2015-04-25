@@ -189,8 +189,6 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     
     //# MARK: Unwind segue from TimerViewController
     @IBAction func goToInit(segue:UIStoryboardSegue){
-        // self.errorLabel.text = ""
-        //  self.errorLabel.textColor = UIColor.blackColor()
     }
     
     //# MARK: Data validation before segue & segue to chrono (TimerViewController)
