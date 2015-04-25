@@ -41,7 +41,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         super.viewDidLoad()
         //   findFontNames()
-        
+        ExerciseTextField.delegate = self
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -92,6 +92,10 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     //# MARK: add a new exercise in tableview and temporary exercises array of a workout
     @IBAction func onClickAddExercise(sender: UIButton) {
+        addExercise()
+    }
+    
+    func addExercise(){
         if (self.ExerciseTextField.text != ""){
             var ex = ExerciseModel()
             ex.name = self.ExerciseTextField.text
@@ -253,10 +257,12 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func textFieldShouldReturn(textField: UITextField) -> Bool
     {
         textField.resignFirstResponder()
+        addExercise()
         return true;
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        
         self.view.endEditing(true)
     }
     
