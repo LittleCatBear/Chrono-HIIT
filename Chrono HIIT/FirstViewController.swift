@@ -51,6 +51,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var plusButton: UIButton!
     
     @IBOutlet weak var updateButton: UIButton!
+    
     //# MARK: prepare and load view, with tableview cleaning and loading if needed
     override func viewDidLoad() {
         
@@ -60,8 +61,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         managedObjectContext = appDel.managedObjectContext!
         workoutModel.exercise = exercises
         //   findFontNames()
-        ExerciseTextField.delegate = self
-        //  self.exerciseTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -113,16 +113,13 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     //# MARK: add a new exercise in tableview and temporary exercises array of a workout
     @IBAction func onClickAddExercise(sender: UIButton) {
         if (self.ExerciseTextField.text != ""){
-            // var ex = NSEntityDescription.insertNewObjectForEntityForName("Exercise", inManagedObjectContext: managedObjectContext!) as Exercise
             var ex = ExerciseModel()
             ex.name = self.ExerciseTextField.text
             exercises.append(ex)
             updateExercisesList()
-            // globalExerciceTable.append(self.ExerciseTextField.text)
             self.ExerciseTextField.text = ""
             self.exerciseTableView.reloadData()
             if(isNew){
-                //  isNew = false
                 isUnregistered = true
             }
             

@@ -126,13 +126,14 @@
                                     </constraint>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="1fc-3M-nyP"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact">
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="24" y="115" width="300" height="40"/>
                                     <mask key="constraints">
                                         <include reference="1fc-3M-nyP"/>
                                     </mask>
@@ -212,7 +213,6 @@
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="IQv-WM-jBd" secondAttribute="bottom" id="DNG-UN-sT0"/>
                             <constraint firstItem="Z1M-pX-UeZ" firstAttribute="top" secondItem="6WY-o1-ePH" secondAttribute="bottom" constant="8" id="Eva-ly-OCb"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Z1M-pX-UeZ" secondAttribute="trailing" constant="20" id="Gn4-zk-LG8"/>
-                            <constraint firstItem="shM-Zg-Xzq" firstAttribute="leading" secondItem="Z1M-pX-UeZ" secondAttribute="trailing" constant="20" id="Hdt-fq-Fa2"/>
                             <constraint firstAttribute="centerX" secondItem="Z1M-pX-UeZ" secondAttribute="centerX" id="HrA-Tr-Ra6"/>
                             <constraint firstItem="IQv-WM-jBd" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="-16" id="Jrf-DU-XEM"/>
                             <constraint firstItem="6WY-o1-ePH" firstAttribute="top" secondItem="OyT-Dh-UKD" secondAttribute="bottom" constant="8" id="NGz-sY-Okg">
@@ -275,7 +275,6 @@
                                 <exclude reference="Nau-GS-ryZ"/>
                                 <exclude reference="ig3-Wc-fwH"/>
                                 <exclude reference="9yF-V7-jUm"/>
-                                <exclude reference="Hdt-fq-Fa2"/>
                                 <exclude reference="T3a-Lc-pBd"/>
                                 <exclude reference="Tpc-iR-jXy"/>
                                 <exclude reference="dlm-qx-QSs"/>
@@ -309,7 +308,6 @@
                                 <include reference="9yF-V7-jUm"/>
                                 <exclude reference="pyo-SX-cNN"/>
                                 <exclude reference="04C-IA-gfs"/>
-                                <include reference="Hdt-fq-Fa2"/>
                                 <exclude reference="T3a-Lc-pBd"/>
                                 <exclude reference="Tpc-iR-jXy"/>
                                 <include reference="dlm-qx-QSs"/>
@@ -339,10 +337,10 @@
             </objects>
             <point key="canvasLocation" x="-771" y="1108"/>
         </scene>
-        <!--Workouts-->
+        <!--WorkoutViewController-->
         <scene sceneID="fLk-ic-BMF">
             <objects>
-                <viewController id="5L7-oB-Bcn" customClass="WorkoutViewController" customModule="Chrono_HIIT" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WorkoutViewController" title="WorkoutViewController" id="5L7-oB-Bcn" customClass="WorkoutViewController" customModule="Chrono_HIIT" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WWN-rx-09w"/>
                         <viewControllerLayoutGuide type="bottom" id="mII-YL-aG2"/>
@@ -407,7 +405,7 @@
                                                         <segue destination="Lzg-xa-e1d" kind="show" identifier="showTimerFromSavedWorkout" id="hkj-HZ-yyg"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Begin workout" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5iT-A5-kCt">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5iT-A5-kCt">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" red="0.74509803919999995" green="0.1176470588" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -951,7 +949,7 @@
                                             <segue destination="Lzg-xa-e1d" kind="show" identifier="showTimer" id="RYf-u4-5AI"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Play" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xfP-bg-lZ7">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xfP-bg-lZ7">
                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                         <fontDescription key="fontDescription" name="Copperplate-Light" family="Copperplate" pointSize="14"/>
                                         <color key="textColor" red="0.082365337169999997" green="0.64602179280000005" blue="0.85857833059999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1555,6 +1553,6 @@
         <image name="workout" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="RYf-u4-5AI"/>
+        <segue reference="hkj-HZ-yyg"/>
     </inferredMetricsTieBreakers>
 </document>

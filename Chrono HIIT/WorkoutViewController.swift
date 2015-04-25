@@ -26,6 +26,9 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
   
         workoutTable.delegate = self
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        storyboard.instantiateViewControllerWithIdentifier("WorkoutViewController") as! UIViewController
     }
     
     override func viewWillAppear(animated: Bool) {
