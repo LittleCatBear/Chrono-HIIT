@@ -82,6 +82,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         workoutModel.totalTime = 0
         workoutModel.swap = 0
         workoutModel.exercise = exercises
+        ExerciseTextField.text = ""
     }
     
     override func didReceiveMemoryWarning() {

@@ -438,6 +438,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
             self.view.makeToast(message: "An error occured, your workout is not updated", type:"ko")
         }
         else{
+            self.workoutStatusLabel.text = "Workout \(workoutModel.name)"
             self.view.makeToast(message: "Workout updated!", type:"ok")
         }
         managedObjectContext?.reset()
