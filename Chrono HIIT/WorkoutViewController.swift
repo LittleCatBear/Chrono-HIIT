@@ -169,6 +169,22 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete {
             if(workouts.count != 0){
+                if(workouts[indexPath.row].objectID == workoutId){
+                    unregisterWorkout()
+                    newWorkout()
+                    if let controllers = self.tabBarController?.viewControllers{
+                        for vc in controllers{
+                            if(vc is SecondViewController){
+                                var cont = vc as! SecondViewController
+                                cont.cleanFields()
+                            } else if (vc is FirstViewController){
+                                var cont = vc as! FirstViewController
+                                cont.cleanData()
+                                cont.exerciseTableView.reloadData()
+                            }
+                        }
+                    }
+                }
                 managedObjectContext?.deleteObject(workouts[indexPath.row] as Workout)
                 managedObjectContext?.save(nil)
                 workouts.removeAtIndex(indexPath.row)
@@ -180,6 +196,7 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
                 unregisterWorkout()
                 newWorkout()
                 self.tabBarController?.tabBar.tintColor = blue()
+                blueDesign()
             }
         }
     }
