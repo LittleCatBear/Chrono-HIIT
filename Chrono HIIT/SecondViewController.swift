@@ -241,18 +241,18 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         var flag:Bool = false
         if(exercises.count>0){
             
-            if (self.timingTextField.text != "" && self.timingTextField.text!.toInt() != nil && self.timingTextField.text.toInt() > 0){
-                if(self.roundTextField.text != "" && self.roundTextField.text!.toInt() != nil && self.roundTextField.text.toInt() > 0){
+            if (self.roundTextField.text != "" && self.roundTextField.text!.toInt() != nil && self.roundTextField.text.toInt() > 0){
+                if( self.timingTextField.text != "" && self.timingTextField.text!.toInt() != nil && self.timingTextField.text.toInt() > 0){
                     if(self.countDownTextField.text!.toInt() == nil || self.countDownTextField.text!.toInt() >= 0){
                         flag = true
                     }else{
-                        self.view.makeToast(message: "Countdown should be >= 0 sec ", duration:3.0, title: "Invalid data", type:"ko")
+                        self.view.makeToast(message: "Countdown should be at least 0 sec ", duration:3.0, title: "Invalid data", type:"ko")
                     }
                 } else{
-                    self.view.makeToast(message: "Total time should be >= 1 sec", duration:3.0, title: "Invalid data", type:"ko")
+                    self.view.makeToast(message: "Swap timing should be at least 1 sec", duration:3.0, title: "Invalid data", type:"ko")
                 }
             } else{
-                self.view.makeToast(message: "Swap timing should be >= 1 sec", duration:3.0, title: "Invalid data", type:"ko")
+                self.view.makeToast(message: "Total time should be at least 1 sec", duration:3.0, title: "Invalid data", type:"ko")
             }
         }else{
             self.view.makeToast(message: "You should at least have 1 exercise in your workout ", duration:3.0, title: "Invalid data", type:"ko")
