@@ -134,14 +134,32 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func customExerciseCellAtIndexPath(indexPath: NSIndexPath) -> CustomExerciseCell{
         var cell = self.exerciseTableView.dequeueReusableCellWithIdentifier("customExerciseCell") as! CustomExerciseCell
         cell.exerciseCellLabel.text = exercises[indexPath.row].name
+        cell.exerciseCellLabel.textColor = UIColor.blackColor()
         return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    
+        
+        //colour
+       
+        var selectedCell:CustomExerciseCell = tableView.cellForRowAtIndexPath(indexPath) as! CustomExerciseCell
+        if(isRegistered){
+            selectedCell.contentView.backgroundColor = red()
+        }
+        else{
+            selectedCell.contentView.backgroundColor = blue()
+        }
+        selectedCell.exerciseCellLabel.textColor = UIColor.whiteColor()
+        
+        //speech
         var say = exercises[indexPath.row].name
         speech(say)
         
+    }
+   
+    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        var deselectedCell:CustomExerciseCell = tableView.cellForRowAtIndexPath(indexPath) as! CustomExerciseCell
+        deselectedCell.exerciseCellLabel.textColor = UIColor.blackColor()
     }
     
     func speech(say:String){
@@ -300,6 +318,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         addLabel.textColor = red()
         updateLabel.textColor = red()
         plusButton.setImage(UIImage(named: "plusRed.png"), forState: UIControlState.Normal)
+        
         
     }
     
