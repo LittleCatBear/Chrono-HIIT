@@ -35,9 +35,11 @@ class CustomTabBarViewController: UITabBarController, UITabBarControllerDelegate
                 for vc in viewControllers {
                     if (vc is SecondViewController) {
                        (vc as! SecondViewController).getDataForUpdating()
+                        
                     }
                 } 
             }
         }
     }
+
 }

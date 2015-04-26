@@ -46,6 +46,10 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewDidLoad()
         //   findFontNames()
         ExerciseTextField.delegate = self
+        
+        var tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("hideKeyboard"))
+        tap.cancelsTouchesInView = false
+        self.exerciseTableView.addGestureRecognizer(tap)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -279,7 +283,14 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         
         self.view.endEditing(true)
+        
     }
+    
+    func hideKeyboard(){
+        
+       self.view.endEditing(false)
+    }
+    
     
     //# MARK: Label design (color)
     func redDesign(){
