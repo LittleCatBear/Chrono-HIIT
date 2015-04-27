@@ -144,8 +144,13 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
     func showAll(cell: CustomWorkoutCell, indexPath: NSIndexPath){
         cell.titleLabel.text = workouts[indexPath.row].name
         cell.titleLabel.hidden = false
-        cell.totalTimeLabel.text = "\(workouts[indexPath.row].totalTime) workout"
-        cell.nbExLabel.text = " \(String(workouts[indexPath.row].exercise.count)) exercises"
+        cell.totalTimeLabel.text = "\(workouts[indexPath.row].totalTime)\""
+        if(workouts[indexPath.row].exercise.count > 1){
+            cell.nbExLabel.text = " \(String(workouts[indexPath.row].exercise.count)) exercises"
+        } else{
+            cell.nbExLabel.text = " \(String(workouts[indexPath.row].exercise.count)) exercise"
+        }
+        
         cell.startButton.hidden = false
         cell.startButton.enabled = true
         cell.toEditLabel.hidden = false
