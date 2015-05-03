@@ -111,8 +111,10 @@ class TimerViewController: UIViewController {
         pauseButton.enabled = true
         var t = NSTimeInterval(timing-0.2)
         self.exerciseLabel.text = getExercise() as String
-        self.exerciseLabel.sizeToFit()
-        self.exerciseLabel.numberOfLines = 0
+       
+        self.exerciseLabel.adjustsFontSizeToFitWidth = true
+        
+        
         self.exerciseLabel.fadeIn(completion: {
             (finished:Bool) -> Void in
             self.exerciseLabel.fadeOut()
