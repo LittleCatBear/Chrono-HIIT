@@ -230,6 +230,7 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     @IBAction func onClickStartButton(sender: UIButton) {
+        tabBarController?.tabBar.tintColor = red()
         performSegueWithIdentifier("showTimerFromSavedWorkout", sender: sender)
     }
     
