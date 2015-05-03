@@ -113,7 +113,9 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
             self.ExerciseTextField.text = ""
             self.exerciseTableView.reloadData()
             if(isNew){
+                
                 isUnregistered = true
+                isNew = false
             }
             
         }
