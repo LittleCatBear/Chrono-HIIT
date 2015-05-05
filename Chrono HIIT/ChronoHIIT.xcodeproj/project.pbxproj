@@ -289,7 +289,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0620;
-				ORGANIZATIONNAME = "Shokunin-Software";
+				ORGANIZATIONNAME = PandaSoft;
 				TargetAttributes = {
 					E3F695E31ACCB1CA00884BD8 = {
 						CreatedOnToolsVersion = 6.2;
@@ -301,7 +301,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E3F695DF1ACCB1CA00884BD8 /* Build configuration list for PBXProject "Chrono HIIT" */;
+			buildConfigurationList = E3F695DF1ACCB1CA00884BD8 /* Build configuration list for PBXProject "ChronoHIIT" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -427,7 +427,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -464,7 +464,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -539,7 +539,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E3F695DF1ACCB1CA00884BD8 /* Build configuration list for PBXProject "Chrono HIIT" */ = {
+		E3F695DF1ACCB1CA00884BD8 /* Build configuration list for PBXProject "ChronoHIIT" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E3F696041ACCB1CA00884BD8 /* Debug */,
