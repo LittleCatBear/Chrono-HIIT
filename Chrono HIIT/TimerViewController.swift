@@ -247,9 +247,9 @@ class TimerViewController: UIViewController {
         switch(screenSize.width, screenSize.height) {
             
             case (320, 480):
-                var circleWidth = CGFloat(attachableView.frame.width - 70)
+                var circleWidth = CGFloat(attachableView.frame.width - 50)
                 var circleHeight = circleWidth
-                var circleAnimationView = CircleAnimationView(frame: CGRectMake(attachableView.center.x - circleWidth/2,attachableView.center.y - circleHeight/2, circleWidth, circleHeight), line: 20.0)
+                var circleAnimationView = CircleAnimationView(frame: CGRectMake(attachableView.center.x - circleWidth/2,attachableView.center.y - circleHeight/2, circleWidth, circleHeight), line: 10.0)
             view.addSubview(circleAnimationView)
             circleAnimationView.animateCircle(duration)
             if(withFadeOut){
