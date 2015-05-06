@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 47;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -301,8 +301,8 @@
 					};
 				};
 			};
-			buildConfigurationList = E3F695DF1ACCB1CA00884BD8 /* Build configuration list for PBXProject "ChronoHIIT" */;
-			compatibilityVersion = "Xcode 3.2";
+			buildConfigurationList = E3F695DF1ACCB1CA00884BD8 /* Build configuration list for PBXProject "chronohiit" */;
+			compatibilityVersion = "Xcode 6.3";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -432,7 +432,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -467,7 +467,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -539,7 +539,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E3F695DF1ACCB1CA00884BD8 /* Build configuration list for PBXProject "ChronoHIIT" */ = {
+		E3F695DF1ACCB1CA00884BD8 /* Build configuration list for PBXProject "chronohiit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E3F696041ACCB1CA00884BD8 /* Debug */,
