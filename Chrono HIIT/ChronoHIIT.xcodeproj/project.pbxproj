@@ -288,7 +288,7 @@
 		E3F695DC1ACCB1CA00884BD8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0620;
+				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = PandaSoft;
 				TargetAttributes = {
 					E3F695E31ACCB1CA00884BD8 = {
