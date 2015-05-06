@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E3F695E31ACCB1CA00884BD8"
-            BuildableName = "chronohiit.app"
-            BlueprintName = "chronohiit"
-            ReferencedContainer = "container:chronohiit.xcodeproj">
+            BuildableName = "Chrono HIIT.app"
+            BlueprintName = "Chrono HIIT"
+            ReferencedContainer = "container:ChronoHIIT.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -77,9 +77,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E3F695E31ACCB1CA00884BD8"
-            BuildableName = "chronohiit.app"
-            BlueprintName = "chronohiit"
-            ReferencedContainer = "container:chronohiit.xcodeproj">
+            BuildableName = "Chrono HIIT.app"
+            BlueprintName = "Chrono HIIT"
+            ReferencedContainer = "container:ChronoHIIT.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
