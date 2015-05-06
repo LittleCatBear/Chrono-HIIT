@@ -1511,11 +1511,11 @@
                             <constraint firstAttribute="trailingMargin" secondItem="qE0-dP-iQM" secondAttribute="trailing" constant="20" id="3iE-st-6xa"/>
                             <constraint firstAttribute="centerX" secondItem="Vcs-bD-6C2" secondAttribute="centerX" constant="1" id="8R2-Yv-Ind"/>
                             <constraint firstItem="Wfa-TO-s4b" firstAttribute="top" secondItem="0Rh-ev-Re2" secondAttribute="bottom" constant="20" id="Anv-VQ-gcd">
-                                <variation key="widthClass=compact" constant="50"/>
+                                <variation key="widthClass=compact" constant="30"/>
                             </constraint>
                             <constraint firstAttribute="trailingMargin" secondItem="Pxx-pw-Pzh" secondAttribute="trailing" constant="-16" id="CWN-dx-5Ea"/>
                             <constraint firstItem="Wfa-TO-s4b" firstAttribute="top" secondItem="Vcs-bD-6C2" secondAttribute="bottom" constant="18" id="Da0-TX-61b">
-                                <variation key="widthClass=compact" constant="50"/>
+                                <variation key="widthClass=compact" constant="30"/>
                             </constraint>
                             <constraint firstAttribute="centerX" secondItem="6yg-rK-7zN" secondAttribute="centerX" id="Ggm-Zm-XuE"/>
                             <constraint firstItem="Dnf-hp-CnY" firstAttribute="centerX" secondItem="qE0-dP-iQM" secondAttribute="centerX" id="JqA-iV-U5G"/>
@@ -1523,8 +1523,8 @@
                             <constraint firstItem="6yg-rK-7zN" firstAttribute="top" secondItem="yT6-kg-Pf7" secondAttribute="bottom" constant="8" id="Ogn-UR-tJr">
                                 <variation key="widthClass=compact" constant="30"/>
                             </constraint>
-                            <constraint firstItem="Wfa-TO-s4b" firstAttribute="top" secondItem="qE0-dP-iQM" secondAttribute="bottom" constant="20" id="Oq2-yw-w3c">
-                                <variation key="widthClass=compact" constant="50"/>
+                            <constraint firstItem="Wfa-TO-s4b" firstAttribute="top" secondItem="qE0-dP-iQM" secondAttribute="bottom" constant="10" id="Oq2-yw-w3c">
+                                <variation key="widthClass=compact" constant="30"/>
                             </constraint>
                             <constraint firstItem="Pxx-pw-Pzh" firstAttribute="top" secondItem="wIp-P6-aEl" secondAttribute="topMargin" id="PmN-8t-BMX"/>
                             <constraint firstItem="xR5-Ov-Dqg" firstAttribute="leading" secondItem="wIp-P6-aEl" secondAttribute="leadingMargin" id="T8R-qu-bAU"/>
