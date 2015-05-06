@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>310E6117-1FA5-4D4A-A884-83FD4D321162</string>
 	<key>IDESourceControlProjectName</key>
-	<string>ChronoHIIT</string>
+	<string>chronohiit</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>96E3071DCCAB9BC277FCE560F9087E0077835219</key>
 		<string>https://github.com/LittleCatBear/Chrono-HIIT.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Chrono HIIT/ChronoHIIT.xcodeproj</string>
+	<string>Chrono HIIT/chronohiit.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>96E3071DCCAB9BC277FCE560F9087E0077835219</key>

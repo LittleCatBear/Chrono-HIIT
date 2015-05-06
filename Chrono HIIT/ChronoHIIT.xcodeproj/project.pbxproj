@@ -22,7 +22,6 @@
 		E3F695EA1ACCB1CA00884BD8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F695E91ACCB1CA00884BD8 /* AppDelegate.swift */; };
 		E3F695ED1ACCB1CA00884BD8 /* Chrono_HIIT.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E3F695EB1ACCB1CA00884BD8 /* Chrono_HIIT.xcdatamodeld */; };
 		E3F696031ACCB1CA00884BD8 /* Chrono_HIITTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F696021ACCB1CA00884BD8 /* Chrono_HIITTests.swift */; };
-		E3F696261ACCB28300884BD8 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3F696251ACCB28300884BD8 /* AVFoundation.framework */; };
 		E3F696331ACCBC9500884BD8 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F696321ACCBC9500884BD8 /* Workout.swift */; };
 		E3F696401ACCC16100884BD8 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F696361ACCC16100884BD8 /* FirstViewController.swift */; };
 		E3F696431ACCC16100884BD8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3F696391ACCC16100884BD8 /* Images.xcassets */; };
@@ -69,7 +68,6 @@
 		E3F695FC1ACCB1CA00884BD8 /* Chrono HIITTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Chrono HIITTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3F696011ACCB1CA00884BD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E3F696021ACCB1CA00884BD8 /* Chrono_HIITTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chrono_HIITTests.swift; sourceTree = "<group>"; };
-		E3F696251ACCB28300884BD8 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.2.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = "<absolute>"; };
 		E3F696321ACCBC9500884BD8 /* Workout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		E3F696361ACCC16100884BD8 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirstViewController.swift; path = ../FirstViewController.swift; sourceTree = "<group>"; };
 		E3F696391ACCC16100884BD8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../Images.xcassets; sourceTree = "<group>"; };
@@ -92,7 +90,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3F696261ACCB28300884BD8 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,7 +160,6 @@
 		E3F695E61ACCB1CA00884BD8 /* Chrono HIIT */ = {
 			isa = PBXGroup;
 			children = (
-				E3F696251ACCB28300884BD8 /* AVFoundation.framework */,
 				E3F695E91ACCB1CA00884BD8 /* AppDelegate.swift */,
 				E3F696621ACD40C400884BD8 /* Controllers */,
 				E3F696631ACD40D200884BD8 /* Models */,
@@ -260,7 +256,7 @@
 			dependencies = (
 			);
 			name = "Chrono HIIT";
-			productName = "Chrono HIIT";
+			productName = chronohiit;
 			productReference = E3F695E41ACCB1CA00884BD8 /* Chrono HIIT.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -278,7 +274,7 @@
 				E3F695FE1ACCB1CA00884BD8 /* PBXTargetDependency */,
 			);
 			name = "Chrono HIITTests";
-			productName = "Chrono HIITTests";
+			productName = chronohiitTests;
 			productReference = E3F695FC1ACCB1CA00884BD8 /* Chrono HIITTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
@@ -294,6 +290,11 @@
 					E3F695E31ACCB1CA00884BD8 = {
 						CreatedOnToolsVersion = 6.2;
 						DevelopmentTeam = 85R9K9985Y;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+						};
 					};
 					E3F695FB1ACCB1CA00884BD8 = {
 						CreatedOnToolsVersion = 6.2;
@@ -301,7 +302,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E3F695DF1ACCB1CA00884BD8 /* Build configuration list for PBXProject "ChronoHIIT" */;
+			buildConfigurationList = E3F695DF1ACCB1CA00884BD8 /* Build configuration list for PBXProject "chronohiit" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -539,7 +540,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E3F695DF1ACCB1CA00884BD8 /* Build configuration list for PBXProject "ChronoHIIT" */ = {
+		E3F695DF1ACCB1CA00884BD8 /* Build configuration list for PBXProject "chronohiit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E3F696041ACCB1CA00884BD8 /* Debug */,
