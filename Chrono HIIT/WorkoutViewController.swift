@@ -3,13 +3,13 @@
 //  Chrono HIIT
 //
 //  Created by Julie Huguet on 02/04/2015.
-//  Copyright (c) 2015 Shokunin-Software. All rights reserved.
+//  Copyright (c) 2015 Witios. All rights reserved.
 //
 
 import Foundation
 import UIKit
 import CoreData
-
+import iAd
 
 //global ManagedObjectContext for the whole app
 var managedObjectContext: NSManagedObjectContext? = nil
@@ -49,6 +49,8 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
   
+        self.canDisplayBannerAds = true
+        
         workoutTable.delegate = self
         
         var appDel: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -177,18 +179,7 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
                 if(workouts[indexPath.row].objectID == workoutId){
                     unregisterWorkout()
                     newWorkout()
-                    if let controllers = self.tabBarController?.viewControllers{
-                        for vc in controllers{
-                            if(vc is SecondViewController){
-                                var cont = vc as! SecondViewController
-                                cont.cleanFields()
-                            } else if (vc is FirstViewController){
-                                var cont = vc as! FirstViewController
-                                cont.cleanData()
-                                cont.exerciseTableView.reloadData()
-                            }
-                        }
-                    }
+                    cleanDataFromOtherControlllers()
                 }
                 managedObjectContext?.deleteObject(workouts[indexPath.row] as Workout)
                 managedObjectContext?.save(nil)
@@ -222,14 +213,35 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
         workoutModel.exercise = exercises
     }
 
+    func cleanDataFromOtherControlllers(){
+        if let controllers = self.tabBarController?.viewControllers{
+            for vc in controllers{
+                if(vc is SecondViewController){
+                    var cont = vc as! SecondViewController
+                    cont.cleanFields()
+                } else if (vc is FirstViewController){
+                    var cont = vc as! FirstViewController
+                    cont.cleanData()
+                    cont.exerciseTableView.reloadData()
+                }
+            }
+        }
+    }
+    
     @IBAction func onClickAddWorkoutButton(sender: UIButton) {
         unregisterWorkout()
         newWorkout()
+        if(workouts.count != 0){
+            cleanDataFromOtherControlllers()
+        }
         self.tabBarController?.tabBar.tintColor = blue()
         tabBarController?.selectedIndex = 1
     }
     
     @IBAction func onClickStartButton(sender: UIButton) {
+        generateWorkoutModel(sender.tag)
+        registerWorkout()
+        isNew = false
         tabBarController?.tabBar.tintColor = red()
         performSegueWithIdentifier("showTimerFromSavedWorkout", sender: sender)
     }
@@ -254,6 +266,11 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
     
     func newWorkout(){
         isNew = true
+    }
+    
+    //# MARK: Unwind segue from TimerViewController
+    @IBAction func goToInit(segue:UIStoryboardSegue){
+        UIApplication.sharedApplication().idleTimerDisabled = false
     }
     
     //# MARK: design

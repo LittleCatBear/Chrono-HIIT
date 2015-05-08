@@ -3,13 +3,13 @@
 //  Chrono HIIT
 //
 //  Created by Julie Huguet on 26/03/2015.
-//  Copyright (c) 2015 Shokunin-Software. All rights reserved.
+//  Copyright (c) 2015 Witios. All rights reserved.
 //
 
 import UIKit
 import CoreData
 import AVFoundation
-
+import iAd
 
 
 class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
@@ -46,6 +46,8 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewDidLoad()
         //   findFontNames()
         ExerciseTextField.delegate = self
+        
+        self.canDisplayBannerAds = true
         
         var tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("hideKeyboard"))
         tap.cancelsTouchesInView = false

@@ -3,7 +3,7 @@
 //  Chrono HIIT
 //
 //  Created by Julie Huguet on 07/04/2015.
-//  Copyright (c) 2015 Shokunin-Software. All rights reserved.
+//  Copyright (c) 2015 Witios. All rights reserved.
 //
 
 import Foundation
@@ -34,8 +34,9 @@ class CustomTabBarViewController: UITabBarController, UITabBarControllerDelegate
             if let viewControllers = self.viewControllers {
                 for vc in viewControllers {
                     if (vc is SecondViewController) {
-                       (vc as! SecondViewController).getDataForUpdating()
-                        
+                        if((vc as! SecondViewController).workoutNameTextField != nil){
+                            (vc as! SecondViewController).getDataForUpdating()
+                        }
                     }
                 } 
             }

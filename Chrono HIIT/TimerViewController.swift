@@ -3,13 +3,14 @@
 //  Chrono HIIT
 //
 //  Created by Julie Huguet on 26/03/2015.
-//  Copyright (c) 2015 Shokunin-Software. All rights reserved.
+//  Copyright (c) 2015 Witios. All rights reserved.
 //
 
 import Foundation
 import AVFoundation
 import UIKit
 import CoreData
+import iAd
 
 class TimerViewController: UIViewController {
     
@@ -66,6 +67,8 @@ class TimerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.canDisplayBannerAds = true
+        
         screenSize = UIScreen.mainScreen().bounds.size
         
         UIApplication.sharedApplication().idleTimerDisabled = true
@@ -85,6 +88,8 @@ class TimerViewController: UIViewController {
         }
         
         if(cd > 0){
+            
+            
             countdown = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("countDownSub"), userInfo: nil, repeats: true)
             pauseButton.enabled = false
         } else{
@@ -146,6 +151,7 @@ class TimerViewController: UIViewController {
             speech(self.exerciseLabel.text!)
             
         } else{
+            addEmptyCircleView(circleView)
             pauseButton.enabled = false
             repeatButton.enabled = false
             repeatLabel.text = "Restart"
@@ -247,7 +253,7 @@ class TimerViewController: UIViewController {
         switch(screenSize.width, screenSize.height) {
             
             case (320, 480):
-                var circleWidth = CGFloat(attachableView.frame.width - 70)
+                var circleWidth = CGFloat(attachableView.frame.width - 110)
                 var circleHeight = circleWidth
                 var circleAnimationView = CircleAnimationView(frame: CGRectMake(attachableView.center.x - circleWidth/2,attachableView.center.y - circleHeight/2, circleWidth, circleHeight), line: 20.0)
             view.addSubview(circleAnimationView)
@@ -273,6 +279,37 @@ class TimerViewController: UIViewController {
             if(withFadeOut){
                 circleAnimationView.fadeOutNoRepeat(duration: duration, delay: 1.0)
             }
+        }
+        
+    }
+    
+    func addEmptyCircleView(attachableView:UIView) {
+        
+        switch(screenSize.width, screenSize.height) {
+            
+        case (320, 480):
+            var circleWidth = CGFloat(attachableView.frame.width - 110)
+            var circleHeight = circleWidth
+            
+            var circleAnimationView = CircleAnimationView(frame: CGRectMake(attachableView.center.x - circleWidth/2,attachableView.center.y - circleHeight/2, circleWidth, circleHeight), line: 0.0)
+            view.addSubview(circleAnimationView)
+            circleAnimationView.animateCircle(0.0)
+          
+        case (414, 736):
+            var circleWidth = CGFloat(attachableView.frame.width - 50)
+            var circleHeight = circleWidth
+            
+            var circleAnimationView = CircleAnimationView(frame: CGRectMake(attachableView.center.x - circleWidth/2,attachableView.center.y - circleHeight/2, circleWidth, circleHeight), line: 0.0)
+            view.addSubview(circleAnimationView)
+            circleAnimationView.animateCircle(0.0)
+          
+        default:
+            var circleWidth = CGFloat(attachableView.frame.width - 50)
+            var circleHeight = circleWidth
+            
+            var circleAnimationView = CircleAnimationView(frame: CGRectMake(attachableView.center.x - circleWidth/2,attachableView.center.y - circleHeight/2, circleWidth, circleHeight), line: 0.0)
+            view.addSubview(circleAnimationView)
+            circleAnimationView.animateCircle(0.0)
         }
         
     }

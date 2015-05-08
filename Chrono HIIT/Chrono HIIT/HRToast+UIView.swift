@@ -1,10 +1,9 @@
 //
 //  HRToast + UIView.swift
-//  ToastDemo
+//  Chrono HIIT
 //
-//  Created by Rannie on 14/7/6.
-//  Copyright (c) 2014年 Rannie. All rights reserved.
-//
+//  Created by Julie Huguet on 02/04/2015.
+//  Copyright (c) 2015 Witios. All rights reserved.
 
 import UIKit
 

@@ -3,7 +3,7 @@
 //  Chrono HIIT
 //
 //  Created by Julie Huguet on 26/03/2015.
-//  Copyright (c) 2015 Shokunin-Software. All rights reserved.
+//  Copyright (c) 2015 Witios. All rights reserved.
 //
 
 import UIKit
@@ -49,7 +49,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     // token to know if keyboard has already push the view up
     var keyboardIsAlreadyShown:Bool = false
    
-    
+     var screenSize: CGSize = CGSize()
     //constraint
     
     @IBOutlet weak var totalTimeHeight: NSLayoutConstraint!
@@ -61,13 +61,19 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        screenSize = UIScreen.mainScreen().bounds.size
+        
+        switch(screenSize.width, screenSize.height) {
+            case (320, 480):self.canDisplayBannerAds = false
+            default: self.canDisplayBannerAds = true
+        }
+
+        
         self.timingTextField.delegate = self
         self.roundTextField.delegate = self
         self.countDownTextField.delegate = self
         self.workoutNameTextField.delegate = self
         self.countDownTextField.text = "5"
-      
-        
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: nil);
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: nil);
@@ -189,6 +195,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     
     //# MARK: Unwind segue from TimerViewController
     @IBAction func goToInit(segue:UIStoryboardSegue){
+        UIApplication.sharedApplication().idleTimerDisabled = false
     }
     
     //# MARK: Data validation before segue & segue to chrono (TimerViewController)
