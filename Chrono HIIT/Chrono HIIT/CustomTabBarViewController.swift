@@ -34,7 +34,7 @@ class CustomTabBarViewController: UITabBarController, UITabBarControllerDelegate
             if let viewControllers = self.viewControllers {
                 for vc in viewControllers {
                     if (vc is SecondViewController) {
-                        if((vc as! SecondViewController).workoutNameTextField != nil){
+                        if((vc as! SecondViewController).workoutNameTextField != nil && (vc as! SecondViewController).totalTimeLabel != nil && !isNew){
                             (vc as! SecondViewController).getDataForUpdating()
                         }
                     }

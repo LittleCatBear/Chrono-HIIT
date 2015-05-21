@@ -222,7 +222,7 @@ class WorkoutViewController:UIViewController, UITableViewDelegate, UITableViewDa
                 } else if (vc is FirstViewController){
                     var cont = vc as! FirstViewController
                     cont.cleanData()
-                    cont.exerciseTableView.reloadData()
+                    cont.exerciseTableView?.reloadData()
                 }
             }
         }

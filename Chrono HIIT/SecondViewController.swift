@@ -73,7 +73,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         self.roundTextField.delegate = self
         self.countDownTextField.delegate = self
         self.workoutNameTextField.delegate = self
-        self.countDownTextField.text = "5"
+        self.countDownTextField.text = ""
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: nil);
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: nil);
@@ -150,10 +150,10 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     }
     
     func cleanFields(){
-        self.workoutStatusLabel.text = "New workout"
-        self.timingTextField.text = ""
-        self.roundTextField.text = ""
-        self.countDownTextField.text = ""
+        self.workoutStatusLabel?.text = "New workout"
+        self.timingTextField?.text = ""
+        self.roundTextField?.text = ""
+        self.countDownTextField?.text = ""
     }
     
     func getWorkoutData(){

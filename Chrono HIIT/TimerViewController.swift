@@ -12,7 +12,7 @@ import UIKit
 import CoreData
 import iAd
 
-class TimerViewController: UIViewController {
+class TimerViewController: UIViewController, ADBannerViewDelegate {
     
     
     @IBOutlet weak var totalChronoView: UIView!
@@ -60,10 +60,7 @@ class TimerViewController: UIViewController {
     
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var stopLabel: UILabel!
-    
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -89,10 +86,10 @@ class TimerViewController: UIViewController {
         
         if(cd > 0){
             
-            
             countdown = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("countDownSub"), userInfo: nil, repeats: true)
             pauseButton.enabled = false
         } else{
+            
             //addCircleView(totalChronoView, duration:NSTimeInterval(sec), withFadeOut:false)
             repeatButton.enabled = true
             repeatLabel.text = "Restart"
@@ -101,6 +98,13 @@ class TimerViewController: UIViewController {
         }
         
         
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+    super.viewWillDisappear(true)
+        if(!flag){
+            pauseChrono()
+        }
     }
     
     func getExercise() -> NSString{
@@ -140,6 +144,7 @@ class TimerViewController: UIViewController {
     
     func countDownSub(){
         if(cd == -1){
+            
             repeatButton.enabled = true
             repeatLabel.text = "Restart"
             countdown.invalidate()
@@ -188,10 +193,6 @@ class TimerViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(true)
-    }
-    
     @IBAction func onClickStopButton(sender: UIButton) {
         timer.invalidate()
         synth.stopSpeakingAtBoundary(AVSpeechBoundary.Immediate)
@@ -221,11 +222,19 @@ class TimerViewController: UIViewController {
     }
     
     @IBAction func onClickPauseButton(sender: UIButton) {
+      pauseChrono()
+    }
+    
+    func pauseChrono(){
+        
         if(!flag ){
             flag = true
             synth.stopSpeakingAtBoundary(AVSpeechBoundary.Immediate)
-            var temp = view.subviews[view.subviews.count-1]as! CircleAnimationView
-            temp.pauseAnim()
+            for view in self.view.subviews as! [UIView]{
+                if view is CircleAnimationView{
+                    (view as! CircleAnimationView).pauseAnim()
+                }
+            }
             pauseLabel.text = "Resume"
             if(isRegistered){
                 pauseButton.setImage(UIImage(named: "startRed.png"), forState: UIControlState.Normal)
@@ -233,12 +242,28 @@ class TimerViewController: UIViewController {
                 pauseButton.setImage(UIImage(named: "startBlue.png"), forState: UIControlState.Normal)
             }
             timer.invalidate()
+            if(cd > -1){
+                countdown.invalidate()
+                pauseButton.enabled = true
+            }
+            
+            
         } else{
-            var temp = view.subviews[view.subviews.count-1] as! CircleAnimationView
-            temp.resumeAnim()
+            for view in self.view.subviews as! [UIView]{
+                if view is CircleAnimationView{
+                    (view as! CircleAnimationView).resumeAnim()
+                }
+            }
             pauseLabel.text = "Pause"
-           // timer.fire()
-            lauchExercise(Float(sec))
+            // timer.fire()
+            if (cd > 0){
+                countdown = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("countDownSub"), userInfo: nil, repeats: true)
+                
+            }
+            else{
+                lauchExercise(Float(sec))
+            }
+            
             flag = false
             if(isRegistered){
                 pauseButton.setImage(UIImage(named: "pauseRed.png"), forState: UIControlState.Normal)
